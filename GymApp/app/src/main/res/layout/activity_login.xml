@@ -33,6 +33,7 @@
         android:background="@color/white"
         android:hint="@string/prompt_email"
         android:inputType="textEmailAddress"
+        android:paddingLeft="5dp"
         android:selectAllOnFocus="true"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -51,6 +52,7 @@
         android:imeActionLabel="@string/action_sign_in_short"
         android:imeOptions="actionDone"
         android:inputType="textPassword"
+        android:paddingLeft="5dp"
         android:selectAllOnFocus="true"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -108,4 +110,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.797" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
