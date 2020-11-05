@@ -24,7 +24,7 @@
     <EditText
         android:id="@+id/etName"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="40dp"
         android:layout_marginTop="10dp"
         android:background="#202020"
         android:ems="10"
@@ -38,7 +38,7 @@
     <EditText
         android:id="@+id/etSurname"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="40dp"
         android:layout_marginTop="10dp"
         android:background="#202020"
         android:ems="10"
@@ -52,7 +52,7 @@
     <EditText
         android:id="@+id/etUsername"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="40dp"
         android:layout_marginTop="10dp"
         android:background="#202020"
         android:hint="@string/prompt_email"
@@ -65,7 +65,7 @@
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="40dp"
         android:layout_marginTop="10dp"
         android:background="#202020"
         android:ems="10"
@@ -80,7 +80,7 @@
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="40dp"
         android:layout_marginTop="10dp"
         android:background="#202020"
         android:hint="@string/prompt_password"
@@ -95,7 +95,7 @@
     <EditText
         android:id="@+id/etConfirmPass"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="40dp"
         android:layout_marginTop="10dp"
         android:background="#202020"
         android:ems="10"
@@ -125,5 +125,26 @@
         android:textColorHighlight="#FFFFFF"
         android:textSize="18sp"
         app:backgroundTint="@null" />
+
+    <TextView
+        android:id="@+id/tvRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:onClick="goToLogin"
+        android:text="@string/create_account2"
+        android:textColor="@color/design_default_color_primary_variant"
+        android:textColorHighlight="#FFFFFF"
+        android:textColorLink="#FAFAFA"
+        android:textIsSelectable="false"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.797" />
 
 </LinearLayout>

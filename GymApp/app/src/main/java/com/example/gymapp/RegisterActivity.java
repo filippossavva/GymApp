@@ -95,5 +95,11 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         });
+
+    }
+    public void goToLogin(View v)
+    {
+        Intent in = new Intent(this, LoginActivity.class);
+        startActivity(in);
     }
 }
