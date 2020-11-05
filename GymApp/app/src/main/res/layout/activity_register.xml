@@ -22,7 +22,6 @@
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
                 android:background="@null"
                 android:fontFamily="@font/bungee"
                 android:gravity="center"
@@ -141,15 +140,19 @@
                 android:id="@+id/tvRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@null"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/hyperlink"
                 android:fontFamily="sans-serif"
                 android:gravity="center"
                 android:onClick="goToLogin"
                 android:text="@string/create_account2"
                 android:textColor="@color/design_default_color_primary_variant"
+<<<<<<< HEAD
                 android:textColorHighlight="#FFFFFF"
                 android:textColorLink="#FFFFFF"
                 android:textIsSelectable="false"
+=======
+>>>>>>> a1b4601a0a45305823e9c1c67fbc4e3e5a367b80
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
