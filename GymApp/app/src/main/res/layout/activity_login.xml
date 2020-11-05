@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:background="@drawable/tarmat2"
+    android:background="@drawable/gymback"
     android:orientation="vertical"
     tools:context=".ui.login.LoginActivity">
 
