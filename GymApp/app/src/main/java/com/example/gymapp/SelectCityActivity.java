@@ -1,9 +1,12 @@
 package com.example.gymapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.gymapp.ui.login.LoginActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -47,8 +50,10 @@ public class SelectCityActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_log) {
-            return true;
+        if (id == R.id.action_logout) {
+            FirebaseAuth.getInstance().signOut();
+            Intent in = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(in);
         }
 
         return super.onOptionsItemSelected(item);

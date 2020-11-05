@@ -24,15 +24,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gymapp.R;
+import com.example.gymapp.RegisterActivity;
 import com.example.gymapp.SelectCityActivity;
-import com.example.gymapp.WelcomeFragment;
-import com.example.gymapp.ui.login.LoginViewModel;
-import com.example.gymapp.ui.login.LoginViewModelFactory;
 
 public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,10 +37,10 @@ public class LoginActivity extends AppCompatActivity {
         loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
 
-        final EditText usernameEditText = findViewById(R.id.username);
-        final EditText passwordEditText = findViewById(R.id.password);
-        final Button loginButton = findViewById(R.id.login);
-        final ProgressBar loadingProgressBar = findViewById(R.id.loading);
+        final EditText usernameEditText = findViewById(R.id.etUsername);
+        final EditText passwordEditText = findViewById(R.id.etPassword);
+        final Button loginButton = findViewById(R.id.register);
+        final ProgressBar loadingProgressBar = findViewById(R.id.pbLoading);
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
@@ -135,5 +132,11 @@ public class LoginActivity extends AppCompatActivity {
 
     private void showLoginFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
+    }
+
+    public void createAccount(View v)
+    {
+        Intent in = new Intent(this, RegisterActivity.class);
+        startActivity(in);
     }
 }
