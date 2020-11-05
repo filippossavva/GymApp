@@ -5,7 +5,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/tarmat"
+    android:background="@drawable/tarmat2"
     android:orientation="vertical"
     tools:context=".ui.login.LoginActivity">
 
@@ -26,48 +26,55 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="10dp"
-        android:background="@color/white"
+        android:background="#202020"
         android:ems="10"
         android:gravity="center|left"
         android:hint="Name"
         android:inputType="textPersonName"
-        android:paddingLeft="5dp" />
+        android:paddingLeft="5dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
 
     <EditText
         android:id="@+id/etSurname"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="10dp"
-        android:background="@color/white"
+        android:background="#202020"
         android:ems="10"
         android:gravity="center|left"
         android:hint="Surname"
         android:inputType="textPersonName"
-        android:paddingLeft="5dp" />
+        android:paddingLeft="5dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
 
     <EditText
         android:id="@+id/etUsername"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="10dp"
-        android:background="@color/white"
+        android:background="#202020"
         android:hint="@string/prompt_email"
         android:inputType="textEmailAddress"
         android:paddingLeft="5dp"
         android:selectAllOnFocus="true"
-        android:textColor="#000000" />
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
 
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="10dp"
-        android:background="@color/white"
+        android:background="#202020"
         android:ems="10"
         android:gravity="center|left"
         android:hint="Email"
         android:inputType="textEmailAddress"
         android:paddingLeft="5dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
         android:textSize="18sp" />
 
     <EditText
@@ -75,26 +82,29 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="10dp"
-        android:background="@color/white"
+        android:background="#202020"
         android:hint="@string/prompt_password"
         android:imeActionLabel="@string/action_sign_in_short"
         android:imeOptions="actionDone"
         android:inputType="textPassword"
         android:paddingLeft="5dp"
         android:selectAllOnFocus="true"
-        android:textColor="#000000" />
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
 
     <EditText
         android:id="@+id/etConfirmPass"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="10dp"
-        android:background="@color/white"
+        android:background="#202020"
         android:ems="10"
         android:gravity="center|left"
         android:hint="Confirm Password"
         android:inputType="textPassword"
-        android:paddingLeft="5dp" />
+        android:paddingLeft="5dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
 
     <ProgressBar
         android:id="@+id/pbLoading"
