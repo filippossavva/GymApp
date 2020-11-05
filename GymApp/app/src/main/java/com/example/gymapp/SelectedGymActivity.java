@@ -6,22 +6,20 @@ import android.os.Bundle;
 import com.example.gymapp.ui.login.LoginActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.view.View;
-
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
-public class SelectCityActivity extends AppCompatActivity {
+public class SelectedGymActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_select_city);
+        setContentView(R.layout.activity_selected_gym);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -33,12 +31,21 @@ public class SelectCityActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp()
+    {
+        onBackPressed();
+        return true;
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_selectedgym, menu);
         return true;
     }
 
@@ -51,12 +58,22 @@ public class SelectCityActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_logout) {
-            FirebaseAuth.getInstance().signOut();
-            Intent in = new Intent(getApplicationContext(), LoginActivity.class);
+            Intent in = new Intent(this, LoginActivity.class);
+            startActivity(in);
+        }
+        else if (id == R.id.action_location) {
+            Intent in = new Intent(this, SelectCityActivity.class);
+            startActivity(in);
+        }
+        else if (id == R.id.action_select) {
+            Intent in = new Intent(this, GymSelectActivity.class);
+            startActivity(in);
+        }
+        else if (id == R.id.action_rate) {
+            Intent in = new Intent(this, RateActivity.class);
             startActivity(in);
         }
 
         return super.onOptionsItemSelected(item);
     }
-
 }

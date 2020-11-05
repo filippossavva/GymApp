@@ -1,15 +1,20 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.gymapp.GymSelectActivity">
+    tools:context="com.example.gymapp.RateActivity">
     <item
         android:id="@+id/action_location"
         android:orderInCategory="1"
         android:title="New Location"
         app:showAsAction="always" />
     <item
-        android:id="@+id/action_logout"
+        android:id="@+id/action_select"
         android:orderInCategory="2"
-        android:title="Logout"
+        android:title="Select Gym"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_logout"
+        android:orderInCategory="3"
+        android:title="LOGOUT"
         app:showAsAction="never" />
 </menu>

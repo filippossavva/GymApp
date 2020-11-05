@@ -11,17 +11,16 @@ import com.google.firebase.auth.FirebaseAuth;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.view.View;
-
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
-public class SelectCityActivity extends AppCompatActivity {
+public class RateActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_select_city);
+        setContentView(R.layout.activity_rate);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -33,6 +32,15 @@ public class SelectCityActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp()
+    {
+        onBackPressed();
+        return true;
     }
 
     @Override
@@ -51,12 +59,18 @@ public class SelectCityActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_logout) {
-            FirebaseAuth.getInstance().signOut();
-            Intent in = new Intent(getApplicationContext(), LoginActivity.class);
+            Intent in = new Intent(this, LoginActivity.class);
+            startActivity(in);
+        }
+        else if (id == R.id.action_location) {
+            Intent in = new Intent(this, SelectCityActivity.class);
+            startActivity(in);
+        }
+        else if (id == R.id.action_select) {
+            Intent in = new Intent(this, GymSelectActivity.class);
             startActivity(in);
         }
 
         return super.onOptionsItemSelected(item);
     }
-
 }

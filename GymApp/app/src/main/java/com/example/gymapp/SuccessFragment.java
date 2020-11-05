@@ -1,6 +1,5 @@
 package com.example.gymapp;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,9 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.example.gymapp.ui.login.LoginActivity;
-
-public class CitySelectFragment extends Fragment {
+public class SuccessFragment extends Fragment {
 
     @Override
     public View onCreateView(
@@ -20,7 +17,7 @@ public class CitySelectFragment extends Fragment {
             Bundle savedInstanceState
     ) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_city_select, container, false);
+        return inflater.inflate(R.layout.fragment_success, container, false);
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
@@ -29,8 +26,8 @@ public class CitySelectFragment extends Fragment {
         view.findViewById(R.id.button_second).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in = new Intent(getContext(), GymSelectActivity.class);
-                startActivity(in);
+                NavHostFragment.findNavController(SuccessFragment.this)
+                        .navigate(R.id.action_Second2Fragment_to_First2Fragment);
             }
         });
     }

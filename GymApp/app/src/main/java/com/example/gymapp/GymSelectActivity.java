@@ -32,7 +32,17 @@ public class GymSelectActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
+
+    @Override
+    public boolean onSupportNavigateUp()
+    {
+        onBackPressed();
+        return true;
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -49,11 +59,15 @@ public class GymSelectActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_logout) {
-            FirebaseAuth.getInstance().signOut();
-            Intent in = new Intent(getApplicationContext(), LoginActivity.class);
+            Intent in = new Intent(this, LoginActivity.class);
+            startActivity(in);
+        }
+        else if (id == R.id.action_location) {
+            Intent in = new Intent(this, CitySelectFragment.class);
             startActivity(in);
         }
 
         return super.onOptionsItemSelected(item);
     }
+
 }

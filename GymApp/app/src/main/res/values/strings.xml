@@ -22,4 +22,6 @@
     <string name="create_account"><u>Do not have an account? Create new account</u></string>
     <string name="create_account2"><u>Already have an account? Go to Login Page</u></string>
     <string name="title_activity_gym_select">GymSelectActivity</string>
+    <string name="title_activity_selected_gym">SelectedGymActivity</string>
+    <string name="title_activity_rate">RateActivity</string>
 </resources>

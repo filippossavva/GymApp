@@ -43,6 +43,12 @@
         app:layout_constraintVertical_bias="0.115">
 
         <RadioButton
+            android:id="@+id/rbPafos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pafos" />
+
+        <RadioButton
             android:id="@+id/rbNicosia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -61,10 +67,6 @@
             android:layout_height="wrap_content"
             android:text="Limassol" />
 
-        <RadioButton
-            android:id="@+id/rbPafos"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Pafos" />
     </RadioGroup>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
