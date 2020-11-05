@@ -148,7 +148,7 @@
                 android:text="@string/create_account2"
                 android:textColor="@color/design_default_color_primary_variant"
                 android:textColorHighlight="#FFFFFF"
-                android:textColorLink="#FAFAFA"
+                android:textColorLink="#FFFFFF"
                 android:textIsSelectable="false"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"

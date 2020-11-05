@@ -8,7 +8,7 @@
         android:id="@+id/welcomeFragment"
         android:name="com.example.gymapp.WelcomeFragment"
         android:label="fragment_welcome"
-        tools:layout="@layout/fragment_welcome" >
+        tools:layout="@layout/fragment_welcome">
         <action
             android:id="@+id/action_welcomeFragment_to_citySelectFragment"
             app:destination="@id/citySelectFragment" />
@@ -17,9 +17,29 @@
         android:id="@+id/citySelectFragment"
         android:name="com.example.gymapp.CitySelectFragment"
         android:label="fragment_city_select"
-        tools:layout="@layout/fragment_city_select" >
+        tools:layout="@layout/fragment_city_select">
         <action
             android:id="@+id/action_citySelectFragment_to_welcomeFragment"
             app:destination="@id/welcomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.example.gymapp.FirstFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_first">
+
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/SecondFragment"
+        android:name="com.example.gymapp.SecondFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_second">
+
+        <action
+            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
     </fragment>
 </navigation>
