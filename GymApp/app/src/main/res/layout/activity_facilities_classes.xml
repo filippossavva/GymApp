@@ -42,7 +42,31 @@
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:src="@drawable/facebook"
+        app:tint="@null"
+        app:maxImageSize="180px"
+        app:backgroundTint="#FFFFFF" />
+
+    <View
+        android:id="@+id/dummy"
+        android:layout_width="1dp"
+        android:layout_height="16dp"
+        app:layout_anchor="@id/fab"
+        app:layout_anchorGravity="top|right|end"
+        app:tint="@null" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabinsta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|top"
+        android:layout_margin="16dp"
+        android:src="@drawable/instagram"
+        app:backgroundTint="#F6F6F6"
+        app:layout_anchor="@id/dummy"
+        app:layout_anchorGravity="top|right|end"
+        app:maxImageSize="190px"
+        app:tint="@null" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
