@@ -24,4 +24,7 @@
     <string name="title_activity_gym_select">GymSelectActivity</string>
     <string name="title_activity_selected_gym">SelectedGymActivity</string>
     <string name="title_activity_rate">RateActivity</string>
+    <string name="title_activity_facilities_classes">FacilitiesClassesActivity</string>
+    <string name="tab_text_1">Facilities</string>
+    <string name="tab_text_2">Classes</string>
 </resources>
