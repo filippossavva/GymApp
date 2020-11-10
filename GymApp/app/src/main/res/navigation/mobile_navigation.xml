@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_staff">
+
+    <fragment
+        android:id="@+id/nav_staff"
+        android:name="com.example.gymapp.StaffFragment"
+        android:label="Staff Rating"
+        tools:layout="@layout/fragment_staff" />
+
+    <fragment
+        android:id="@+id/nav_facilities"
+        android:name="com.example.gymapp.FacilitiesFragment"
+        android:label="Facilities Rating"
+        tools:layout="@layout/fragment_facilities" />
+
+    <fragment
+        android:id="@+id/nav_classes"
+        android:name="com.example.gymapp.ClassesFragment"
+        android:label="Classes Rating"
+        tools:layout="@layout/fragment_classes" />
+</navigation>

@@ -11,17 +11,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GymApp">
-        <activity android:name=".SocialMediaActivity"
-            android:label="@null"></activity>
+        <activity
+            android:name=".RateActivity"
+            android:label="@string/title_activity_rate"
+            android:theme="@style/Theme.GymApp.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SocialMediaActivity"
+            android:label="@null" />
         <activity
             android:name=".FacilitiesClassesActivity"
             android:label="Facilities and Classes"
-            android:theme="@style/Theme.GymApp.NoActionBar">
-        </activity>
-        <activity
-            android:name=".RateActivity"
-            android:label="Rate the Gym"
-            android:theme="@style/Theme.GymApp.NoActionBar" />
+            android:theme="@style/Theme.GymApp.NoActionBar"></activity>
         <activity
             android:name=".SelectedGymActivity"
             android:label="Find your Gym"
@@ -36,11 +42,7 @@
         <activity
             android:name=".ui.login.LoginActivity"
             android:label="Log In">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".SelectCityActivity"
