@@ -2,6 +2,7 @@ package com.example.gymapp.ui.login;
 
 import android.app.Activity;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -26,8 +27,20 @@ import android.widget.Toast;
 import com.example.gymapp.R;
 import com.example.gymapp.RegisterActivity;
 import com.example.gymapp.SelectCityActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.EventListener;
 
 public class LoginActivity extends AppCompatActivity {
+    FirebaseAuth fAuth;
 
     private LoginViewModel loginViewModel;
     @Override
@@ -39,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
 
         final EditText usernameEditText = findViewById(R.id.etUsername);
         final EditText passwordEditText = findViewById(R.id.etPassword);
-        final Button loginButton = findViewById(R.id.register);
+        final Button loginButton = findViewById(R.id.login);
         final ProgressBar loadingProgressBar = findViewById(R.id.pbLoading);
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
@@ -112,16 +125,11 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loadingProgressBar.setVisibility(View.VISIBLE);
+
                 loginViewModel.login(usernameEditText.getText().toString(),
                         passwordEditText.getText().toString());
             }
         });
-    }
-    private void goToCityActivity()
-    {
-        Intent in = new Intent(this, SelectCityActivity.class);
-        startActivity(in);
     }
 
     private void updateUiWithUser(LoggedInUserView model) {
@@ -133,7 +141,32 @@ public class LoginActivity extends AppCompatActivity {
     private void showLoginFailed(@StringRes Integer errorString) {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
     }
+    public void goToCityActivity()
+    {
+        ProgressBar loadingProgressBar = findViewById(R.id.pbLoading);
+        EditText username =  findViewById(R.id.etUsername);
+        EditText password = findViewById(R.id.etPassword);
+        String usernameText = username.getText().toString().trim();
+        String passwordText = password.getText().toString().trim();
+        loadingProgressBar.setVisibility(View.VISIBLE);
+        fAuth = FirebaseAuth.getInstance();
 
+
+        fAuth.signInWithEmailAndPassword(usernameText,passwordText).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful())
+                {
+                    Intent in = new Intent(getApplicationContext(), SelectCityActivity.class);
+                    startActivity(in);
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(),"Failed to login.Please check your credentials!",Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
     public void createAccount(View v)
     {
         Intent in = new Intent(this, RegisterActivity.class);
