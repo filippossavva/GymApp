@@ -31,13 +31,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.EventListener;
 
 public class LoginActivity extends AppCompatActivity {
     FirebaseAuth fAuth;
@@ -52,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
 
         final EditText usernameEditText = findViewById(R.id.etUsername);
         final EditText passwordEditText = findViewById(R.id.etPassword);
-        final Button loginButton = findViewById(R.id.login);
+        final Button loginButton = findViewById(R.id.button_proceed);
         final ProgressBar loadingProgressBar = findViewById(R.id.pbLoading);
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {

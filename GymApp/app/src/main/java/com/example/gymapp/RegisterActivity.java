@@ -44,7 +44,7 @@ public class RegisterActivity extends AppCompatActivity {
         confPass = (EditText) findViewById(R.id.etConfirmPass);
         loading = (ProgressBar) findViewById(R.id.pbLoading);
         group = (RadioGroup) findViewById(R.id.rbGroup);
-        register = (Button) findViewById(R.id.login);
+        register = (Button) findViewById(R.id.button_proceed);
 
         databaseReference = FirebaseDatabase.getInstance().getReference("user");
         fAuth = FirebaseAuth.getInstance();

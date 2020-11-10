@@ -4,17 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/weights_background"
     tools:context=".WelcomeFragment">
 
     <Button
-        android:id="@+id/button_first"
-        android:layout_width="wrap_content"
+        android:id="@+id/button_proceed"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="@string/next"
+        android:background="@drawable/button_login"
+        android:enabled="false"
+        android:text="next"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF"
+        android:textSize="18sp"
+        app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.527" />
 
     <TextView
         android:id="@+id/textView"
@@ -22,10 +31,13 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Welcome \n to proceed click next"
+        android:textColor="@color/black"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.195" />
+        app:layout_constraintVertical_bias="0.286" />
 </androidx.constraintlayout.widget.ConstraintLayout>

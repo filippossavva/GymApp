@@ -23,7 +23,7 @@ public class WelcomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        view.findViewById(R.id.button_first).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.button_proceed).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(WelcomeFragment.this)

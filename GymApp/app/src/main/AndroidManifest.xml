@@ -15,11 +15,7 @@
             android:name=".RateActivity"
             android:label="@string/title_activity_rate"
             android:theme="@style/Theme.GymApp.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".SocialMediaActivity"
@@ -27,7 +23,9 @@
         <activity
             android:name=".FacilitiesClassesActivity"
             android:label="Facilities and Classes"
-            android:theme="@style/Theme.GymApp.NoActionBar"></activity>
+            android:theme="@style/Theme.GymApp.NoActionBar">
+
+        </activity>
         <activity
             android:name=".SelectedGymActivity"
             android:label="Find your Gym"
@@ -47,7 +45,13 @@
         <activity
             android:name=".SelectCityActivity"
             android:label="Choose City of your Gym"
-            android:theme="@style/Theme.GymApp.NoActionBar" />
+            android:theme="@style/Theme.GymApp.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity >
 
         <meta-data
             android:name="preloaded_fonts"
