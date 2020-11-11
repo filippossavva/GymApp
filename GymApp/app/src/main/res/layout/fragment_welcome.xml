@@ -8,12 +8,10 @@
     tools:context=".WelcomeFragment">
 
     <Button
-        android:id="@+id/button_wel"
+        android:id="@+id/button_next"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:background="@drawable/button_login"
-        android:checkable="false"
-        android:enabled="false"
         android:text="next"
         android:textColor="#FFFFFF"
         android:textColorHighlight="#FFFFFF"

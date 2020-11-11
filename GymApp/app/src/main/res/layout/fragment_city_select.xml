@@ -8,12 +8,10 @@
     tools:context=".CitySelectFragment">
 
     <Button
-        android:id="@+id/button_sel"
+        android:id="@+id/button_procceed"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:background="@drawable/button_login"
-        android:enabled="false"
-        android:onClick="proceedToGym"
         android:text="Procced"
         android:textColor="#FFFFFF"
         android:textColorHighlight="#FFFFFF"
@@ -27,9 +25,10 @@
         app:layout_constraintVertical_bias="0.657" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvText"
         android:layout_width="150dp"
         android:layout_height="28dp"
+        android:layout_marginBottom="10dp"
         android:background="@color/black"
         android:gravity="center"
         android:text="Select area:"
@@ -40,7 +39,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.2" />
+        app:layout_constraintVertical_bias="0.128" />
 
     <RadioGroup
         android:id="@+id/rbGroup"
