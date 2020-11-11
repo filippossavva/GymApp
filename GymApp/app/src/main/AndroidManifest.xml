@@ -24,11 +24,7 @@
             android:name=".FacilitiesClassesActivity"
             android:label="Facilities and Classes"
             android:theme="@style/Theme.GymApp.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".SelectedGymActivity"
@@ -44,7 +40,11 @@
         <activity
             android:name=".ui.login.LoginActivity"
             android:label="Log In">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".SelectCityActivity"

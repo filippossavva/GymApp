@@ -4,8 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.RadioGroup;
 
 import androidx.annotation.NonNull;
@@ -29,7 +27,7 @@ public class CitySelectFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        view.findViewById(R.id.button_proceed).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.button_procceed).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 

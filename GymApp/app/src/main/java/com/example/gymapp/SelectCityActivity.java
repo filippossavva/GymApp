@@ -16,7 +16,6 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
@@ -38,7 +37,7 @@ public class SelectCityActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-        Button procceed = findViewById(R.id.button_proceed);
+        Button procceed = findViewById(R.id.button_procceed);
         procceed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
