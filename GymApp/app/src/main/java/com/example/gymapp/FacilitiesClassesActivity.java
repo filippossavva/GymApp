@@ -32,6 +32,7 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
         tabs.setupWithViewPager(viewPager);
         FloatingActionButton fab = findViewById(R.id.fab);
         FloatingActionButton instagram = findViewById(R.id.fabinsta);
+        FloatingActionButton map = findViewById(R.id.fabmap);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,6 +47,13 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent in = new Intent(getApplicationContext(),SocialMediaActivity.class);
                 in.putExtra(URL,"https://www.instagram.com/non_stopkm/?igshid=1xerc65parjdi&fbclid=IwAR0y6KYD4ljfimFsimbRKl4HnHSgkNlAntpMeXDZBQLjRfxkmJhZtaZnXKo");
+                startActivity(in);
+            }
+        });
+        map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(getApplicationContext(),MapsActivity.class);
                 startActivity(in);
             }
         });

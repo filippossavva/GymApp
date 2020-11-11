@@ -17,12 +17,12 @@
         android:id="@+id/citySelectFragment"
         android:name="com.example.gymapp.CitySelectFragment"
         android:label="fragment_city_select"
-        tools:layout="@layout/fragment_city_select"/>
+        tools:layout="@layout/fragment_city_select" />
     <fragment
         android:id="@+id/SecondFragment"
         android:name="com.example.gymapp.SecondFragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second"/>
+        tools:layout="@layout/fragment_second" />
     <fragment
         android:id="@+id/FirstFragment"
         android:name="com.example.gymapp.FirstFragment"
@@ -37,7 +37,7 @@
         android:id="@+id/SecondFragment"
         android:name="com.example.gymapp.SecondFragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second"/>
+        tools:layout="@layout/fragment_second" />
     <fragment
         android:id="@+id/First2Fragment"
         android:name="com.example.gymapp.RateFragment"
@@ -57,5 +57,25 @@
         <action
             android:id="@+id/action_Second2Fragment_to_First2Fragment"
             app:destination="@id/First2Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.example.gymapp.FirstFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_first">
+
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/SecondFragment"
+        android:name="com.example.gymapp.SecondFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_second">
+
+        <action
+            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
     </fragment>
 </navigation>

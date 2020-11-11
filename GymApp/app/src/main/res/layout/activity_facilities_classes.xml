@@ -69,4 +69,26 @@
         app:layout_anchorGravity="top|right|end"
         app:maxImageSize="190px"
         app:tint="@null" />
+
+    <View
+        android:id="@+id/dummy2"
+        android:layout_width="1dp"
+        android:layout_height="150dp"
+        app:layout_anchor="@id/fab"
+        app:layout_anchorGravity="top|right|end"
+        app:tint="@null" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabmap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:clickable="true"
+        android:src="@drawable/map"
+        app:tint="@null"
+        app:layout_anchor="@id/dummy2"
+        app:layout_anchorGravity="top|left|end"
+        app:maxImageSize="150px" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
