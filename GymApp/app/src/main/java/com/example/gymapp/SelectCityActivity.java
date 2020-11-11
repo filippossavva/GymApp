@@ -20,7 +20,6 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 public class SelectCityActivity extends AppCompatActivity {
-    TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,41 +34,6 @@ public class SelectCityActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-            }
-        });
-        Button procceed = findViewById(R.id.button_procceed);
-        procceed.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                RadioGroup group = findViewById(R.id.rbGroup);
-                String city = "";
-                int selection = group.getCheckedRadioButtonId();
-
-                if(selection == R.id.rbFamagusta)
-                {
-                    city = "Famagusta";
-                }
-                else if(selection == R.id.rbLarnaca)
-                {
-                    city = "Larnaca";
-                }
-                else if(selection == R.id.rbLimassol)
-                {
-                    city = "Limassol";
-                }
-                else if(selection == R.id.rbPafos)
-                {
-                    city = "Pafos";
-                }
-                else if(selection == R.id.rbNicosia)
-                {
-                    city = "Nicosia";
-                }
-                tv = (TextView) findViewById(R.id.tvText);
-                tv.setText(city);
-//                Intent in = new Intent(getContext(), GymSelectActivity.class);
-//                in.putExtra(CITY, city);
-//                startActivity(in);
             }
         });
     }
@@ -96,6 +60,39 @@ public class SelectCityActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void proceedToGym(View v)
+    {
+        RadioGroup group = findViewById(R.id.rbGroup);
+        String city = "";
+        int selection = group.getCheckedRadioButtonId();
+
+        if(selection == R.id.rbFamagusta)
+        {
+            city = "Famagusta";
+        }
+        else if(selection == R.id.rbLarnaca)
+        {
+            city = "Larnaca";
+        }
+        else if(selection == R.id.rbLimassol)
+        {
+            city = "Limassol";
+        }
+        else if(selection == R.id.rbPafos)
+        {
+            city = "Pafos";
+        }
+        else if(selection == R.id.rbNicosia)
+        {
+            city = "Nicosia";
+        }
+        TextView tv = findViewById(R.id.tvText);
+        tv.setText(city);
+//                Intent in = new Intent(getContext(), GymSelectActivity.class);
+//                in.putExtra(CITY, city);
+//                startActivity(in);
     }
 
 }
