@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-public class WelcomeFragment extends Fragment {
+public class SelectCityFragment extends Fragment {
 
     @Override
     public View onCreateView(
@@ -17,17 +17,17 @@ public class WelcomeFragment extends Fragment {
             Bundle savedInstanceState
     ) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_welcome, container, false);
+        return inflater.inflate(R.layout.fragment_select_city, container, false);
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        view.findViewById(R.id.button_next).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.button_second).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(WelcomeFragment.this)
-                        .navigate(R.id.action_welcomeFragment_to_citySelectFragment);
+                NavHostFragment.findNavController(SelectCityFragment.this)
+                        .navigate(R.id.action_SecondFragment_to_FirstFragment);
             }
         });
     }
