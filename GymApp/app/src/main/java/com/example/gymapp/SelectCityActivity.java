@@ -15,6 +15,9 @@ import android.view.View;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.RadioGroup;
+import android.widget.TextView;
 
 public class SelectCityActivity extends AppCompatActivity {
 
@@ -57,6 +60,37 @@ public class SelectCityActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public void proceedToGym(View v){
+        String city = "";
+            RadioGroup group = findViewById(R.id.rbGroup);
+            int selection = group.getCheckedRadioButtonId();
+
+            if(selection == R.id.rbFamagusta)
+            {
+                city = "Famagusta";
+            }
+            else if(selection == R.id.rbLarnaca)
+            {
+                city = "Larnaca";
+            }
+            else if(selection == R.id.rbLimassol)
+            {
+                city = "Limassol";
+            }
+            else if(selection == R.id.rbPafos)
+            {
+                city = "Pafos";
+            }
+            else if(selection == R.id.rbNicosia)
+            {
+                city = "Nicosia";
+            }
+            TextView et = findViewById(R.id.textView2);
+            et.setText(city);
+//                Intent in = new Intent(getContext(), GymSelectActivity.class);
+//                in.putExtra(CITY, city);
+//                startActivity(in);
     }
 
 }

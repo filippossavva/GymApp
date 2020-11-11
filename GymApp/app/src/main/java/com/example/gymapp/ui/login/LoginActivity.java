@@ -1,18 +1,8 @@
 package com.example.gymapp.ui.login;
 
 import android.app.Activity;
-
-import androidx.annotation.NonNull;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
@@ -24,6 +14,13 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+
 import com.example.gymapp.R;
 import com.example.gymapp.RegisterActivity;
 import com.example.gymapp.SelectCityActivity;
@@ -31,21 +28,64 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class LoginActivity extends AppCompatActivity {
+    EditText username,password;
+    DatabaseReference databaseReference;
     FirebaseAuth fAuth;
+    Button btn_login;
 
     private LoginViewModel loginViewModel;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        username = (EditText) findViewById(R.id.etUsername);
+        password = (EditText) findViewById(R.id.etPassword);
+        btn_login = (Button) findViewById(R.id.button_log);
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("user");
+        fAuth = FirebaseAuth.getInstance();
+
+        btn_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ProgressBar loadingProgressBar = findViewById(R.id.pbLoading);
+                EditText username =  findViewById(R.id.etUsername);
+                EditText password = findViewById(R.id.etPassword);
+                String usernameText = username.getText().toString().trim();
+                String passwordText = password.getText().toString().trim();
+                loadingProgressBar.setVisibility(View.VISIBLE);
+
+
+                fAuth.signInWithEmailAndPassword(usernameText,passwordText).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful())
+                        {
+                            databaseReference = FirebaseDatabase.getInstance().getReference("user");
+                            Toast.makeText(getApplicationContext(),"Log in Successful",Toast.LENGTH_LONG).show();
+                            Intent in = new Intent(getApplicationContext(), SelectCityActivity.class);
+                            startActivity(in);
+                        }
+                        else
+                        {
+                            Toast.makeText(getApplicationContext(),"Failed to login.Please check your credentials!",Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+            }
+        });
+
         loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
 
         final EditText usernameEditText = findViewById(R.id.etUsername);
         final EditText passwordEditText = findViewById(R.id.etPassword);
-        final Button loginButton = findViewById(R.id.button_proceed);
+        final Button loginButton = findViewById(R.id.button_log);
         final ProgressBar loadingProgressBar = findViewById(R.id.pbLoading);
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
@@ -136,29 +176,7 @@ public class LoginActivity extends AppCompatActivity {
     }
     public void goToCityActivity()
     {
-        ProgressBar loadingProgressBar = findViewById(R.id.pbLoading);
-        EditText username =  findViewById(R.id.etUsername);
-        EditText password = findViewById(R.id.etPassword);
-        String usernameText = username.getText().toString().trim();
-        String passwordText = password.getText().toString().trim();
-        loadingProgressBar.setVisibility(View.VISIBLE);
-        fAuth = FirebaseAuth.getInstance();
 
-
-        fAuth.signInWithEmailAndPassword(usernameText,passwordText).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful())
-                {
-                    Intent in = new Intent(getApplicationContext(), SelectCityActivity.class);
-                    startActivity(in);
-                }
-                else
-                {
-                    Toast.makeText(getApplicationContext(),"Failed to login.Please check your credentials!",Toast.LENGTH_LONG).show();
-                }
-            }
-        });
     }
     public void createAccount(View v)
     {
