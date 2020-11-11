@@ -24,9 +24,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.gymapp.CitySelectActivity;
 import com.example.gymapp.R;
 import com.example.gymapp.RegisterActivity;
+import com.example.gymapp.SelectCityActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -150,7 +150,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful())
                 {
-                    Intent in = new Intent(getApplicationContext(), CitySelectActivity.class);
+                    Intent in = new Intent(getApplicationContext(), SelectCityActivity.class);
                     startActivity(in);
                 }
                 else

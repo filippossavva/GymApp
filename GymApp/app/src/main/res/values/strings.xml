@@ -38,5 +38,4 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="title_activity_google_maps">GoogleMapsActivity</string>
     <string name="title_activity_maps">Map</string>
-    <string name="title_activity_city_select">CitySelectActivity</string>
 </resources>
