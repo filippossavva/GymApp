@@ -20,12 +20,7 @@
             android:name=".SelectCityActivity"
             android:label="@string/title_activity_select_city"
             android:theme="@style/Theme.GymApp.NoActionBar">
-<<<<<<< HEAD
-=======
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                android:label="Log In" />
->>>>>>> e8899b2b183291a7932e0711ffe807409e7ffa50
+
 
         </activity>
         <!--
