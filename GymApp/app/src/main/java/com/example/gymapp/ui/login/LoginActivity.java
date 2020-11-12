@@ -6,6 +6,9 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -24,10 +27,12 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.gymapp.FacilitiesClassesActivity;
 import com.example.gymapp.R;
 import com.example.gymapp.RegisterActivity;
-import com.example.gymapp.SelectCityActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -43,10 +48,13 @@ public class LoginActivity extends AppCompatActivity {
         loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
 
-        final EditText usernameEditText = findViewById(R.id.etUsername);
+        final EditText usernameEditText = findViewById(R.id.etEmailAddress);
         final EditText passwordEditText = findViewById(R.id.etPassword);
         final Button loginButton = findViewById(R.id.button_login);
         final ProgressBar loadingProgressBar = findViewById(R.id.pbLoading);
+
+
+
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
@@ -123,6 +131,46 @@ public class LoginActivity extends AppCompatActivity {
                         passwordEditText.getText().toString());
             }
         });
+
+        TextView forgotpass = findViewById(R.id.tvForgotPass);
+        forgotpass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText resetemail = new EditText(v.getContext());
+                AlertDialog.Builder resetPasswordDialog = new AlertDialog.Builder(v.getContext());
+                resetPasswordDialog.setTitle("Reset your password");
+                resetPasswordDialog.setMessage("Please enter your email to receive a reset link");
+                resetPasswordDialog.setView(resetemail);
+
+                fAuth = FirebaseAuth.getInstance();
+                resetPasswordDialog.setPositiveButton("Yeah", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String mail = resetemail.getText().toString();
+                        fAuth.sendPasswordResetEmail(mail).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Toast.makeText(LoginActivity.this,"Check your Inbox or Junk/Spam Email to find your reset link that we sent!",Toast.LENGTH_LONG).show();
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(LoginActivity.this,"Something went wrong.. We couldn't send you a reset link!" + e.getMessage(),Toast.LENGTH_LONG).show();
+                            }
+                        });
+                    }
+                });
+
+                resetPasswordDialog.setNegativeButton("Nah", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                resetPasswordDialog.create().show();
+            }
+        });
+
     }
 
     private void updateUiWithUser(LoggedInUserView model) {
@@ -137,7 +185,7 @@ public class LoginActivity extends AppCompatActivity {
     public void goToCityActivity()
     {
         ProgressBar loadingProgressBar = findViewById(R.id.pbLoading);
-        EditText email =  findViewById(R.id.etEmail);
+        EditText email =  findViewById(R.id.etEmailAddress);
         EditText password = findViewById(R.id.etPassword);
         String emailText = email.getText().toString().trim();
         String passwordText = password.getText().toString().trim();
@@ -151,8 +199,9 @@ public class LoginActivity extends AppCompatActivity {
                 if (task.isSuccessful())
                 {
                     Toast.makeText(getApplicationContext(),"Login Successful!",Toast.LENGTH_LONG).show();
-//                    Intent in = new Intent(getApplicationContext(), SelectCityActivity.class);
-//                    startActivity(in);
+
+                    Intent in = new Intent(LoginActivity.this, FacilitiesClassesActivity.class);
+                    startActivity(in);
                 }
                 else
                 {
@@ -161,6 +210,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
     public void createAccount(View v)
     {
         Intent in = new Intent(this, RegisterActivity.class);

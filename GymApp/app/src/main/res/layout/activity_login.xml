@@ -28,11 +28,11 @@
         app:layout_constraintVertical_bias="0.243" />
 
     <EditText
-        android:id="@+id/etUsername"
+        android:id="@+id/etEmailAddress"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="#202020"
-        android:hint="@string/prompt_email"
+        android:hint="Email"
         android:inputType="textEmailAddress"
         android:paddingLeft="5dp"
         android:selectAllOnFocus="true"
@@ -112,5 +112,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.797" />
+
+    <TextView
+        android:id="@+id/tvForgotPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/hyperlink"
+        android:text="Forgot your password?"
+        android:textColor="@color/design_default_color_primary_variant"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_login"
+        app:layout_constraintVertical_bias="0.222" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
