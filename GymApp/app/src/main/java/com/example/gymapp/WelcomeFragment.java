@@ -23,11 +23,11 @@ public class WelcomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        view.findViewById(R.id.button_next).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.button_first).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(WelcomeFragment.this)
-                        .navigate(R.id.action_welcomeFragment_to_citySelectFragment);
+                        .navigate(R.id.action_WelcomeFragment_to_SelectCityFragment);
             }
         });
     }
