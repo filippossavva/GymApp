@@ -137,21 +137,22 @@ public class LoginActivity extends AppCompatActivity {
     public void goToCityActivity()
     {
         ProgressBar loadingProgressBar = findViewById(R.id.pbLoading);
-        EditText username =  findViewById(R.id.etUsername);
+        EditText email =  findViewById(R.id.etEmail);
         EditText password = findViewById(R.id.etPassword);
-        String usernameText = username.getText().toString().trim();
+        String emailText = email.getText().toString().trim();
         String passwordText = password.getText().toString().trim();
         loadingProgressBar.setVisibility(View.VISIBLE);
         fAuth = FirebaseAuth.getInstance();
 
 
-        fAuth.signInWithEmailAndPassword(usernameText,passwordText).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        fAuth.signInWithEmailAndPassword(emailText,passwordText).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful())
                 {
-                    Intent in = new Intent(getApplicationContext(), SelectCityActivity.class);
-                    startActivity(in);
+                    Toast.makeText(getApplicationContext(),"Login Successful!",Toast.LENGTH_LONG).show();
+//                    Intent in = new Intent(getApplicationContext(), SelectCityActivity.class);
+//                    startActivity(in);
                 }
                 else
                 {
