@@ -2,65 +2,42 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/button_proceed_to_gym"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/weights_background"
-    android:onClick="proceedToGym"
     android:orientation="vertical"
-    tools:context=".CitySelectFragment">
+    tools:context=".SelectCityFragment">
 
     <TextView
-        android:id="@+id/tvSelect"
-        android:layout_width="150dp"
-        android:layout_height="28dp"
+        android:id="@+id/textCities"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="60dp"
         android:layout_marginBottom="10dp"
         android:background="@color/black"
-        android:gravity="center"
-        android:text="Select area:"
+        android:foregroundGravity="center"
+        android:text="Select city:"
         android:textColor="@color/white"
         android:textSize="18sp" />
 
     <RadioGroup
-        android:id="@+id/rbCities"
-        android:layout_width="150dp"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@null"
-        android:gravity="center">
+        android:foregroundGravity="center">
 
         <RadioButton
-            android:id="@+id/rbNic"
+            android:id="@+id/rbNicosia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="0.1dp"
             android:background="@color/black"
             android:checked="true"
             android:text="Nicosia"
             android:textColor="@color/white" />
 
         <RadioButton
-            android:id="@+id/rbPaf"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="1dp"
-            android:background="@color/black"
-            android:text="Pafos"
-            android:textColor="@color/white" />
-
-        <RadioButton
-            android:id="@+id/rbLar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="1dp"
-            android:background="@color/black"
-            android:text="Larnaca"
-            android:textColor="@color/white" />
-
-        <RadioButton
-            android:id="@+id/rbLim"
+            android:id="@+id/rbLimassol"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
@@ -69,7 +46,16 @@
             android:textColor="@color/white" />
 
         <RadioButton
-            android:id="@+id/rbFam"
+            android:id="@+id/rbLarnaca"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:background="@color/black"
+            android:text="Larnaca"
+            android:textColor="@color/white" />
+
+        <RadioButton
+            android:id="@+id/rbFamagusta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
@@ -77,17 +63,25 @@
             android:text="Famagusta"
             android:textColor="@color/white" />
 
+        <RadioButton
+            android:id="@+id/rbPafos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:background="@color/black"
+            android:text="Pafos"
+            android:textColor="@color/white" />
     </RadioGroup>
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="150dp"
+        android:id="@+id/button_second"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/button_login"
+        android:foregroundGravity="center"
         android:text="Proceed"
-        android:textSize="18sp"
-        app:backgroundTint="@null" />
-
+        android:textColor="@color/white"
+        app:backgroundTint="@drawable/button_login" />
 </LinearLayout>

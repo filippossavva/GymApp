@@ -3,94 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/welcomeFragment">
+    app:startDestination="@id/WelcomeFragment">
+
     <fragment
-        android:id="@+id/welcomeFragment"
+        android:id="@+id/WelcomeFragment"
         android:name="com.example.gymapp.WelcomeFragment"
-        android:label="fragment_welcome"
+        android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_welcome">
         <action
-            android:id="@+id/action_welcomeFragment_to_citySelectFragment"
-            app:destination="@id/citySelectFragment" />
+            android:id="@+id/action_WelcomeFragment_to_SelectCityFragment"
+            app:destination="@id/SelectCityFragment" />
     </fragment>
     <fragment
-        android:id="@+id/citySelectFragment"
-        android:name="com.example.gymapp.CitySelectFragment"
-        android:label="fragment_city_select"
-        tools:layout="@layout/fragment_city_select" />
-    <fragment
-        android:id="@+id/SecondFragment"
+        android:id="@+id/SelectCityFragment"
         android:name="com.example.gymapp.SelectCityFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_select_city" />
-    <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.example.gymapp.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
-        <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/First2Fragment"
-        android:name="com.example.gymapp.RateFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_rate">
-
-        <action
-            android:id="@+id/action_First2Fragment_to_Second2Fragment"
-            app:destination="@id/Second2Fragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/Second2Fragment"
-        android:name="com.example.gymapp.SuccessFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_success">
-
-        <action
-            android:id="@+id/action_Second2Fragment_to_First2Fragment"
-            app:destination="@id/First2Fragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.example.gymapp.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
-        <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.gymapp.SelectCityFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_select_city">
-
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.example.gymapp.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
-        <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.gymapp.SelectCityFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_select_city">
-
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-    </fragment>
 </navigation>

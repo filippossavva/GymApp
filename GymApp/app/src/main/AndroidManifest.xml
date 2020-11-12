@@ -17,9 +17,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GymApp">
         <activity
-            android:name=".CitySelectActivity"
-            android:label="@string/title_activity_city_select"
+            android:name=".SelectCityActivity"
+            android:label="@string/title_activity_select_city"
             android:theme="@style/Theme.GymApp.NoActionBar">
+<<<<<<< HEAD
+=======
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                android:label="Log In" />
+>>>>>>> e8899b2b183291a7932e0711ffe807409e7ffa50
 
         </activity>
         <!--
@@ -47,12 +53,11 @@
         <activity
             android:name=".FacilitiesClassesActivity"
             android:label="Facilities and Classes"
-            android:theme="@style/Theme.GymApp.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.GymApp.NoActionBar"></activity>
         <activity
             android:name=".GymSelectActivity"
             android:label="Find your Gym"
-            android:theme="@style/Theme.GymApp.NoActionBar"></activity>
+            android:theme="@style/Theme.GymApp.NoActionBar" />
         <activity
             android:name=".RegisterActivity"
             android:label="Register" >
@@ -65,7 +70,7 @@
 
         <activity
             android:name=".ui.login.LoginActivity"
-            android:label="Log In"></activity>
+            android:label="Log In" />
 
         <meta-data
             android:name="preloaded_fonts"

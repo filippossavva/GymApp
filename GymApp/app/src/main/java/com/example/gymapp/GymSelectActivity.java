@@ -6,7 +6,6 @@ import android.os.Bundle;
 import com.example.gymapp.ui.login.LoginActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -63,7 +62,7 @@ public class GymSelectActivity extends AppCompatActivity {
             startActivity(in);
         }
         else if (id == R.id.action_location) {
-            Intent in = new Intent(this, CitySelectFragment.class);
+            Intent in = new Intent(this, SelectCityFragment.class);
             startActivity(in);
         }
 
