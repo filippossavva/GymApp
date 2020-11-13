@@ -121,23 +121,32 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp">
 
-                <RadioButton
-                    android:id="@+id/rbMale"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:background="#202020"
-                    android:text="Male"
-                    android:textColor="#F6F6F6"
-                    android:textSize="18sp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
-                <RadioButton
-                    android:id="@+id/rbFemale"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:background="#202020"
-                    android:text="Female"
-                    android:textColor="#F6F6F6"
-                    android:textSize="18sp" />
+                    <RadioButton
+                        android:id="@+id/rbMale"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:background="#202020"
+                        android:text="Male"
+                        android:textColor="#F6F6F6"
+                        android:textSize="18sp" />
+
+                    <RadioButton
+                        android:id="@+id/rbFemale"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginLeft="50dp"
+                        android:background="#202020"
+                        android:text="Female"
+                        android:textColor="#F6F6F6"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
             </RadioGroup>
 
             <ProgressBar

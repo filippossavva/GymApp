@@ -30,6 +30,8 @@ import android.widget.Toast;
 import com.example.gymapp.FacilitiesClassesActivity;
 import com.example.gymapp.R;
 import com.example.gymapp.RegisterActivity;
+import com.example.gymapp.SelectCityActivity;
+import com.example.gymapp.WelcomeFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;

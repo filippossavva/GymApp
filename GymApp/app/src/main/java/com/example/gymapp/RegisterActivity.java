@@ -70,23 +70,23 @@ public class RegisterActivity extends AppCompatActivity {
                     gender = "Female";
                 }
 
-                if(TextUtils.isEmpty(nameText))
+                if(nameText.length() == 0)
                 {
                     name.setError("Name is Required.");
                 }
-                if(TextUtils.isEmpty(surnameText))
+                if(surnameText.length() == 0)
                 {
                     surname.setError("Surname is Required.");
                 }
-                if(TextUtils.isEmpty(usernameText))
+                if(usernameText.length() == 0)
                 {
                     username.setError("Username is Required.");
                 }
-                if(TextUtils.isEmpty(emailText))
+                if(emailText.length() == 0)
                 {
                     email.setError("Email is Required.");
                 }
-                if(TextUtils.isEmpty(passwordText))
+                if(passwordText.length() == 0)
                 {
                     password.setError("Password is Required.");
                 }
