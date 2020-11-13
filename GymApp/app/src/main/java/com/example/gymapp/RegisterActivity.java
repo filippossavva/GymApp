@@ -123,7 +123,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                                         NotificationCompat.Builder notification = new NotificationCompat.Builder(RegisterActivity.this, "1")
                                                 .setSmallIcon(android.R.drawable.btn_star)
-                                                .setContentTitle("Congratulations " +name+ " "+surname+ "! You are ready to log in")
+                                                .setContentTitle("Congratulations " +name+ " "+surname+ "!" +"\n You are ready to log in")
                                                 .setContentText(body)
                                                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 

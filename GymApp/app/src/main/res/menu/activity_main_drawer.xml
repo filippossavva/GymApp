@@ -14,7 +14,7 @@
             android:title="Facilities" />
         <item
             android:id="@+id/nav_classes"
-            android:icon="@drawable/classes"
+            android:icon="@drawable/classesgym"
             android:title="Classes" />
     </group>
 </menu>

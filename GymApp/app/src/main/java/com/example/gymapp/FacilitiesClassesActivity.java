@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
@@ -33,6 +34,8 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
         FloatingActionButton fab = findViewById(R.id.fab);
         FloatingActionButton instagram = findViewById(R.id.fabinsta);
         FloatingActionButton map = findViewById(R.id.fabmap);
+
+
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,5 +60,20 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
                 startActivity(in);
             }
         });
+    }
+    public void moveToWeights(View v)
+    {
+        Intent in = new Intent(this,WeightsActivity.class);
+        startActivity(in);
+    }
+    public void moveToClasses(View v)
+    {
+        Intent in = new Intent(this,ClassesActivity.class);
+        startActivity(in);
+    }
+    public void moveToPersonal(View v)
+    {
+        Intent in = new Intent(this,PersonalActivity.class);
+        startActivity(in);
     }
 }

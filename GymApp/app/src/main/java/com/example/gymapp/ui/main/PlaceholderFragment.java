@@ -5,8 +5,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -19,6 +23,8 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.gymapp.R;
+import com.synnapps.carouselview.CarouselView;
+import com.synnapps.carouselview.ImageListener;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -64,6 +70,10 @@ public class PlaceholderFragment extends Fragment {
         Switch s4 = root.findViewById(R.id.swTabata);
         Switch s5 = root.findViewById(R.id.swYoga);
         Switch s6 = root.findViewById(R.id.swZumba);
+        ImageButton buttonweights = root.findViewById(R.id.ibWeights);
+        ImageButton buttonclasses = root.findViewById(R.id.ibClasses);
+        ImageButton buttonpersonal = root.findViewById(R.id.ibPersonal);
+        CarouselView carousel = root.findViewById(R.id.carousel);
 //        VideoView videoRtx = root.findViewById(R.id.videoTrx);
 //        String videoPath = "android.resource://com.android.developer.arsl.videoplayer/"+R.raw.TRX;
 //        Uri uri = Uri.parse(videoPath);
@@ -83,6 +93,7 @@ public class PlaceholderFragment extends Fragment {
             s4.setVisibility(View.INVISIBLE);
             s5.setVisibility(View.INVISIBLE);
             s6.setVisibility(View.INVISIBLE);
+            carousel.setVisibility(View.INVISIBLE);
 
         }
         else if(getArguments().getInt(ARG_SECTION_NUMBER) == 2)
@@ -91,7 +102,42 @@ public class PlaceholderFragment extends Fragment {
             c1.setVisibility(View.INVISIBLE);
             c2.setVisibility(View.INVISIBLE);
             c3.setVisibility(View.INVISIBLE);
+            buttonweights.setVisibility(View.INVISIBLE);
+            buttonclasses.setVisibility(View.INVISIBLE);
+            buttonpersonal.setVisibility(View.INVISIBLE);
 
+            carousel.setPageCount(6);
+            carousel.setImageListener(new ImageListener() {
+                @Override
+                public void setImageForPosition(int position, ImageView imageView) {
+                    switch (position)
+                    {
+                        case 0:
+                            imageView.setImageResource(R.drawable.trx);
+                            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                            break;
+                        case 1:
+                            imageView.setImageResource(R.drawable.yoga);
+                            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                            break;
+                        case 2:
+                            imageView.setImageResource(R.drawable.pilates);
+                            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                            break;
+                        case 3:
+                            imageView.setImageResource(R.drawable.zumba);
+                            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                            break;
+                        case 4:
+                            imageView.setImageResource(R.drawable.boxing);
+                            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                            break;
+                        default:
+                            imageView.setImageResource(R.drawable.tabata);
+                            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                    }
+                }
+            });
 
         }
         return root;
