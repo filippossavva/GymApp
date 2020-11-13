@@ -2,8 +2,13 @@ package com.example.gymapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,6 +33,7 @@ public class RegisterActivity extends AppCompatActivity {
     DatabaseReference databaseReference;
     FirebaseAuth fAuth;
     String gender = "";
+    private CharSequence body;
 
 
     @Override
@@ -92,8 +98,38 @@ public class RegisterActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     Toast.makeText(RegisterActivity.this, "Register Successful", Toast.LENGTH_LONG).show();
-                                    Intent in = new Intent(getApplicationContext(), LoginActivity.class);
+                                    Intent in = new Intent(getApplicationContext(), RegisterActivity.class);
                                     startActivity(in);
+                                    EditText e1 = findViewById(R.id.etName);
+                                    EditText e2 = findViewById(R.id.etSurname);
+
+                                    String name = e1.getText().toString().trim();
+                                    String surname = e2.getText().toString().trim();
+
+
+                                    NotificationChannel channel = null;
+                                    if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                                        channel = new NotificationChannel(
+                                                "1",
+                                                "channel1",
+                                                NotificationManager.IMPORTANCE_DEFAULT);
+
+                                        //create the notification manager
+                                        NotificationManager manager = getSystemService(NotificationManager.class);
+                                        manager.createNotificationChannel(channel);
+
+                                        //create the notification
+
+
+                                        NotificationCompat.Builder notification = new NotificationCompat.Builder(RegisterActivity.this, "1")
+                                                .setSmallIcon(android.R.drawable.btn_star)
+                                                .setContentTitle("Congratulations " +name+ " "+surname+ "! You are ready to log in")
+                                                .setContentText(body)
+                                                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+                                        NotificationManagerCompat notifyAdmin = NotificationManagerCompat.from(RegisterActivity.this);
+                                        notifyAdmin.notify(1, notification.build());
+                                    }
                                 }
                             });
 
@@ -110,6 +146,42 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     }
+//    public void sendNotification(View v) {
+//        EditText e1 = findViewById(R.id.etName);
+//        EditText e2 = findViewById(R.id.etSurname);
+//
+//        String name = e1.getText().toString().trim();
+//        String surname = e2.getText().toString().trim();
+//
+//
+//        NotificationChannel channel = null;
+//        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//            channel = new NotificationChannel(
+//                    "1",
+//                    "channel1",
+//                    NotificationManager.IMPORTANCE_DEFAULT);
+//
+//            //create the notification manager
+//            NotificationManager manager = getSystemService(NotificationManager.class);
+//            manager.createNotificationChannel(channel);
+//
+//            //create the notification
+//
+//
+//            NotificationCompat.Builder notification = new NotificationCompat.Builder(this, "1")
+//                    .setSmallIcon(android.R.drawable.btn_star)
+//                    .setContentTitle("Congratulations!You are ready to log in")
+//                    .setContentText(body)
+//                    .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+//
+//            NotificationManagerCompat notifyAdmin = NotificationManagerCompat.from(this);
+//            notifyAdmin.notify(1, notification.build());
+//        }
+//        else {
+//
+//
+//        }
+//    }
 
     public boolean validate()
     {
