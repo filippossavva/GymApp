@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -46,6 +45,8 @@ public class RegisterActivity extends AppCompatActivity {
         group = (RadioGroup) findViewById(R.id.rbGroup);
         register = (Button) findViewById(R.id.button_register);
 
+        validate();
+
         databaseReference = FirebaseDatabase.getInstance().getReference("user");
         fAuth = FirebaseAuth.getInstance();
 
@@ -70,30 +71,7 @@ public class RegisterActivity extends AppCompatActivity {
                     gender = "Female";
                 }
 
-                if(nameText.length() == 0)
-                {
-                    name.setError("Name is Required.");
-                }
-                if(surnameText.length() == 0)
-                {
-                    surname.setError("Surname is Required.");
-                }
-                if(usernameText.length() == 0)
-                {
-                    username.setError("Username is Required.");
-                }
-                if(emailText.length() == 0)
-                {
-                    email.setError("Email is Required.");
-                }
-                if(passwordText.length() == 0)
-                {
-                    password.setError("Password is Required.");
-                }
-                if(!confirmPasswordText.equals(passwordText))
-                {
-                    confPass.setError("Passwords do not match.");
-                }
+
                 loading.setVisibility(View.VISIBLE);
                 fAuth.createUserWithEmailAndPassword(emailText,passwordText).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -131,6 +109,58 @@ public class RegisterActivity extends AppCompatActivity {
 
 
 
+    }
+
+    public boolean validate()
+    {
+        name = (EditText) findViewById(R.id.etName);
+        surname = (EditText) findViewById(R.id.etSurname);
+        username = (EditText) findViewById(R.id.etEmailAddress);
+        email = (EditText) findViewById(R.id.etEmail);
+        password = (EditText) findViewById(R.id.etPassword);
+        confPass = (EditText) findViewById(R.id.etConfirmPass);
+        loading = (ProgressBar) findViewById(R.id.pbLoading);
+        group = (RadioGroup) findViewById(R.id.rbGroup);
+        register = (Button) findViewById(R.id.button_register);
+        String nameText = name.getText().toString().trim();
+        String surnameText = surname.getText().toString().trim();
+        String usernameText = username.getText().toString().trim();
+        String emailText = email.getText().toString().trim();
+        String passwordText = password.getText().toString().trim();
+        String confirmPasswordText = confPass.getText().toString().trim();
+
+        boolean valid = true;
+        if(nameText.isEmpty())
+        {
+            name.setError("Name is Required.");
+            valid = false;
+        }
+        if(surnameText.isEmpty())
+        {
+            surname.setError("Surname is Required.");
+            valid = false;
+        }
+        if(usernameText.isEmpty())
+        {
+            username.setError("Username is Required.");
+            valid = false;
+        }
+        if(emailText.isEmpty())
+        {
+            email.setError("Email is Required.");
+            valid = false;
+        }
+        if(passwordText.isEmpty())
+        {
+            password.setError("Password is Required.");
+            valid = false;
+        }
+        if(!confirmPasswordText.equals(passwordText))
+        {
+            confPass.setError("Passwords do not match.");
+            valid = false;
+        }
+        return valid;
     }
     public void goToLogin(View v)
     {
