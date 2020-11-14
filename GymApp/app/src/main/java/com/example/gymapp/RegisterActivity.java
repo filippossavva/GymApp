@@ -5,11 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +22,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.gymapp.ui.login.LoginActivity;
+import com.example.gymapp.ui.login.LoginViewModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -77,7 +82,7 @@ public class RegisterActivity extends AppCompatActivity {
                 }
 
 
-                if(validateName() && validateSurname() && validateUsername() && validateEmail() && validatePassword() && validateConfPass()){
+                if(validateName() && validateSurname() && validateUsername() && validateEmail() ){
                     loading.setVisibility(View.VISIBLE);
                     fAuth.createUserWithEmailAndPassword(emailText,passwordText).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
@@ -108,6 +113,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 
                                         NotificationChannel channel = null;
+
                                         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                                             channel = new NotificationChannel(
                                                     "1",
@@ -117,7 +123,8 @@ public class RegisterActivity extends AppCompatActivity {
                                             //create the notification manager
                                             NotificationManager manager = getSystemService(NotificationManager.class);
                                             manager.createNotificationChannel(channel);
-
+                                            Intent login = new Intent(getApplicationContext(),LoginActivity.class);
+                                            PendingIntent resultPendingIntent = PendingIntent.getActivity(getApplicationContext(),1,login,PendingIntent.FLAG_UPDATE_CURRENT);
                                             //create the notification
 
 
@@ -125,7 +132,9 @@ public class RegisterActivity extends AppCompatActivity {
                                                     .setSmallIcon(android.R.drawable.btn_star)
                                                     .setContentTitle("Congratulations " +name+ " "+surname+ "!" +"\n You are ready to log in")
                                                     .setContentText(body)
-                                                    .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+                                                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                                    .setAutoCancel(true)
+                                                    .setContentIntent(resultPendingIntent);
 
                                             NotificationManagerCompat notifyAdmin = NotificationManagerCompat.from(RegisterActivity.this);
                                             notifyAdmin.notify(1, notification.build());
@@ -249,7 +258,7 @@ public class RegisterActivity extends AppCompatActivity {
         if (val.isEmpty()) {
             emailText.setError("Email can not be empty");
             return false;
-        } else if (val.contains("@")) {
+        } else if (!val.contains("@")) {
             emailText.setError("Email must contains @");
             return false;
         }else {
@@ -257,74 +266,66 @@ public class RegisterActivity extends AppCompatActivity {
             return true;
         }
     }
-    private boolean validatePassword() {
-        EditText passwordText = findViewById(R.id.etPassword);
-        String val = passwordText.getText().toString().trim();
-        int count = 0;
-
-        for(int i=0 ; i<val.length();i++)
-        {
-            if (Character.isDigit(val.charAt(i)))
-            {
-                count++;
-            }
-        }
-        if(count == 0)
-        {
-            passwordText.setError("Password must contains at least one number");
-            return false;
-        }
-
-        if (val.isEmpty()) {
-            passwordText.setError("Password can not be empty");
-            return false;
-        }else if (val.length() < 6) {
-            passwordText.setError("Password must contains up to 6 characters");
-            return false;
-        }
-        else if (val.length() > 30) {
-            passwordText.setError("Password is too large");
-            return false;
-        }
-            else {
-            passwordText.setError(null);
-            return true;
-        }
-    }
-
-    private boolean validateConfPass()
-    {
-        EditText passwordText = findViewById(R.id.etPassword);
-        String val1 = passwordText.getText().toString().trim();
-        EditText confPassText = findViewById(R.id.etConfirmPass);
-        String val2 = passwordText.getText().toString().trim();
-
-        int count = 0;
-
-        for(int i=0 ; i<val1.length();i++)
-        {
-            if (Character.isDigit(val1.charAt(i)) )
-            {
-                count++;
-            }
-        }
-        if(count == 0)
-        {
-            passwordText.setError("Password must contains at least one number");
-            return false;
-        }
-
-        if(val1 != val2)
-        {
-            confPassText.setError("Passwords do not match. Please try again");
-            return false;
-        }
-        else
-        {
-            confPassText.setError(null);
-            return true;
-        }
-    }
+//    private boolean validatePassword() {
+//        EditText passwordText = findViewById(R.id.etPassword);
+//        String val = passwordText.getText().toString().trim();
+//        int count = 0;
+//
+//        for(int i=0 ; i<val.length();i++)
+//        {
+//            if (Character.isDigit(val.charAt(i)))
+//            {
+//                count++;
+//            }
+//        }
+//        if(count == 0)
+//        {
+//            passwordText.setError("Password must contains at least one number");
+//            return false;
+//        }
+//
+//        if (val.isEmpty()) {
+//            passwordText.setError("Password can not be empty");
+//            return false;
+//        }else if (val.length() < 6) {
+//            passwordText.setError("Password must contains up to 6 characters");
+//            return false;
+//        }
+//        else if (val.length() > 30) {
+//            passwordText.setError("Password is too large");
+//            return false;
+//        }
+//            else {
+//            passwordText.setError(null);
+//            return true;
+//        }
+//    }
+//
+//    private boolean validateConfPass()
+//    {
+//        EditText passwordText = findViewById(R.id.etPassword);
+//        String val1 = passwordText.getText().toString().trim();
+//        EditText confPassText = findViewById(R.id.etConfirmPass);
+//        String val2 = passwordText.getText().toString().trim();
+//        int count =0;
+//
+//        if(count == 0)
+//        {
+//            passwordText.setError("Password must contains at least one number");
+//            return false;
+//        }
+//
+//        if(val1 != val2)
+//        {
+//            confPassText.setError("Passwords do not match. Please try again");
+//            return false;
+//        }
+//        else
+//        {
+//            confPassText.setError(null);
+//            return true;
+//        }
+//    }
     public void goToLogin(View v)
     {
         Intent in = new Intent(this, LoginActivity.class);
