@@ -80,6 +80,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
         android:background="@drawable/button_login"
+        android:clickable="true"
         android:foregroundGravity="center"
         android:text="Proceed"
         android:textColor="@color/white"
