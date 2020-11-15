@@ -14,12 +14,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class GymSelectActivity extends AppCompatActivity {
+public class SelectGymCity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gym_select);
+        setContentView(R.layout.activity_select_gym_city);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -31,21 +31,11 @@ public class GymSelectActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
-
-    @Override
-    public boolean onSupportNavigateUp()
-    {
-        onBackPressed();
-        return true;
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_selectgym, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -61,9 +51,6 @@ public class GymSelectActivity extends AppCompatActivity {
             Intent in = new Intent(this, LoginActivity.class);
             startActivity(in);
         }
-
-
         return super.onOptionsItemSelected(item);
     }
-
 }

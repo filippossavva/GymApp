@@ -7,7 +7,6 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -27,11 +26,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.gymapp.FacilitiesClassesActivity;
 import com.example.gymapp.R;
 import com.example.gymapp.RegisterActivity;
-import com.example.gymapp.SelectCityActivity;
-import com.example.gymapp.WelcomeFragment;
+import com.example.gymapp.SelectGymCity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -202,7 +199,7 @@ public class LoginActivity extends AppCompatActivity {
                 {
                     Toast.makeText(getApplicationContext(),"Login Successful!",Toast.LENGTH_LONG).show();
 
-                    Intent in = new Intent(LoginActivity.this, FacilitiesClassesActivity.class);
+                    Intent in = new Intent(LoginActivity.this, SelectGymCity.class);
                     startActivity(in);
                 }
                 else

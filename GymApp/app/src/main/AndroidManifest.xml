@@ -16,13 +16,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GymApp">
-        <activity android:name=".PersonalActivity"></activity>
+        <activity
+            android:name=".SelectGymCity"
+            android:label="@string/title_activity_select_gym_city"
+            android:theme="@style/Theme.GymApp.NoActionBar"></activity>
+        <activity android:name=".PersonalActivity" />
         <activity android:name=".ClassesActivity" />
         <activity android:name=".WeightsActivity" />
-        <activity
-            android:name=".SelectCityActivity"
-            android:label="@string/title_activity_select_city"
-            android:theme="@style/Theme.GymApp.NoActionBar" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -41,36 +41,29 @@
         <activity
             android:name=".RateActivity"
             android:label="@string/title_activity_rate"
-            android:theme="@style/Theme.GymApp.NoActionBar" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
+            android:theme="@style/Theme.GymApp.NoActionBar"></activity>
         <activity
             android:name=".SocialMediaActivity"
             android:label="@null" />
         <activity
             android:name=".FacilitiesClassesActivity"
             android:label="Facilities and Classes"
-            android:theme="@style/Theme.GymApp.NoActionBar">
-
-        </activity>
+            android:theme="@style/Theme.GymApp.NoActionBar"></activity>
         <activity
             android:name=".GymSelectActivity"
             android:label="Find your Gym"
             android:theme="@style/Theme.GymApp.NoActionBar" />
         <activity
             android:name=".RegisterActivity"
-            android:label="Register" >
-
-        </activity>
+            android:label="Register"></activity>
         <activity
             android:name=".ui.login.LoginActivity"
-            android:label="Log In" >
+            android:label="Log In">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <meta-data

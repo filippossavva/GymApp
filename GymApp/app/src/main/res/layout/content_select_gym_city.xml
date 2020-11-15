@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/weights_background"
+    android:background="@drawable/gymback"
     android:orientation="vertical"
-    tools:context=".SelectCityFragment">
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <TextView
         android:id="@+id/textCities"
@@ -73,16 +72,6 @@
             android:textColor="@color/white" />
     </RadioGroup>
 
-    <Button
-        android:id="@+id/button_second"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/button_login"
-        android:clickable="true"
-        android:foregroundGravity="center"
-        android:text="Proceed"
-        android:textColor="@color/white"
-        app:backgroundTint="@drawable/button_login" />
+
+
 </LinearLayout>

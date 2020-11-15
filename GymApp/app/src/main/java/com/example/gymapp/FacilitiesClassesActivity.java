@@ -37,6 +37,8 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
 
 
 
+
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,4 +78,10 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
         Intent in = new Intent(this,PersonalActivity.class);
         startActivity(in);
     }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.menu_classesfacilities, menu);
+//        return true;
+//    }
 }
