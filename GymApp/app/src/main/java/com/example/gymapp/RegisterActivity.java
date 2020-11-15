@@ -266,66 +266,52 @@ public class RegisterActivity extends AppCompatActivity {
             return true;
         }
     }
-//    private boolean validatePassword() {
-//        EditText passwordText = findViewById(R.id.etPassword);
-//        String val = passwordText.getText().toString().trim();
-//        int count = 0;
-//
-//        for(int i=0 ; i<val.length();i++)
-//        {
-//            if (Character.isDigit(val.charAt(i)))
-//            {
-//                count++;
-//            }
-//        }
-//        if(count == 0)
-//        {
-//            passwordText.setError("Password must contains at least one number");
-//            return false;
-//        }
-//
-//        if (val.isEmpty()) {
-//            passwordText.setError("Password can not be empty");
-//            return false;
-//        }else if (val.length() < 6) {
-//            passwordText.setError("Password must contains up to 6 characters");
-//            return false;
-//        }
-//        else if (val.length() > 30) {
-//            passwordText.setError("Password is too large");
-//            return false;
-//        }
-//            else {
-//            passwordText.setError(null);
-//            return true;
-//        }
-//    }
-//
-//    private boolean validateConfPass()
-//    {
-//        EditText passwordText = findViewById(R.id.etPassword);
-//        String val1 = passwordText.getText().toString().trim();
-//        EditText confPassText = findViewById(R.id.etConfirmPass);
-//        String val2 = passwordText.getText().toString().trim();
-//        int count =0;
-//
-//        if(count == 0)
-//        {
-//            passwordText.setError("Password must contains at least one number");
-//            return false;
-//        }
-//
-//        if(val1 != val2)
-//        {
-//            confPassText.setError("Passwords do not match. Please try again");
-//            return false;
-//        }
-//        else
-//        {
-//            confPassText.setError(null);
-//            return true;
-//        }
-//    }
+
+    private boolean validatePassword() {
+        EditText password = findViewById(R.id.etPassword);
+        String val = password.getText().toString().trim();
+
+        String passType = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[.@#$%^&+=])(?=\\S+$).{6,15}$";
+
+        if(!val.matches(passType))
+        {
+            password.setError("Password must contains more tha 6 characters,lower case,capital case,numbers and symbols");
+            return false;
+        }
+        else if(val.isEmpty())
+        {
+            password.setError("Field can not be empty");
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    private boolean validateConfPass()
+    {
+        EditText password = findViewById(R.id.etPassword);
+        String val1 = password.getText().toString().trim();
+        EditText conf = findViewById(R.id.etConfirmPass);
+        String val2 = conf.getText().toString().trim();
+
+        if(val2.isEmpty())
+        {
+            password.setError("Field can not be empty");
+            return false;
+        }
+        else if(val1.equals(val2))
+        {
+            conf.setError("Passwords do not match!");
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+
+    }
     public void goToLogin(View v)
     {
         Intent in = new Intent(this, LoginActivity.class);
