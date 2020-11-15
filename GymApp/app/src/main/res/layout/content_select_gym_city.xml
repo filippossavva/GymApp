@@ -12,7 +12,7 @@
         android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="150dp"
         android:layout_marginBottom="10dp"
         android:background="@color/black"
         android:foregroundGravity="center"
@@ -74,14 +74,12 @@
     </RadioGroup>
 
     <Button
-        android:id="@+id/b_proceed"
+        android:id="@+id/bProceed"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
         android:background="@drawable/button_login"
-        android:backgroundTint="@drawable/button_login"
-        android:onClick="proceedToGym"
         android:text="proceed"
         app:backgroundTint="@null" />
 
