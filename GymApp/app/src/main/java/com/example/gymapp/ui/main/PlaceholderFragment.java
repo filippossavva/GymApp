@@ -1,8 +1,11 @@
 package com.example.gymapp.ui.main;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
@@ -23,6 +26,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.gymapp.R;
+import com.example.gymapp.ui.login.LoginActivity;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageListener;
 
@@ -142,4 +146,5 @@ public class PlaceholderFragment extends Fragment {
         }
         return root;
     }
+
 }

@@ -9,6 +9,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -35,10 +36,8 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
         FloatingActionButton fab = findViewById(R.id.fab);
         FloatingActionButton instagram = findViewById(R.id.fabinsta);
         FloatingActionButton map = findViewById(R.id.fabmap);
-
-
-
-
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +62,8 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
                 startActivity(in);
             }
         });
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
     public void moveToWeights(View v)
     {
@@ -86,17 +87,23 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
         return true;
     }
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-    // Handle action bar item clicks here. The action bar will
-    // automatically handle clicks on the Home/Up button, so long
-    // as you specify a parent activity in AndroidManifest.xml.
-    int id = item.getItemId();
-
-    //noinspection SimplifiableIfStatement
-    if (id == R.id.action_logout) {
-        Intent in = new Intent(this, LoginActivity.class);
-        startActivity(in);
+    public boolean onSupportNavigateUp()
+    {
+        onBackPressed();
+        return true;
     }
-    return super.onOptionsItemSelected(item);
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_logout) {
+            Intent in = new Intent(this, LoginActivity.class);
+            startActivity(in);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
