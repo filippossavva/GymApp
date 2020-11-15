@@ -19,7 +19,13 @@
         <activity
             android:name=".SelectGymCity"
             android:label="@string/title_activity_select_gym_city"
-            android:theme="@style/Theme.GymApp.NoActionBar"></activity>
+            android:theme="@style/Theme.GymApp.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".PersonalActivity" />
         <activity android:name=".ClassesActivity" />
         <activity android:name=".WeightsActivity" />

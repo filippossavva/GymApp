@@ -35,6 +35,37 @@ public class SelectGymCity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        Button b1 = findViewById(R.id.bProceed);
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RadioGroup group = findViewById(R.id.rgCities);
+
+                int selection = group.getCheckedRadioButtonId();
+                if(selection == R.id.rbNicosia)
+                {
+                    city = "Nicosia";
+                }
+                else if(selection == R.id.rbPafos)
+                {
+                    city = "Pafos";
+                }
+                else if(selection == R.id.rbFamagusta)
+                {
+                    city = "Famagusta";
+                }
+                else if(selection == R.id.rbLimassol)
+                {
+                    city = "Limassol";
+                }
+                else if(selection == R.id.rbLarnaca)
+                {
+                    city = "Larnaca";
+                }
+                Toast.makeText(getApplicationContext(), city, Toast.LENGTH_LONG).show();
+            }
+        });
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -58,31 +89,31 @@ public class SelectGymCity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void proceedToGym(View v)
-    {
-        RadioGroup group = findViewById(R.id.rgCities);
-
-        int selection = group.getCheckedRadioButtonId();
-        if(selection == R.id.rbNicosia)
-        {
-            city = "Nicosia";
-        }
-        else if(selection == R.id.rbPafos)
-        {
-            city = "Pafos";
-        }
-        else if(selection == R.id.rbFamagusta)
-        {
-            city = "Famagusta";
-        }
-        else if(selection == R.id.rbLimassol)
-        {
-            city = "Limassol";
-        }
-        else if(selection == R.id.rbLarnaca)
-        {
-            city = "Larnaca";
-        }
-        Toast.makeText(getApplicationContext(), city, Toast.LENGTH_LONG).show();
-    }
+//    public void proceedToGym(View v)
+//    {
+//        RadioGroup group = findViewById(R.id.rgCities);
+//
+//        int selection = group.getCheckedRadioButtonId();
+//        if(selection == R.id.rbNicosia)
+//        {
+//            city = "Nicosia";
+//        }
+//        else if(selection == R.id.rbPafos)
+//        {
+//            city = "Pafos";
+//        }
+//        else if(selection == R.id.rbFamagusta)
+//        {
+//            city = "Famagusta";
+//        }
+//        else if(selection == R.id.rbLimassol)
+//        {
+//            city = "Limassol";
+//        }
+//        else if(selection == R.id.rbLarnaca)
+//        {
+//            city = "Larnaca";
+//        }
+//        Toast.makeText(getApplicationContext(), city, Toast.LENGTH_LONG).show();
+//    }
 }
