@@ -6,6 +6,8 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -33,19 +35,21 @@ public class ClassesFragment extends Fragment {
                 NotificationChannel channel = null;
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
                     channel = new NotificationChannel(
-                            "1",
-                            "channel1",
+                            "2",
+                            "channel2",
                             NotificationManager.IMPORTANCE_DEFAULT);
 
                     //create the notification manager
                     NotificationManager manager = ( NotificationManager ) getActivity().getSystemService( getActivity().NOTIFICATION_SERVICE );
                     manager.createNotificationChannel(channel);
-
+                    Bitmap bitmap = BitmapFactory.decodeResource(getResources(),
+                            R.drawable.classnotifications);
                     //create the notification
-                    NotificationCompat.Builder notification = new NotificationCompat.Builder(getActivity(), "1")
+                    NotificationCompat.Builder notification = new NotificationCompat.Builder(getActivity(), "2")
                             .setSmallIcon(android.R.drawable.btn_star)
-                            .setContentTitle( "Thanks for rating our classes" )
+                            .setContentTitle( "Thanks for rating our classes")
                             .setContentText(body)
+                            .setStyle(new NotificationCompat.BigPictureStyle().bigPicture(bitmap))
                             .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
                     NotificationManagerCompat notifyAdmin = NotificationManagerCompat.from(getActivity());
