@@ -21,6 +21,7 @@
         android:textSize="18sp" />
 
     <RadioGroup
+        android:id="@+id/rgCities"
         android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -72,6 +73,17 @@
             android:textColor="@color/white" />
     </RadioGroup>
 
+    <Button
+        android:id="@+id/b_proceed"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/button_login"
+        android:backgroundTint="@drawable/button_login"
+        android:onClick="proceedToGym"
+        android:text="proceed"
+        app:backgroundTint="@null" />
 
 
 </LinearLayout>

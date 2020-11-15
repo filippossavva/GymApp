@@ -13,8 +13,12 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.RadioGroup;
+import android.widget.Toast;
 
 public class SelectGymCity extends AppCompatActivity {
+    String city = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,5 +56,33 @@ public class SelectGymCity extends AppCompatActivity {
             startActivity(in);
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void proceedToGym(View v)
+    {
+        RadioGroup group = findViewById(R.id.rgCities);
+
+        int selection = group.getCheckedRadioButtonId();
+        if(selection == R.id.rbNicosia)
+        {
+            city = "Nicosia";
+        }
+        else if(selection == R.id.rbPafos)
+        {
+            city = "Pafos";
+        }
+        else if(selection == R.id.rbFamagusta)
+        {
+            city = "Famagusta";
+        }
+        else if(selection == R.id.rbLimassol)
+        {
+            city = "Limassol";
+        }
+        else if(selection == R.id.rbLarnaca)
+        {
+            city = "Larnaca";
+        }
+        Toast.makeText(getApplicationContext(), city, Toast.LENGTH_LONG).show();
     }
 }
