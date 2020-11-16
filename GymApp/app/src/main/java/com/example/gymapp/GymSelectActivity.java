@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 public class GymSelectActivity extends AppCompatActivity {
+    String city = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,7 @@ public class GymSelectActivity extends AppCompatActivity {
         setContentView(R.layout.activity_gym_select);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -33,6 +35,10 @@ public class GymSelectActivity extends AppCompatActivity {
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        Intent in = getIntent();
+        city = in.getStringExtra(SelectGymCity.CITY);
+        getSupportActionBar().setTitle(city);
     }
 
     @Override

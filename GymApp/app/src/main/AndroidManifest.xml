@@ -20,6 +20,11 @@
             android:name=".SelectGymCity"
             android:label="@string/title_activity_select_gym_city"
             android:theme="@style/Theme.GymApp.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".PersonalActivity" />
         <activity android:name=".ClassesActivity" />
@@ -52,16 +57,12 @@
             android:name=".FacilitiesClassesActivity"
             android:label="Facilities and Classes"
             android:theme="@style/Theme.GymApp.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".GymSelectActivity"
             android:label="Find your Gym"
-            android:theme="@style/Theme.GymApp.NoActionBar" />
+            android:theme="@style/Theme.GymApp.NoActionBar">
+        </activity>
         <activity
             android:name=".RegisterActivity"
             android:label="Register">
