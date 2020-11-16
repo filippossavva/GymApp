@@ -67,6 +67,10 @@ public class GymSelectActivity extends AppCompatActivity {
             Intent in = new Intent(this, LoginActivity.class);
             startActivity(in);
         }
+        else if (id == R.id.action_location) {
+            Intent in = new Intent(this, SelectGymCity.class);
+            startActivity(in);
+        }
 
 
         return super.onOptionsItemSelected(item);
