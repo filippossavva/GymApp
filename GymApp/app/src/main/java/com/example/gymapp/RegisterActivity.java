@@ -82,7 +82,7 @@ public class RegisterActivity extends AppCompatActivity {
                 }
 
 
-                if(validateName() && validateSurname() && validateUsername() && validateEmail() ){
+                if(validateName() && validateSurname() && validateUsername() && validateEmail() && validatePassword() && validateConfPass() ){
                     loading.setVisibility(View.VISIBLE);
                     fAuth.createUserWithEmailAndPassword(emailText,passwordText).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
@@ -271,11 +271,11 @@ public class RegisterActivity extends AppCompatActivity {
         EditText password = findViewById(R.id.etPassword);
         String val = password.getText().toString().trim();
 
-        String passType = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[.@#$%^&+=])(?=\\S+$).{6,15}$";
+        String passType = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[.@#$%^&+=])(?=\\S+$).{6,30}$";
 
         if(!val.matches(passType))
         {
-            password.setError("Password must contains more tha 6 characters,lower case,capital case,numbers and symbols");
+            password.setError("Password must contains more tha 6 characters,lower case,capital case,number and symbol");
             return false;
         }
         else if(val.isEmpty())

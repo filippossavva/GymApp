@@ -29,7 +29,13 @@
                 android:text="REGISTER"
                 android:textColor="#FFFFFF"
                 android:textSize="50sp" />
-
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="92dp"
+                tools:layout_editor_absoluteY="248dp"
+                android:textColorHint="@color/white">
             <EditText
                 android:id="@+id/etName"
                 android:layout_width="match_parent"
@@ -43,7 +49,15 @@
                 android:paddingLeft="5dp"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white" />
+            </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="92dp"
+                tools:layout_editor_absoluteY="248dp"
+                android:textColorHint="@color/white">
             <EditText
                 android:id="@+id/etSurname"
                 android:layout_width="match_parent"
@@ -57,7 +71,15 @@
                 android:paddingLeft="5dp"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white" />
+            </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="92dp"
+                tools:layout_editor_absoluteY="248dp"
+                android:textColorHint="@color/white">
             <EditText
                 android:id="@+id/etEmail"
                 android:layout_width="match_parent"
@@ -72,7 +94,15 @@
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
                 android:textSize="18sp" />
+            </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="92dp"
+                tools:layout_editor_absoluteY="248dp"
+                android:textColorHint="@color/white">
             <EditText
                 android:id="@+id/etEmailAddress"
                 android:layout_width="match_parent"
@@ -85,22 +115,42 @@
                 android:selectAllOnFocus="true"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white" />
-
-            <EditText
-                android:id="@+id/etPassword"
+            </com.google.android.material.textfield.TextInputLayout>
+            
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="10dp"
-                android:background="#202020"
-                android:hint="@string/prompt_password"
-                android:imeActionLabel="@string/action_sign_in_short"
-                android:imeOptions="actionDone"
-                android:inputType="textPassword"
-                android:paddingLeft="5dp"
-                android:selectAllOnFocus="true"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white" />
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="92dp"
+                app:passwordToggleTint="@color/white"
+                app:passwordToggleEnabled="true"
+                tools:layout_editor_absoluteY="248dp"
+                android:textColorHint="@color/white">
 
+                <EditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#202020"
+                    android:hint="@string/prompt_password"
+                    android:imeActionLabel="@string/action_sign_in_short"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPassword"
+                    android:paddingLeft="5dp"
+                    android:selectAllOnFocus="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="92dp"
+                app:passwordToggleTint="@color/white"
+                app:passwordToggleEnabled="true"
+                tools:layout_editor_absoluteY="248dp"
+                android:textColorHint="@color/white">
             <EditText
                 android:id="@+id/etConfirmPass"
                 android:layout_width="match_parent"
@@ -111,9 +161,8 @@
                 android:gravity="center|left"
                 android:hint="Confirm Password"
                 android:inputType="textPassword"
-                android:paddingLeft="5dp"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white" />
+                android:paddingLeft="5dp" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <RadioGroup
                 android:id="@+id/rbGroup"
