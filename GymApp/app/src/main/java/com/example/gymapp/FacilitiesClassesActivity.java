@@ -104,6 +104,10 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
             Intent in = new Intent(this, LoginActivity.class);
             startActivity(in);
         }
+        else if (id == R.id.action_rate) {
+            Intent in = new Intent(this, RateActivity.class);
+            startActivity(in);
+        }
         return super.onOptionsItemSelected(item);
     }
 }

@@ -5,4 +5,9 @@
         android:orderInCategory="1"
         android:title="Logout"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/action_rate"
+        android:orderInCategory="2"
+        android:title="Rate This Gym"
+        app:showAsAction="never" />
 </menu>

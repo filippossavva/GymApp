@@ -1,9 +1,12 @@
 package com.example.gymapp;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 
+import com.example.gymapp.ui.login.LoginActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -53,7 +56,28 @@ public class RateActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.rate, menu);
         return true;
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
 
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_logout) {
+            Intent in = new Intent(this, LoginActivity.class);
+            startActivity(in);
+        }
+        else if (id == R.id.action_select) {
+            Intent in = new Intent(this, GymSelectActivity.class);
+            startActivity(in);
+        }
+        else if (id == R.id.action_location) {
+            Intent in = new Intent(this, MapsActivity.class);
+            startActivity(in);
+        }
+        return super.onOptionsItemSelected(item);
+    }
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
