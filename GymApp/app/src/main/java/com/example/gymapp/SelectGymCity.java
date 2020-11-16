@@ -32,8 +32,7 @@ public class SelectGymCity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Toast.makeText(getApplicationContext(), "Choose the City of your interest", Toast.LENGTH_LONG).show();
             }
         });
 
