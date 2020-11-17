@@ -122,8 +122,6 @@
                 android:layout_height="wrap_content"
                 tools:ignore="MissingConstraints"
                 tools:layout_editor_absoluteX="92dp"
-                app:passwordToggleTint="@color/white"
-                app:passwordToggleEnabled="true"
                 tools:layout_editor_absoluteY="248dp"
                 android:textColorHint="@color/white">
 
@@ -147,8 +145,6 @@
                 android:layout_height="wrap_content"
                 tools:ignore="MissingConstraints"
                 tools:layout_editor_absoluteX="92dp"
-                app:passwordToggleTint="@color/white"
-                app:passwordToggleEnabled="true"
                 tools:layout_editor_absoluteY="248dp"
                 android:textColorHint="@color/white">
             <EditText
@@ -172,17 +168,19 @@
 
                 <RadioButton
                     android:id="@+id/rbMale"
-                    android:layout_width="match_parent"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:background="#202020"
+                    android:checked="true"
                     android:text="Male"
                     android:textColor="#FFFFFF"
                     android:textSize="16sp" />
 
                 <RadioButton
                     android:id="@+id/rbFemale"
-                    android:layout_width="match_parent"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
                     android:background="#202020"
                     android:text="Female"
                     android:textColor="#FFFFFF"

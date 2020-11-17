@@ -204,6 +204,8 @@ public class LoginActivity extends AppCompatActivity {
                 else
                 {
                     Toast.makeText(getApplicationContext(),"Failed to login.Please check your credentials!",Toast.LENGTH_LONG).show();
+                    Intent in = new Intent(LoginActivity.this, LoginActivity.class);
+                    startActivity(in);
                 }
             }
         });
