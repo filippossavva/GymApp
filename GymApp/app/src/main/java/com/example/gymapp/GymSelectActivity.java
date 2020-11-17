@@ -4,19 +4,30 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.gymapp.ui.login.LoginActivity;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
 public class GymSelectActivity extends AppCompatActivity {
     String city = "";
+    FirebaseDatabase fAuth;
+    DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +35,11 @@ public class GymSelectActivity extends AppCompatActivity {
         setContentView(R.layout.activity_gym_select);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        RecyclerView recycle = findViewById(R.id.recyclerview);
+        recycle.setHasFixedSize(true);
+        recycle.setLayoutManager(new LinearLayoutManager(this));
+
 
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -39,6 +55,39 @@ public class GymSelectActivity extends AppCompatActivity {
         Intent in = getIntent();
         city = in.getStringExtra(SelectGymCity.CITY);
         getSupportActionBar().setTitle(city);
+
+        fAuth = FirebaseDatabase.getInstance();
+        databaseReference = fAuth.getReference(city);
+    }
+
+    public void onStart() {
+        super.onStart();
+
+        FirebaseRecyclerOptions<Gyms> options = new FirebaseRecyclerOptions.Builder<Gyms>()
+                .setQuery(databaseReference,Gyms.class).build();
+
+        FirebaseRecyclerAdapter<Gyms,ViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Gyms, ViewHolder>(options) {
+            @Override
+            protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull Gyms model) {
+
+                holder.setInformation(GymSelectActivity.this,model.getImage(),model.getTitle());
+
+            }
+
+            @NonNull
+            @Override
+            public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.gyms,parent,false);
+
+                return new ViewHolder(view);
+            }
+        };
+
+
+        firebaseRecyclerAdapter.startListening();
+        RecyclerView recycle = findViewById(R.id.recyclerview);
+        recycle.setAdapter(firebaseRecyclerAdapter);
+
     }
 
     @Override

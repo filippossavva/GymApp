@@ -271,7 +271,7 @@ public class RegisterActivity extends AppCompatActivity {
         EditText password = findViewById(R.id.etPassword);
         String val = password.getText().toString().trim();
 
-        String passType = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[.@#$%^&+=])(?=\\S+$).{6,30}$";
+        String passType = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[.!@#$%^&+=])(?=\\S+$).{6,30}$";
 
         if(!val.matches(passType))
         {
@@ -301,7 +301,7 @@ public class RegisterActivity extends AppCompatActivity {
             password.setError("Field can not be empty");
             return false;
         }
-        else if(val1.equals(val2))
+        else if(!val1.equals(val2))
         {
             conf.setError("Passwords do not match!");
             return false;
