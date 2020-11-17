@@ -110,7 +110,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/hyperlink"
         android:gravity="center"
-        android:text="Forgot your password?"
+        android:text="@string/forgot_pass"
         android:textColor="@color/design_default_color_primary_variant"
         android:textSize="18sp" />
 
