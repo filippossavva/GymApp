@@ -6,9 +6,13 @@ import android.os.Bundle;
 import com.example.gymapp.ui.login.LoginActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.media.MediaSessionManager;
 
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,11 +24,17 @@ import android.widget.Toast;
 public class SelectGymCity extends AppCompatActivity {
     String city = "";
     public static final String CITY = "";
+    FirebaseAuth fAuth;
+    FirebaseUser user;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_gym_city);
+
+        fAuth = FirebaseAuth.getInstance();
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -76,18 +86,44 @@ public class SelectGymCity extends AppCompatActivity {
         return true;
     }
 
+
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+        super.onOptionsItemSelected(item);
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_logout) {
-            Intent in = new Intent(this, LoginActivity.class);
-            startActivity(in);
+        userlogout();
         }
-        return super.onOptionsItemSelected(item);
+        return true;
+
+    }
+
+    private void userlogout() {
+        FirebaseAuth.getInstance().signOut();
+        Intent in = new Intent(this, LoginActivity.class);
+        startActivity(in);
+        finish();
+        Toast.makeText(getApplicationContext(), "You are signed out!", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        user = fAuth.getCurrentUser();
+        if (user == null)
+        {
+            userlogout();
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
     }
 }
