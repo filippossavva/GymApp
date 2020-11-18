@@ -98,7 +98,6 @@ public class PlaceholderFragment extends Fragment {
             s5.setVisibility(View.INVISIBLE);
             s6.setVisibility(View.INVISIBLE);
             carousel.setVisibility(View.INVISIBLE);
-
         }
         else if(getArguments().getInt(ARG_SECTION_NUMBER) == 2)
         {

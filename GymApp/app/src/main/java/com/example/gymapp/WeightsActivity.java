@@ -19,6 +19,7 @@ public class WeightsActivity extends AppCompatActivity {
         MediaController mediaController = new MediaController(this);
         mediaController.setAnchorView(videoView);
         videoView.setMediaController(mediaController);
+        getSupportActionBar().setTitle("Weights");
     }
     @Override
     public boolean onSupportNavigateUp()

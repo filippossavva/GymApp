@@ -19,6 +19,7 @@ public class PersonalActivity extends AppCompatActivity {
         MediaController mediaController = new MediaController(this);
         mediaController.setAnchorView(videoView);
         videoView.setMediaController(mediaController);
+        getSupportActionBar().setTitle("Personal");
     }
     @Override
     public boolean onSupportNavigateUp()

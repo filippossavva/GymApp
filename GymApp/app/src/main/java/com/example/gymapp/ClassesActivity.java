@@ -20,6 +20,7 @@ public class ClassesActivity extends AppCompatActivity {
         MediaController mediaController = new MediaController(this);
         mediaController.setAnchorView(videoView);
         videoView.setMediaController(mediaController);
+        getSupportActionBar().setTitle("Classes");
     }
     @Override
     public boolean onSupportNavigateUp()
