@@ -15,7 +15,7 @@ public class WeightsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         VideoView videoView = findViewById(R.id.videoView3);
-        videoView.setVideoPath("android.resource://"+getPackageName()+"/"+R.raw.trx1);
+        videoView.setVideoPath("android.resource://"+getPackageName()+"/"+R.raw.weights);
         MediaController mediaController = new MediaController(this);
         mediaController.setAnchorView(videoView);
         videoView.setMediaController(mediaController);

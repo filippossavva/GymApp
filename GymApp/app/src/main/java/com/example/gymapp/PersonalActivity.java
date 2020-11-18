@@ -15,7 +15,7 @@ public class PersonalActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         VideoView videoView = findViewById(R.id.videoView2);
-        videoView.setVideoPath("android.resource://"+getPackageName()+"/"+R.raw.trx1);
+        videoView.setVideoPath("android.resource://"+getPackageName()+"/"+R.raw.personal);
         MediaController mediaController = new MediaController(this);
         mediaController.setAnchorView(videoView);
         videoView.setMediaController(mediaController);
