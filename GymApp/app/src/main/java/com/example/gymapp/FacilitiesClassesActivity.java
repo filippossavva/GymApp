@@ -125,7 +125,7 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
         }
 
     }
-    //signOut
+    //signOut.
     private void userlogout() {
         FirebaseAuth.getInstance().signOut();
         Intent in = new Intent(this, LoginActivity.class);
