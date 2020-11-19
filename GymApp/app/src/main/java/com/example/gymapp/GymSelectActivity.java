@@ -46,13 +46,13 @@ public class GymSelectActivity extends AppCompatActivity {
         recycle.setHasFixedSize(true);
         recycle.setLayoutManager(new LinearLayoutManager(this));
 
-        ImageButton imageNext = findViewById(R.id.ibGyms);
-        imageNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goToFacilities();
-            }
-        });
+//        ImageButton imageNext = findViewById(R.id.ibGyms);
+//        imageNext.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                goToFacilities();
+//            }
+//        });
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -162,7 +162,7 @@ public class GymSelectActivity extends AppCompatActivity {
         super.onStop();
     }
 
-    public void goToFacilities()
+    public void goToFacilities(View v)
     {
         Intent intent = new Intent(this, FacilitiesClassesActivity.class);
         startActivity(intent);
