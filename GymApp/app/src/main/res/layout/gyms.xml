@@ -12,7 +12,6 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="286dp"
-        android:onClick="goToFacilities"
         android:orientation="vertical">
 
         <TextView
@@ -21,7 +20,6 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/bungee"
             android:gravity="center"
-            android:onClick="goToFacilities"
             android:text="TextView"
             android:textColor="#FFFFFF"
             android:textColorHint="#FFFFFF" />
@@ -31,7 +29,6 @@
             android:layout_width="375dp"
             android:layout_height="244dp"
             android:layout_gravity="center"
-            android:onClick="goToFacilities"
             app:srcCompat="@drawable/ic_menu_gallery" />
 
     </LinearLayout>
