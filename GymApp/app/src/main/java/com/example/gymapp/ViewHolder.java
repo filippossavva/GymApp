@@ -20,6 +20,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
 
         view=itemView;
     }
+    
     public void setInformation(Context context,String Image, String Title)
     {
         TextView fbtitle = view.findViewById(R.id.tvGyms);
