@@ -51,7 +51,9 @@
         <activity
             android:name=".FacilitiesClassesActivity"
             android:label="Facilities and Classes"
-            android:theme="@style/Theme.GymApp.NoActionBar"></activity>
+            android:theme="@style/Theme.GymApp.NoActionBar">
+
+        </activity>
         <activity
             android:name=".GymSelectActivity"
             android:label="Find your Gym"

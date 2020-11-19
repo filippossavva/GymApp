@@ -27,7 +27,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class FacilitiesClassesActivity extends AppCompatActivity {
     public static final String URL = "";
-    FirebaseAuth fAuth;
+    FirebaseAuth mAuth;
     FirebaseUser user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +43,7 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
         FloatingActionButton map = findViewById(R.id.fabmap);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        mAuth = FirebaseAuth.getInstance();
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,7 +134,7 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        user = fAuth.getCurrentUser();
+        user = mAuth.getCurrentUser();
         if (user == null)
         {
             userlogout();

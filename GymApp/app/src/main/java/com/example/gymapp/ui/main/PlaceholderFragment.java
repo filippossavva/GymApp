@@ -64,7 +64,7 @@ public class PlaceholderFragment extends Fragment {
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_facilities_classes, container, false);
         TextView tv = root.findViewById(R.id.textView4);
-        Button b2 = root.findViewById(R.id.button2);
+        Button b2 = root.findViewById(R.id.bCalcFee);
         CheckBox c1 = root.findViewById(R.id.cbWeights);
         CheckBox c2 = root.findViewById(R.id.cbClasses);
         CheckBox c3 = root.findViewById(R.id.cbPersonal);
