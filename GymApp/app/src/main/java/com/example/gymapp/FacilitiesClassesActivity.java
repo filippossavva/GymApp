@@ -108,6 +108,33 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
             Intent in = new Intent(this, RateActivity.class);
             startActivity(in);
         }
-        return super.onOptionsItemSelected(item);
+        else
+        {
+            return super.onOptionsItemSelected(item);
+        }
+
+    }
+    //signOut
+    private void userlogout() {
+        FirebaseAuth.getInstance().signOut();
+        Intent in = new Intent(this, LoginActivity.class);
+        startActivity(in);
+        finish();
+        Toast.makeText(getApplicationContext(), "Sign Out Successful!", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        user = fAuth.getCurrentUser();
+        if (user == null)
+        {
+            userlogout();
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
     }
 }
