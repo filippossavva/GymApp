@@ -24,6 +24,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class GymSelectActivity extends AppCompatActivity {
@@ -61,7 +62,14 @@ public class GymSelectActivity extends AppCompatActivity {
         city = in.getStringExtra(SelectGymCity.CITY);
         getSupportActionBar().setTitle(city);
 
-
+        ImageButton imageNext = findViewById(R.id.ibGyms);
+        imageNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), FacilitiesClassesActivity.class);
+                startActivity(intent);
+            }
+        });
 
         fAuth = FirebaseDatabase.getInstance();
         databaseReference = fAuth.getReference(city);
