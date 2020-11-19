@@ -18,17 +18,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.MediaController;
-import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.example.gymapp.ui.main.SectionsPagerAdapter;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class FacilitiesClassesActivity extends AppCompatActivity {
     public static final String URL = "";
-    FirebaseAuth fAuth;
-    FirebaseUser user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +38,6 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
         FloatingActionButton map = findViewById(R.id.fabmap);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        fAuth = FirebaseAuth.getInstance();
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,15 +101,12 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_logout) {
-            super.onOptionsItemSelected(item);
-            userlogout();
-            return true;
+            Intent in = new Intent(this, LoginActivity.class);
+            startActivity(in);
         }
         else if (id == R.id.action_rate) {
             Intent in = new Intent(this, RateActivity.class);
             startActivity(in);
-            return super.onOptionsItemSelected(item);
-
         }
         else
         {
@@ -123,7 +114,7 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
         }
 
     }
-    //signOut..
+    //signOut.
     private void userlogout() {
         FirebaseAuth.getInstance().signOut();
         Intent in = new Intent(this, LoginActivity.class);
