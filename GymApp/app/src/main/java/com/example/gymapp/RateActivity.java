@@ -5,11 +5,14 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Toast;
 
 import com.example.gymapp.ui.login.LoginActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -20,7 +23,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 public class RateActivity extends AppCompatActivity {
-
+    FirebaseAuth fAuth;
+    FirebaseUser user;
     private AppBarConfiguration mAppBarConfiguration;
 
     @Override
@@ -29,12 +33,12 @@ public class RateActivity extends AppCompatActivity {
         setContentView(R.layout.activity_rate);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        fAuth = FirebaseAuth.getInstance();
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Toast.makeText(getApplicationContext(), "Please be gentle!", Toast.LENGTH_LONG).show();
             }
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -64,24 +68,52 @@ public class RateActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_logout) {
-            Intent in = new Intent(this, LoginActivity.class);
-            startActivity(in);
-        }
+            if (id == R.id.action_logout) {
+                super.onOptionsItemSelected(item);
+                userlogout();
+                return true;
+            }
         else if (id == R.id.action_select) {
             Intent in = new Intent(this, GymSelectActivity.class);
             startActivity(in);
+            return super.onOptionsItemSelected(item);
         }
         else if (id == R.id.action_location) {
             Intent in = new Intent(this, SelectGymCity.class);
             startActivity(in);
+            return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
+        else {
+                return super.onOptionsItemSelected(item);
+            }
+
     }
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+    private void userlogout() {
+        FirebaseAuth.getInstance().signOut();
+        Intent in = new Intent(this, LoginActivity.class);
+        startActivity(in);
+        finish();
+        Toast.makeText(getApplicationContext(), "Sign Out Successful!", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        user = fAuth.getCurrentUser();
+        if (user == null)
+        {
+            userlogout();
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
     }
 }

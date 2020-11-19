@@ -93,14 +93,18 @@ public class SelectGymCity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        super.onOptionsItemSelected(item);
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_logout) {
-        userlogout();
+            super.onOptionsItemSelected(item);
+            userlogout();
+            return true;
         }
-        return true;
+        else
+        {
+            return super.onOptionsItemSelected(item);
+        }
 
     }
 
@@ -109,7 +113,7 @@ public class SelectGymCity extends AppCompatActivity {
         Intent in = new Intent(this, LoginActivity.class);
         startActivity(in);
         finish();
-        Toast.makeText(getApplicationContext(), "You are signed out!", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "Sign Out Successful!", Toast.LENGTH_LONG).show();
     }
 
     @Override

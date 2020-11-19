@@ -8,6 +8,8 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -28,12 +30,15 @@ public class GymSelectActivity extends AppCompatActivity {
     String city = "";
     FirebaseDatabase fAuth;
     DatabaseReference databaseReference;
+    FirebaseAuth mAuth;
+    FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gym_select);
         Toolbar toolbar = findViewById(R.id.toolbar);
+        mAuth = FirebaseAuth.getInstance();
         setSupportActionBar(toolbar);
 
         RecyclerView recycle = findViewById(R.id.recyclerview);
@@ -56,12 +61,15 @@ public class GymSelectActivity extends AppCompatActivity {
         city = in.getStringExtra(SelectGymCity.CITY);
         getSupportActionBar().setTitle(city);
 
+
+
         fAuth = FirebaseDatabase.getInstance();
         databaseReference = fAuth.getReference(city);
     }
 
     public void onStart() {
         super.onStart();
+
 
         FirebaseRecyclerOptions<Gyms> options = new FirebaseRecyclerOptions.Builder<Gyms>()
                 .setQuery(databaseReference,Gyms.class).build();
@@ -88,6 +96,12 @@ public class GymSelectActivity extends AppCompatActivity {
         RecyclerView recycle = findViewById(R.id.recyclerview);
         recycle.setAdapter(firebaseRecyclerAdapter);
 
+        user = mAuth.getCurrentUser();
+        if (user == null)
+        {
+            userlogout();
+        }
+
     }
 
     @Override
@@ -109,20 +123,38 @@ public class GymSelectActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_logout) {
-            Intent in = new Intent(this, LoginActivity.class);
-            startActivity(in);
+            super.onOptionsItemSelected(item);
+            userlogout();
+            return true;
         }
+
         else if (id == R.id.action_location) {
             Intent in = new Intent(this, SelectGymCity.class);
             startActivity(in);
+            return super.onOptionsItemSelected(item);
+        }
+        else
+        {
+            return super.onOptionsItemSelected(item);
         }
 
 
-        return super.onOptionsItemSelected(item);
+    }
+    private void userlogout() {
+        FirebaseAuth.getInstance().signOut();
+        Intent in = new Intent(this, LoginActivity.class);
+        startActivity(in);
+        finish();
+        Toast.makeText(getApplicationContext(), "Sign Out Successful!", Toast.LENGTH_LONG).show();
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
     }
 
 }

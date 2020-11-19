@@ -27,6 +27,8 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class FacilitiesClassesActivity extends AppCompatActivity {
     public static final String URL = "";
+    FirebaseAuth fAuth;
+    FirebaseUser user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +41,7 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
         FloatingActionButton fab = findViewById(R.id.fab);
         FloatingActionButton instagram = findViewById(R.id.fabinsta);
         FloatingActionButton map = findViewById(R.id.fabmap);
+        fAuth = FirebaseAuth.getInstance();
 
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -107,13 +110,41 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_logout) {
-            Intent in = new Intent(this, LoginActivity.class);
-            startActivity(in);
+            super.onOptionsItemSelected(item);
+            userlogout();
+            return true;
         }
         else if (id == R.id.action_rate) {
             Intent in = new Intent(this, RateActivity.class);
             startActivity(in);
+            return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
+        else
+        {
+            return super.onOptionsItemSelected(item);
+        }
+
+    }
+    private void userlogout() {
+        FirebaseAuth.getInstance().signOut();
+        Intent in = new Intent(this, LoginActivity.class);
+        startActivity(in);
+        finish();
+        Toast.makeText(getApplicationContext(), "Sign Out Successful!", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        user = fAuth.getCurrentUser();
+        if (user == null)
+        {
+            userlogout();
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
     }
 }
