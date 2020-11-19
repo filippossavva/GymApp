@@ -164,7 +164,7 @@ public class GymSelectActivity extends AppCompatActivity {
 
     public void goToFacilities()
     {
-        Intent intent = new Intent(getApplicationContext(), FacilitiesClassesActivity.class);
+        Intent intent = new Intent(this, FacilitiesClassesActivity.class);
         startActivity(intent);
     }
 }
