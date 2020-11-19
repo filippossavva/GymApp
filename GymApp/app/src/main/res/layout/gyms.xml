@@ -29,6 +29,7 @@
             android:layout_width="375dp"
             android:layout_height="244dp"
             android:layout_gravity="center"
+            android:onClick="goToFacilities"
             app:srcCompat="@drawable/ic_menu_gallery" />
 
     </LinearLayout>

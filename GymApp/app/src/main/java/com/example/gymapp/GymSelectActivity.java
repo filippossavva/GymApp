@@ -62,15 +62,6 @@ public class GymSelectActivity extends AppCompatActivity {
         city = in.getStringExtra(SelectGymCity.CITY);
         getSupportActionBar().setTitle(city);
 
-        ImageButton imageNext = findViewById(R.id.ibGyms);
-        imageNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), FacilitiesClassesActivity.class);
-                startActivity(intent);
-            }
-        });
-
         fAuth = FirebaseDatabase.getInstance();
         databaseReference = fAuth.getReference(city);
     }
@@ -165,4 +156,9 @@ public class GymSelectActivity extends AppCompatActivity {
         super.onStop();
     }
 
+    public void goToFacilities(View v)
+    {
+        Intent intent = new Intent(getApplicationContext(), FacilitiesClassesActivity.class);
+        startActivity(intent);
+    }
 }
