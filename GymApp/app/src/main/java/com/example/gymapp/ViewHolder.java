@@ -21,40 +21,53 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         view=itemView;
     }
 
-    public void setInformation(Context context,String Image, String Title,Long boxing,Long classes,Long personal,Long tabata, Long weights,Long yoga)
+    public void setDetails(Context context,String Image, String Title,String Urlfb,Long boxing,Long classes,Long personal,Long pilates,Long tabata,Long trx, Long weights,Long yoga,Long zumba)
     {
         TextView fbtitle = view.findViewById(R.id.tvGyms);
         ImageView fbimage = view.findViewById(R.id.ibGyms);
+        TextView fburlfb = view.findViewById(R.id.tvurl);
 
         fbtitle.setText(Title);
+        fburlfb.setText(Urlfb);
 
         Picasso.get().load(Image).into(fbimage);
 
         TextView fbboxing = view.findViewById(R.id.tvboxing);
-        TextView fbyoga = view.findViewById(R.id.tvyoga);
-        TextView fbtabata = view.findViewById(R.id.tvtabata);
         TextView fbclasses = view.findViewById(R.id.tvclasses);
-        TextView fbweights = view.findViewById(R.id.tvweights);
         TextView fbpersonal = view.findViewById(R.id.tvpersonal);
+        TextView fbpilates = view.findViewById(R.id.tvpilates);
+        TextView fbtabata = view.findViewById(R.id.tvtabata);
+        TextView fbtrx = view.findViewById(R.id.tvtrx);
+        TextView fbweights = view.findViewById(R.id.tvweights);
+        TextView fbyoga = view.findViewById(R.id.tvyoga);
+        TextView fbzumba = view.findViewById(R.id.tvzumba);
+
 
         String strBox = String.valueOf(boxing);
         fbboxing.setText(strBox);
 
-        String strYoga =String.valueOf(yoga);
-        fbyoga.setText(strYoga);
-
-        String strTabata = String.valueOf(tabata);
-        fbtabata.setText(strTabata);
-
         String strClasses = String.valueOf(classes);
         fbclasses.setText(strClasses);
-
-        String strWeights = String.valueOf(weights);
-        fbweights.setText(strWeights);
 
         String strPersonal = String.valueOf(personal);
         fbpersonal.setText(strPersonal);
 
+        String strPilates = String.valueOf(pilates);
+        fbpilates.setText(strPilates);
 
+        String strTabata = String.valueOf(tabata);
+        fbtabata.setText(strTabata);
+
+        String strTrx = String.valueOf(trx);
+        fbtrx.setText(strTrx);
+
+        String strWeights = String.valueOf(weights);
+        fbweights.setText(strWeights);
+
+        String strYoga =String.valueOf(yoga);
+        fbyoga.setText(strYoga);
+
+        String strZumba = String.valueOf(zumba);
+        fbzumba.setText(strZumba);
     }
 }

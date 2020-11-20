@@ -30,11 +30,12 @@ import android.widget.Toast;
 
 public class GymSelectActivity extends AppCompatActivity {
     String city = "";
+    public static final String MESSAGE ="";
     FirebaseDatabase fAuth;
     DatabaseReference databaseReference;
     FirebaseAuth mAuth;
     FirebaseUser user;
-    int yoga,tabata,boxing,classes,weights,personal;
+    int yoga,tabata,boxing,classes,weights,personal,pilates,trx,zumba;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,8 +71,11 @@ public class GymSelectActivity extends AppCompatActivity {
         city = in.getStringExtra(SelectGymCity.CITY);
         getSupportActionBar().setTitle(city);
 
+
+
         fAuth = FirebaseDatabase.getInstance();
         databaseReference = fAuth.getReference(city);
+
     }
 
     public void onStart() {
@@ -85,7 +89,7 @@ public class GymSelectActivity extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull Gyms model) {
 
-                holder.setInformation(GymSelectActivity.this,model.getImage(),model.getTitle(),model.getBoxing(),model.getClasses(),model.getPersonal(),model.getTabata(),model.getWeights(),model.getYoga());
+                holder.setDetails(GymSelectActivity.this,model.getImage(),model.getTitle(),model.Urlfb,model.getBoxing(),model.getClasses(),model.getPersonal(),model.getPilates(),model.getTabata(),model.getTrx(),model.getWeights(),model.getYoga(),model.getZumba());
 
             }
 
@@ -167,42 +171,76 @@ public class GymSelectActivity extends AppCompatActivity {
     public void goToFacilities(View v)
     {
         TextView tvboxing = findViewById(R.id.tvboxing);
-        TextView tvyoga = findViewById(R.id.tvyoga);
-        TextView tvtabata = findViewById(R.id.tvtabata);
         TextView tvclasses = findViewById(R.id.tvclasses);
-        TextView tvweights = findViewById(R.id.tvweights);
         TextView tvpersonal = findViewById(R.id.tvpersonal);
+        TextView tvpilates = findViewById(R.id.tvpilates);
+        TextView tvtabata = findViewById(R.id.tvtabata);
+        TextView tvtrx = findViewById(R.id.tvtrx);
+        TextView tvweights = findViewById(R.id.tvweights);
+        TextView tvyoga = findViewById(R.id.tvyoga);
+        TextView tvzumba = findViewById(R.id.tvzumba);
+
+        TextView tvurl = findViewById(R.id.tvurl);
+        String url = tvurl.getText().toString();
+
 
         String feeboxing = tvboxing.getText().toString();
         boxing = Integer.parseInt(feeboxing);
 
-        String feeyoga = tvyoga.getText().toString();
-        yoga = Integer.parseInt(feeyoga);
-
-        String feetabata = tvtabata.getText().toString();
-        tabata = Integer.parseInt(feetabata);
-
         String feeclasses = tvclasses.getText().toString();
         classes = Integer.parseInt(feeclasses);
-
-        String feeweights = tvweights.getText().toString();
-        weights = Integer.parseInt(feeweights);
 
         String feepersonal = tvpersonal.getText().toString();
         personal = Integer.parseInt(feepersonal);
 
+        String feepilates = tvpilates.getText().toString();
+        pilates = Integer.parseInt(feepilates);
+
+        String feetabata = tvtabata.getText().toString();
+        tabata = Integer.parseInt(feetabata);
+
+        String feetrx = tvtrx.getText().toString();
+        trx = Integer.parseInt(feetrx);
+
+        String feeweights = tvweights.getText().toString();
+        weights = Integer.parseInt(feeweights);
+
+        String feeyoga = tvyoga.getText().toString();
+        yoga = Integer.parseInt(feeyoga);
+
+        String feezumba = tvzumba.getText().toString();
+        zumba = Integer.parseInt(feezumba);
+
+//        System.out.println(boxing);
+//        System.out.println(classes);
+//        System.out.println(personal);
+//        System.out.println(pilates);
+//        System.out.println(tabata);
+//        System.out.println(trx);
+//        System.out.println(weights);
+//        System.out.println(yoga);
+//        System.out.println(zumba);
+
+
         Bundle fee = new Bundle();
         fee.putInt("boxing",boxing);
-        fee.putInt("yoga",yoga);
-        fee.putInt("tabata",tabata);
         fee.putInt("classes",classes);
-        fee.putInt("weights",weights);
         fee.putInt("personal",personal);
+        fee.putInt("pilates",pilates);
+        fee.putInt("tabata",tabata);
+        fee.putInt("trx",trx);
+        fee.putInt("weights",weights);
+        fee.putInt("yoga",yoga);
+        fee.putInt("zumba",zumba);
+
 
 
 
         Intent intent = new Intent(this, FacilitiesClassesActivity.class);
         intent.putExtras(fee);
+        intent.putExtra(MESSAGE,url);
         startActivity(intent);
+
+
     }
 }

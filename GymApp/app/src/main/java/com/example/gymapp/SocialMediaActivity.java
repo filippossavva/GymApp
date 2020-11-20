@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 public class SocialMediaActivity extends AppCompatActivity {
 
@@ -17,6 +18,7 @@ public class SocialMediaActivity extends AppCompatActivity {
         WebView browser = findViewById(R.id.browser);
         Intent in = getIntent();
         String url = in.getStringExtra(FacilitiesClassesActivity.URL);
+//        Toast.makeText(getApplicationContext(), url, Toast.LENGTH_SHORT).show();
 
         browser.setWebViewClient(new WebViewClient());
         browser.loadUrl(url);

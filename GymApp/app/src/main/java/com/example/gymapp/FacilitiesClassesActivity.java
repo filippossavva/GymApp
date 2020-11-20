@@ -29,7 +29,9 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
     public static final String URL = "";
     FirebaseAuth mAuth;
     FirebaseUser user;
-    int yoga,tabata,boxing,classes,weights,personal;
+    int yoga,tabata,boxing,classes,weights,personal,pilates,trx,zumba;
+    String url;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,16 +46,26 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
         FloatingActionButton map = findViewById(R.id.fabmap);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         mAuth = FirebaseAuth.getInstance();
+
 
         Intent in = getIntent();
         Bundle fee = in.getExtras();
-        yoga = fee.getInt("yoga");
-        boxing = fee.getInt("boxing");
-        tabata = fee.getInt("tabata");
-        classes = fee.getInt("classes");
-        personal = fee.getInt("personal");
-        weights = fee.getInt("weights");
+        fee.getInt("boxing",boxing);
+        fee.getInt("classes",classes);
+        fee.getInt("personal",personal);
+        fee.getInt("pilates",pilates);
+        fee.getInt("tabata",tabata);
+        fee.getInt("trx",trx);
+        fee.getInt("weights",weights);
+        fee.getInt("yoga",yoga);
+        fee.getInt("zumba",zumba);
+
+        Intent intent = getIntent();
+        String url = intent.getStringExtra(GymSelectActivity.MESSAGE);
+
+
 
 
 
@@ -61,7 +73,7 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent in = new Intent(getApplicationContext(),SocialMediaActivity.class);
-                in.putExtra(URL,"https://www.facebook.com/nonstopkings8/");
+                in.putExtra(URL,url);
                 startActivity(in);
             }
         });
@@ -160,7 +172,7 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
 
     public void calculatefee(View v)
     {
-        String message = classes+"\n" + personal;
+        String message = boxing+"\n" + classes +"\n" + personal + "\n" + pilates +"\n" +tabata + "\n"+trx + "\n" + weights + "\n" +yoga +"\n"+zumba;
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
     }
 }
