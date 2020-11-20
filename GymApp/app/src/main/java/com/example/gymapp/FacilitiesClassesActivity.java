@@ -29,6 +29,7 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
     public static final String URL = "";
     FirebaseAuth mAuth;
     FirebaseUser user;
+    int yoga,tabata,boxing,classes,weights,personal;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +45,17 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         mAuth = FirebaseAuth.getInstance();
+
+        Intent in = getIntent();
+        Bundle fee = in.getExtras();
+        yoga = fee.getInt("yoga");
+        boxing = fee.getInt("boxing");
+        tabata = fee.getInt("tabata");
+        classes = fee.getInt("classes");
+        personal = fee.getInt("personal");
+        weights = fee.getInt("weights");
+
+
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -144,5 +156,11 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
+    }
+
+    public void calculatefee(View v)
+    {
+        String message = classes+"\n" + personal;
+        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
     }
 }

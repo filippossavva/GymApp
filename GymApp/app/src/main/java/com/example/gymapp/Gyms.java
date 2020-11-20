@@ -3,53 +3,53 @@ package com.example.gymapp;
 public class Gyms {
 
     String Image,Title;
-    Integer boxing,yoga,tabata,classes,weights,personal;
+    Long boxing,classes,personal,tabata,weights,yoga;
 
-    public int getBoxing() {
+    public Long getBoxing() {
         return boxing;
     }
 
-    public void setBoxing(int boxing) {
+    public void setBoxing(Long boxing) {
         this.boxing = boxing;
     }
 
-    public int getYoga() {
+    public Long getYoga() {
         return yoga;
     }
 
-    public void setYoga(int yoga) {
+    public void setYoga(Long yoga) {
         this.yoga = yoga;
     }
 
-    public int getTabata() {
+    public Long getTabata() {
         return tabata;
     }
 
-    public void setTabata(int tabata) {
+    public void setTabata(Long tabata) {
         this.tabata = tabata;
     }
 
-    public int getClasses() {
+    public Long getClasses() {
         return classes;
     }
 
-    public void setClasses(int classes) {
+    public void setClasses(Long classes) {
         this.classes = classes;
     }
 
-    public int getWeights() {
+    public Long getWeights() {
         return weights;
     }
 
-    public void setWeights(int weights) {
+    public void setWeights(Long weights) {
         this.weights = weights;
     }
 
-    public int getPersonal() {
+    public Long getPersonal() {
         return personal;
     }
 
-    public void setPersonal(int personal) {
+    public void setPersonal(Long personal) {
         this.personal = personal;
     }
 

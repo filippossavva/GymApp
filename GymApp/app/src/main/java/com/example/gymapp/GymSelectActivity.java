@@ -25,6 +25,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class GymSelectActivity extends AppCompatActivity {
@@ -33,6 +34,7 @@ public class GymSelectActivity extends AppCompatActivity {
     DatabaseReference databaseReference;
     FirebaseAuth mAuth;
     FirebaseUser user;
+    int yoga,tabata,boxing,classes,weights,personal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +85,7 @@ public class GymSelectActivity extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull Gyms model) {
 
-                holder.setInformation(GymSelectActivity.this,model.getImage(),model.getTitle());
+                holder.setInformation(GymSelectActivity.this,model.getImage(),model.getTitle(),model.getBoxing(),model.getClasses(),model.getPersonal(),model.getTabata(),model.getWeights(),model.getYoga());
 
             }
 
@@ -164,7 +166,43 @@ public class GymSelectActivity extends AppCompatActivity {
 
     public void goToFacilities(View v)
     {
+        TextView tvboxing = findViewById(R.id.tvboxing);
+        TextView tvyoga = findViewById(R.id.tvyoga);
+        TextView tvtabata = findViewById(R.id.tvtabata);
+        TextView tvclasses = findViewById(R.id.tvclasses);
+        TextView tvweights = findViewById(R.id.tvweights);
+        TextView tvpersonal = findViewById(R.id.tvpersonal);
+
+        String feeboxing = tvboxing.getText().toString();
+        boxing = Integer.parseInt(feeboxing);
+
+        String feeyoga = tvyoga.getText().toString();
+        yoga = Integer.parseInt(feeyoga);
+
+        String feetabata = tvtabata.getText().toString();
+        tabata = Integer.parseInt(feetabata);
+
+        String feeclasses = tvclasses.getText().toString();
+        classes = Integer.parseInt(feeclasses);
+
+        String feeweights = tvweights.getText().toString();
+        weights = Integer.parseInt(feeweights);
+
+        String feepersonal = tvpersonal.getText().toString();
+        personal = Integer.parseInt(feepersonal);
+
+        Bundle fee = new Bundle();
+        fee.putInt("boxing",boxing);
+        fee.putInt("yoga",yoga);
+        fee.putInt("tabata",tabata);
+        fee.putInt("classes",classes);
+        fee.putInt("weights",weights);
+        fee.putInt("personal",personal);
+
+
+
         Intent intent = new Intent(this, FacilitiesClassesActivity.class);
+        intent.putExtras(fee);
         startActivity(intent);
     }
 }
