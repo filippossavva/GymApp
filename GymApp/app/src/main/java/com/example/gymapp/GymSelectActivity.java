@@ -99,7 +99,7 @@ public class GymSelectActivity extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull Gyms model) {
 
-                holder.setDetails(GymSelectActivity.this,model.getImage(),model.getTitle(),model.Urlfb,model.getBoxing(),model.getClasses(),model.getPersonal(),model.getPilates(),model.getTabata(),model.getTrx(),model.getWeights(),model.getYoga(),model.getZumba());
+                holder.setDetails(GymSelectActivity.this,model.getImage(),model.getTitle(),model.getUrlfb(),model.getBoxing(),model.getClasses(),model.getPersonal(),model.getPilates(),model.getTabata(),model.getTrx(),model.getWeights(),model.getYoga(),model.getZumba());
 
             }
 
