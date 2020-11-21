@@ -234,28 +234,29 @@ public class GymSelectActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, FacilitiesClassesActivity.class);
         Bundle fee = new Bundle();
-        fee.putInt("boxing",boxing);
-        fee.putString("classes",feeclasses);
-        fee.putString("personal",feepersonal);
-        fee.putString("pilates",feepilates);
-        fee.putString("tabata",feetabata);
-        fee.putString("trx",feetrx);
-        fee.putString("weights",feeweights);
-        fee.putString("yoga",feeyoga);
-        fee.putString("zumba",feezumba);
-        fee.putString("url",url);
-        intent.putExtras(fee);
+//        fee.putInt("boxing",boxing);
+//        fee.putString("classes",feeclasses);
+//        fee.putString("personal",feepersonal);
+//        fee.putString("pilates",feepilates);
+//        fee.putString("tabata",feetabata);
+//        fee.putString("trx",feetrx);
+//        fee.putString("weights",feeweights);
+//        fee.putString("yoga",feeyoga);
+//        fee.putString("zumba",feezumba);
+//        fee.putString("url",url);
+//        intent.putExtras(fee);
 
-//        intent.putExtra(BOX, feeboxing);
-//        intent.putExtra(CLASS, feeclasses);
-//        intent.putExtra(PERSONAL, feepersonal);
-//        intent.putExtra(PILATES, feepilates);
-//        intent.putExtra(TABATA, feetabata);
-//        intent.putExtra(TRX, feetrx);
-//        intent.putExtra(WEIGHTS, feeweights);
-//        intent.putExtra(YOGA, feeyoga);
-//        intent.putExtra(ZUMBA, feezumba);
-//        intent.putExtra(MESSAGE,url);
+        fee.putString(BOX, feeboxing);
+        fee.putString(CLASS, feeclasses);
+        fee.putString(PERSONAL, feepersonal);
+        fee.putString(PILATES, feepilates);
+        fee.putString(TABATA, feetabata);
+        fee.putString(TRX, feetrx);
+        fee.putString(WEIGHTS, feeweights);
+        fee.putString(YOGA, feeyoga);
+        fee.putString(ZUMBA, feezumba);
+        fee.putString(MESSAGE,url);
+        intent.putExtras(fee);
 
         startActivity(intent);
 

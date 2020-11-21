@@ -29,7 +29,7 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
     public static final String URL = "";
     FirebaseAuth mAuth;
     FirebaseUser user;
-    int yoga,tabata,boxing,classes,weights,personal,pilates,trx,zumba;
+    String yoga,tabata,boxing,classes,weights,personal,pilates,trx,zumba;
     String url;
 
     @Override
@@ -52,7 +52,7 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
 
         Intent in = getIntent();
         Bundle fee = in.getExtras();
-        fee.getInt("boxing",boxing);
+//        fee.getString(GymSelectActivity.BOX ,boxing);
 //        fee.getInt("classes",classes);
 //        fee.getInt("personal",personal);
 //        fee.getInt("pilates",pilates);
@@ -64,7 +64,16 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
 //        fee.getString("url",url);
 
 //             Intent in = getIntent();
-//             boxing1 = in.getStringExtra(GymSelectActivity.BOX);
+        boxing = fee.getString(GymSelectActivity.BOX);
+        classes = fee.getString(GymSelectActivity.CLASS);
+        personal = fee.getString(GymSelectActivity.PERSONAL);
+        pilates = fee.getString(GymSelectActivity.PILATES);
+        tabata = fee.getString(GymSelectActivity.TABATA);
+        trx = fee.getString(GymSelectActivity.TRX);
+        weights = fee.getString(GymSelectActivity.WEIGHTS);
+        yoga = fee.getString(GymSelectActivity.YOGA);
+        zumba = fee.getString(GymSelectActivity.ZUMBA);
+        url = fee.getString(GymSelectActivity.MESSAGE);
 //
 //             Intent inclass = getIntent();
 //             classes1 = inclass.getStringExtra(GymSelectActivity.CLASS);
