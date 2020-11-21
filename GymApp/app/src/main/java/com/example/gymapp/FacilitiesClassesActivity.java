@@ -16,8 +16,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.MediaController;
+import android.widget.Switch;
 import android.widget.Toast;
 import android.widget.VideoView;
 
@@ -29,8 +31,8 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
     public static final String URL = "";
     FirebaseAuth mAuth;
     FirebaseUser user;
-    public int yoga,tabata,boxing,classes,weights,personal,pilates,trx,zumba;
-    String url;
+    public int yoga,tabata,boxing,classes,weights,personal,pilates,trx,zumba,price;
+    String url, name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +65,9 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
         yoga = fee.getInt("yoga");
         zumba = fee.getInt("zumba");
         url = fee.getString("url");
+        name = fee.getString("name");
+
+        getSupportActionBar().setTitle(name);
 
 //             Intent in = getIntent();
 //        boxing = fee.getString(GymSelectActivity.BOX);
@@ -100,8 +105,11 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle info = new Bundle();
                 Intent in = new Intent(getApplicationContext(),SocialMediaActivity.class);
-                in.putExtra(URL,url);
+                info.putString("url",url);
+                info.putString("name",name);
+                in.putExtras(info);
                 startActivity(in);
             }
         });
@@ -200,7 +208,54 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
 
     public void calculatefee(View v)
     {
-        String message = boxing+"\n" + classes;
-        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+        price = 0;
+        CheckBox cbWeight = findViewById(R.id.cbWeights);
+        CheckBox cbClass = findViewById(R.id.cbClasses);
+        CheckBox cbPers = findViewById(R.id.cbPersonal);
+        Switch swZum = findViewById(R.id.swZumba);
+        Switch swBox = findViewById(R.id.swBoxing);
+        Switch swTab = findViewById(R.id.swTabata);
+        Switch swT = findViewById(R.id.swTrx);
+        Switch swPil = findViewById(R.id.swPilates);
+        Switch swYo = findViewById(R.id.swYoga);
+
+        if(cbClass.isChecked())
+        {
+            price += classes;
+        }
+        if(cbWeight.isChecked())
+        {
+            price += weights;
+        }
+        if(cbPers.isChecked())
+        {
+            price += personal;
+        }
+        if(swBox.isChecked())
+        {
+            price += boxing;
+        }
+        if(swPil.isChecked())
+        {
+            price += pilates;
+        }
+        if(swTab.isChecked())
+        {
+            price += tabata;
+        }
+        if(swT.isChecked())
+        {
+            price += trx;
+        }
+        if(swYo.isChecked())
+        {
+            price += yoga;
+        }
+        if(swZum.isChecked())
+        {
+            price += zumba;
+        }
+
+        Toast.makeText(this, "Total monthly price: " + price +" euro" + "\n" + weights + "\n" + personal + "\n" + classes + "\n" + trx + "\n" + zumba + "\n" + yoga + "\n" + boxing + "\n" + pilates + "\n" + tabata, Toast.LENGTH_LONG).show();
     }
 }

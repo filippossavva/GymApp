@@ -17,7 +17,11 @@ public class SocialMediaActivity extends AppCompatActivity {
 
         WebView browser = findViewById(R.id.browser);
         Intent in = getIntent();
-        String url = in.getStringExtra(FacilitiesClassesActivity.URL);
+        Bundle info = in.getExtras();
+
+        String name = info.getString("name");
+        String url = info.getString("url");
+        getSupportActionBar().setTitle(name);
 //        Toast.makeText(getApplicationContext(), url, Toast.LENGTH_SHORT).show();
 
         browser.setWebViewClient(new WebViewClient());

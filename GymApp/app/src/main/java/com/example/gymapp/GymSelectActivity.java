@@ -192,6 +192,9 @@ public class GymSelectActivity extends AppCompatActivity {
         TextView tvweights = findViewById(R.id.tvweights);
         TextView tvyoga = findViewById(R.id.tvyoga);
         TextView tvzumba = findViewById(R.id.tvzumba);
+        TextView tvGyms = findViewById(R.id.tvGyms);
+
+        String name = tvGyms.getText().toString();
 
         TextView tvurl = findViewById(R.id.tvurl);
         String url = tvurl.getText().toString();
@@ -247,6 +250,7 @@ public class GymSelectActivity extends AppCompatActivity {
         fee.putInt("yoga",yoga);
         fee.putInt("zumba",zumba);
         fee.putString("url",url);
+        fee.putString("name",name);
         intent.putExtras(fee);
 
 //        fee.putString(BOX, feeboxing);
