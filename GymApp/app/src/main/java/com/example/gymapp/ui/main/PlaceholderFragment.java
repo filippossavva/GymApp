@@ -25,6 +25,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.gymapp.GymSelectActivity;
 import com.example.gymapp.R;
 import com.example.gymapp.ui.login.LoginActivity;
 import com.synnapps.carouselview.CarouselView;
@@ -86,6 +87,9 @@ public class PlaceholderFragment extends Fragment {
 //        MediaController mediaController = new MediaController(this);
 //        videoRtx.setMediaController(mediaController);
 //        mediaController.setAnchorView(videoRtx);
+
+
+
 
 
         if(getArguments().getInt(ARG_SECTION_NUMBER) == 1)

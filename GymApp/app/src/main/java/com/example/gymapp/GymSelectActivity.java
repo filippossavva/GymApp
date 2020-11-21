@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.gymapp.ui.login.LoginActivity;
+import com.example.gymapp.ui.main.PlaceholderFragment;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -30,16 +31,17 @@ import android.widget.Toast;
 
 public class GymSelectActivity extends AppCompatActivity {
     String city = "";
-    public static final String BOX = "";
-    public static final String CLASS = "";
-    public static final String PERSONAL = "";
-    public static final String PILATES = "";
-    public static final String TABATA = "";
-    public static final String TRX = "";
-    public static final String WEIGHTS = "";
-    public static final String YOGA = "";
-    public static final String ZUMBA = "";
-    public static final String MESSAGE ="";
+
+//    public static final String BOX = "";
+//    public static final String CLASS = "";
+//    public static final String PERSONAL = "";
+//    public static final String PILATES = "";
+//    public static final String TABATA = "";
+//    public static final String TRX = "";
+//    public static final String WEIGHTS = "";
+//    public static final String YOGA = "";
+//    public static final String ZUMBA = "";
+//    public static final String MESSAGE ="";
 
     FirebaseDatabase fAuth;
     DatabaseReference databaseReference;
@@ -87,6 +89,7 @@ public class GymSelectActivity extends AppCompatActivity {
         databaseReference = fAuth.getReference(city);
 
     }
+
 
     public void onStart() {
         super.onStart();
@@ -234,29 +237,29 @@ public class GymSelectActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, FacilitiesClassesActivity.class);
         Bundle fee = new Bundle();
-//        fee.putInt("boxing",boxing);
-//        fee.putString("classes",feeclasses);
-//        fee.putString("personal",feepersonal);
-//        fee.putString("pilates",feepilates);
-//        fee.putString("tabata",feetabata);
-//        fee.putString("trx",feetrx);
-//        fee.putString("weights",feeweights);
-//        fee.putString("yoga",feeyoga);
-//        fee.putString("zumba",feezumba);
-//        fee.putString("url",url);
-//        intent.putExtras(fee);
-
-        fee.putString(BOX, feeboxing);
-        fee.putString(CLASS, feeclasses);
-        fee.putString(PERSONAL, feepersonal);
-        fee.putString(PILATES, feepilates);
-        fee.putString(TABATA, feetabata);
-        fee.putString(TRX, feetrx);
-        fee.putString(WEIGHTS, feeweights);
-        fee.putString(YOGA, feeyoga);
-        fee.putString(ZUMBA, feezumba);
-        fee.putString(MESSAGE,url);
+        fee.putInt("boxing",boxing);
+        fee.putInt("classes",classes);
+        fee.putInt("personal",personal);
+        fee.putInt("pilates",pilates);
+        fee.putInt("tabata",tabata);
+        fee.putInt("trx",trx);
+        fee.putInt("weights",weights);
+        fee.putInt("yoga",yoga);
+        fee.putInt("zumba",zumba);
+        fee.putString("url",url);
         intent.putExtras(fee);
+
+//        fee.putString(BOX, feeboxing);
+//        fee.putString(CLASS, feeclasses);
+//        fee.putString(PERSONAL, feepersonal);
+//        fee.putString(PILATES, feepilates);
+//        fee.putString(TABATA, feetabata);
+//        fee.putString(TRX, feetrx);
+//        fee.putString(WEIGHTS, feeweights);
+//        fee.putString(YOGA, feeyoga);
+//        fee.putString(ZUMBA, feezumba);
+//        fee.putString(MESSAGE,url);
+//        intent.putExtras(fee);
 
         startActivity(intent);
 
