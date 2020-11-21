@@ -30,7 +30,17 @@ import android.widget.Toast;
 
 public class GymSelectActivity extends AppCompatActivity {
     String city = "";
+    public static final String BOX = "";
+    public static final String CLASS = "";
+    public static final String PERSONAL = "";
+    public static final String PILATES = "";
+    public static final String TABATA = "";
+    public static final String TRX = "";
+    public static final String WEIGHTS = "";
+    public static final String YOGA = "";
+    public static final String ZUMBA = "";
     public static final String MESSAGE ="";
+
     FirebaseDatabase fAuth;
     DatabaseReference databaseReference;
     FirebaseAuth mAuth;
@@ -186,6 +196,7 @@ public class GymSelectActivity extends AppCompatActivity {
 
         String feeboxing = tvboxing.getText().toString();
         boxing = Integer.parseInt(feeboxing);
+                //System.out.println(boxing);
 
         String feeclasses = tvclasses.getText().toString();
         classes = Integer.parseInt(feeclasses);
@@ -221,24 +232,31 @@ public class GymSelectActivity extends AppCompatActivity {
 //        System.out.println(yoga);
 //        System.out.println(zumba);
 
-
+        Intent intent = new Intent(this, FacilitiesClassesActivity.class);
         Bundle fee = new Bundle();
         fee.putInt("boxing",boxing);
-        fee.putInt("classes",classes);
-        fee.putInt("personal",personal);
-        fee.putInt("pilates",pilates);
-        fee.putInt("tabata",tabata);
-        fee.putInt("trx",trx);
-        fee.putInt("weights",weights);
-        fee.putInt("yoga",yoga);
-        fee.putInt("zumba",zumba);
-
-
-
-
-        Intent intent = new Intent(this, FacilitiesClassesActivity.class);
+        fee.putString("classes",feeclasses);
+        fee.putString("personal",feepersonal);
+        fee.putString("pilates",feepilates);
+        fee.putString("tabata",feetabata);
+        fee.putString("trx",feetrx);
+        fee.putString("weights",feeweights);
+        fee.putString("yoga",feeyoga);
+        fee.putString("zumba",feezumba);
+        fee.putString("url",url);
         intent.putExtras(fee);
-        intent.putExtra(MESSAGE,url);
+
+//        intent.putExtra(BOX, feeboxing);
+//        intent.putExtra(CLASS, feeclasses);
+//        intent.putExtra(PERSONAL, feepersonal);
+//        intent.putExtra(PILATES, feepilates);
+//        intent.putExtra(TABATA, feetabata);
+//        intent.putExtra(TRX, feetrx);
+//        intent.putExtra(WEIGHTS, feeweights);
+//        intent.putExtra(YOGA, feeyoga);
+//        intent.putExtra(ZUMBA, feezumba);
+//        intent.putExtra(MESSAGE,url);
+
         startActivity(intent);
 
 

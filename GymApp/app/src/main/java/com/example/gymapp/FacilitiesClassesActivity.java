@@ -53,14 +53,31 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
         Intent in = getIntent();
         Bundle fee = in.getExtras();
         fee.getInt("boxing",boxing);
-        fee.getInt("classes",classes);
-        fee.getInt("personal",personal);
-        fee.getInt("pilates",pilates);
-        fee.getInt("tabata",tabata);
-        fee.getInt("trx",trx);
-        fee.getInt("weights",weights);
-        fee.getInt("yoga",yoga);
-        fee.getInt("zumba",zumba);
+//        fee.getInt("classes",classes);
+//        fee.getInt("personal",personal);
+//        fee.getInt("pilates",pilates);
+//        fee.getInt("tabata",tabata);
+//        fee.getInt("trx",trx);
+//        fee.getInt("weights",weights);
+//        fee.getInt("yoga",yoga);
+//        fee.getInt("zumba",zumba);
+//        fee.getString("url",url);
+
+//             Intent in = getIntent();
+//             boxing1 = in.getStringExtra(GymSelectActivity.BOX);
+//
+//             Intent inclass = getIntent();
+//             classes1 = inclass.getStringExtra(GymSelectActivity.CLASS);
+//             personal = in.getStringExtra(GymSelectActivity.PERSONAL);
+//             pilates= in.getStringExtra(GymSelectActivity.PILATES);
+//             boxing = in.getStringExtra(GymSelectActivity.TABATA);
+//             boxing = in.getStringExtra(GymSelectActivity.TRX);
+//             boxing = in.getStringExtra(GymSelectActivity.WEIGHTS);
+//             boxing = in.getStringExtra(GymSelectActivity.YOGA);
+//             boxing = in.getStringExtra(GymSelectActivity.ZUMBA);
+//             boxing = in.getStringExtra(GymSelectActivity.MESSAGE);
+
+
 
         Intent intent = getIntent();
         String url = intent.getStringExtra(GymSelectActivity.MESSAGE);
@@ -172,7 +189,7 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
 
     public void calculatefee(View v)
     {
-        String message = boxing+"\n" + classes +"\n" + personal + "\n" + pilates +"\n" +tabata + "\n"+trx + "\n" + weights + "\n" +yoga +"\n"+zumba;
+        String message = boxing+"\n" + classes;
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
     }
 }

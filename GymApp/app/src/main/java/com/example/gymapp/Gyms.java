@@ -5,16 +5,6 @@ public class Gyms {
     String Image,Title,Urlfb;
     Long boxing,classes,personal,pilates,tabata,trx,weights,yoga,zumba;
 
-    public String getUrlfb() {
-        return Urlfb;
-    }
-
-    public void setUrlfb(String urlfb) {
-        Urlfb = urlfb;
-    }
-
-
-
     public String getImage() {
         return Image;
     }
@@ -30,6 +20,17 @@ public class Gyms {
     public void setTitle(String title) {
         Title = title;
     }
+
+    public String getUrlfb() {
+        return Urlfb;
+    }
+
+    public void setUrlfb(String urlfb) {
+        Urlfb = urlfb;
+    }
+
+
+
 
     public Long getBoxing() {
         return boxing;
