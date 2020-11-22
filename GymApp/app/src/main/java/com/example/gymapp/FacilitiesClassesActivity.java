@@ -45,7 +45,6 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
         FloatingActionButton fab = findViewById(R.id.fab);
-        FloatingActionButton instagram = findViewById(R.id.fabinsta);
         FloatingActionButton map = findViewById(R.id.fabmap);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -116,14 +115,7 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
                 startActivity(in);
             }
         });
-        instagram.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent in = new Intent(getApplicationContext(),SocialMediaActivity.class);
-                in.putExtra(URL,"https://www.instagram.com/non_stopkm/?igshid=1xerc65parjdi&fbclid=IwAR0y6KYD4ljfimFsimbRKl4HnHSgkNlAntpMeXDZBQLjRfxkmJhZtaZnXKo");
-                startActivity(in);
-            }
-        });
+
         map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -262,8 +254,8 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
         {
             price += zumba;
         }
-        Toast.makeText(this, lat + " " + lng, Toast.LENGTH_LONG).show();
 
-//        Toast.makeText(this, "Total monthly price: " + price +" euro" + "\n" + weights + "\n" + personal + "\n" + classes + "\n" + trx + "\n" + zumba + "\n" + yoga + "\n" + boxing + "\n" + pilates + "\n" + tabata, Toast.LENGTH_LONG).show();
+
+        Toast.makeText(this, "Total monthly price: " + price +" euro" + "\n" + weights + "\n" + personal + "\n" + classes + "\n" + trx + "\n" + zumba + "\n" + yoga + "\n" + boxing + "\n" + pilates + "\n" + tabata, Toast.LENGTH_LONG).show();
     }
 }
