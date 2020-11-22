@@ -18,7 +18,12 @@
         android:text="Please select the type of gymnastic you would like:"
         android:textColor="#000000"
         android:textSize="18sp"
-        tools:layout_editor_absoluteY="5dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.008" />
 
     <Switch
         android:id="@+id/swZumba"
@@ -28,8 +33,12 @@
         android:text="Zumba"
         android:textColor="#000000"
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="116dp"
-        tools:layout_editor_absoluteY="307dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.378"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.436" />
 
     <Switch
         android:id="@+id/swYoga"
@@ -39,19 +48,26 @@
         android:text="Yoga"
         android:textColor="#000000"
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="11dp"
-        tools:layout_editor_absoluteY="368dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.033"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <CheckBox
         android:id="@+id/cbWeights"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="118dp"
+        android:layout_height="46dp"
         android:fontFamily="sans-serif-black"
         android:text="Weights"
         android:textColor="#000000"
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="9dp"
-        tools:layout_editor_absoluteY="117dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.037"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.175" />
 
     <CheckBox
         android:id="@+id/cbPersonal"
@@ -61,8 +77,12 @@
         android:text="Personal"
         android:textColor="#000000"
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="11dp"
-        tools:layout_editor_absoluteY="548dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.035"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.736" />
 
     <Button
         android:id="@+id/bCalcFee"
@@ -71,10 +91,15 @@
         android:background="@drawable/button_login"
         android:onClick="calculatefee"
         android:text="CALCULATE FEE"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:backgroundTint="@null"
-        tools:layout_editor_absoluteX="104dp"
-        tools:layout_editor_absoluteY="649dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.925" />
 
     <ImageButton
         android:id="@+id/ibPersonal"
@@ -84,8 +109,12 @@
         android:onClick="moveToPersonal"
         android:scaleType="fitCenter"
         android:src="@drawable/personal"
-        tools:layout_editor_absoluteX="218dp"
-        tools:layout_editor_absoluteY="501dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.931"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.773" />
 
     <ImageButton
         android:id="@+id/ibWeights"
@@ -96,8 +125,12 @@
         android:scaleType="fitCenter"
         android:src="@drawable/weights"
         android:visibility="visible"
-        tools:layout_editor_absoluteX="218dp"
-        tools:layout_editor_absoluteY="73dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.931"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.144" />
 
     <CheckBox
         android:id="@+id/cbClasses"
@@ -107,8 +140,12 @@
         android:text="Classes"
         android:textColor="#000000"
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="9dp"
-        tools:layout_editor_absoluteY="248dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.034"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.363" />
 
     <ImageButton
         android:id="@+id/ibClasses"
@@ -118,8 +155,12 @@
         android:onClick="moveToClasses"
         android:scaleType="fitCenter"
         android:src="@drawable/classesgym"
-        tools:layout_editor_absoluteX="219dp"
-        tools:layout_editor_absoluteY="314dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.939"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.477" />
 
     <Switch
         android:id="@+id/swTrx"
@@ -129,8 +170,12 @@
         android:text="Trx"
         android:textColor="#000000"
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="11dp"
-        tools:layout_editor_absoluteY="307dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.032"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.436" />
 
     <Switch
         android:id="@+id/swBoxing"
@@ -140,8 +185,11 @@
         android:text="Boxing"
         android:textColor="#000000"
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="116dp"
-        tools:layout_editor_absoluteY="368dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.378"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Switch
         android:id="@+id/swPilates"
@@ -151,8 +199,12 @@
         android:text="Pilates"
         android:textColor="#000000"
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="116dp"
-        tools:layout_editor_absoluteY="429dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.373"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.571" />
 
     <Switch
         android:id="@+id/swTabata"
@@ -162,13 +214,54 @@
         android:text="Tabata"
         android:textColor="#000000"
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="9dp"
-        tools:layout_editor_absoluteY="429dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.035"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.571" />
 
     <com.synnapps.carouselview.CarouselView
         android:id="@+id/carousel"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        tools:layout_editor_absoluteY="56dp"></com.synnapps.carouselview.CarouselView>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.063">
+
+    </com.synnapps.carouselview.CarouselView>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/bungee"
+        android:text="Information about classes:"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/carousel"
+        app:layout_constraintVertical_bias="0.097" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="401dp"
+        android:layout_height="283dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/info_classes"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.103" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

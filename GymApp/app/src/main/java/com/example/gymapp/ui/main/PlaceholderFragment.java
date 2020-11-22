@@ -66,6 +66,8 @@ public class PlaceholderFragment extends Fragment {
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_facilities_classes, container, false);
         TextView tv = root.findViewById(R.id.textView4);
+        TextView tvInfo = root.findViewById(R.id.textView2);
+        TextView tvDetails = root.findViewById(R.id.textView9);
         Button b2 = root.findViewById(R.id.bCalcFee);
         CheckBox c1 = root.findViewById(R.id.cbWeights);
         CheckBox c2 = root.findViewById(R.id.cbClasses);
@@ -95,6 +97,8 @@ public class PlaceholderFragment extends Fragment {
         if(getArguments().getInt(ARG_SECTION_NUMBER) == 1)
         {
             tv.setText("Please select the type of gymnastic you would like:");
+            tvInfo.setVisibility(View.INVISIBLE);
+            tvDetails.setVisibility(View.INVISIBLE);
             carousel.setVisibility(View.INVISIBLE);
         }
         else if(getArguments().getInt(ARG_SECTION_NUMBER) == 2)

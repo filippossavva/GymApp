@@ -18,6 +18,12 @@
     <string name="invalid_username">Not a valid email address!</string>
     <string name="invalid_password">Password must be >6 characters</string>
     <string name="forgot_pass"><u>Forgot your password?</u></string>
+    <string name="info_classes"><b> TRX</b> is a form of suspension training that uses body weight exercises to develop strength, balance, flexibility and core stability simultaneously.\n
+<b>Pilates</b> is a method of exercise that consists of low-impact flexibility and muscular strength and endurance movements.\n
+<b>Boxing</b> is a sport that involves strategically punching an opponent while defending yourself from their return punches.\n
+<b>Zumba</b> is an interval workout. The classes move between high- and low-intensity dance moves designed to get your heart rate up and boost cardio endurance.\n
+<b>Yoga</b> as exercise is a physical activity consisting mainly of postures, often connected by flowing sequences, sometimes accompanied by breathing exercises, and frequently ending with relaxation lying down or meditation.\n
+<b>Tabata</b> training is a type of HIIT (high-intensity interval training).</string>
     <string name="login_failed">"Login failed"</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="create_account"><u>Do not have an account? Create new account</u></string>
