@@ -249,6 +249,7 @@
         android:id="@+id/carousel"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
