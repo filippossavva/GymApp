@@ -33,6 +33,7 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
     FirebaseUser user;
     public int yoga,tabata,boxing,classes,weights,personal,pilates,trx,zumba,price;
     String url, name;
+    double lat, lng;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +67,8 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
         zumba = fee.getInt("zumba");
         url = fee.getString("url");
         name = fee.getString("name");
+        lat = fee.getDouble("lat");
+        lng = fee.getDouble("lng");
 
         getSupportActionBar().setTitle(name);
 
@@ -124,7 +127,11 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
         map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle coord = new Bundle();
                 Intent in = new Intent(getApplicationContext(),MapsActivity.class);
+                coord.putDouble("lat", lat);
+                coord.putDouble("lng", lng);
+                in.putExtras(coord);
                 startActivity(in);
             }
         });
@@ -255,7 +262,8 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
         {
             price += zumba;
         }
+        Toast.makeText(this, lat + " " + lng, Toast.LENGTH_LONG).show();
 
-        Toast.makeText(this, "Total monthly price: " + price +" euro" + "\n" + weights + "\n" + personal + "\n" + classes + "\n" + trx + "\n" + zumba + "\n" + yoga + "\n" + boxing + "\n" + pilates + "\n" + tabata, Toast.LENGTH_LONG).show();
+//        Toast.makeText(this, "Total monthly price: " + price +" euro" + "\n" + weights + "\n" + personal + "\n" + classes + "\n" + trx + "\n" + zumba + "\n" + yoga + "\n" + boxing + "\n" + pilates + "\n" + tabata, Toast.LENGTH_LONG).show();
     }
 }

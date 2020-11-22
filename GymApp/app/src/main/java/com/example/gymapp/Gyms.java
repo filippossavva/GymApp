@@ -4,6 +4,8 @@ public class Gyms {
 
     String Image,Title,Urlfb;
     Long boxing,classes,personal,pilates,tabata,trx,weights,yoga,zumba;
+    Double lat, lng;
+
 
     public String getImage() {
         return Image;
@@ -104,5 +106,19 @@ public class Gyms {
         this.zumba = zumba;
     }
 
+    public Double getLat() {
+        return lat;
+    }
 
+    public void setLat(Double lat) {
+        this.lat = lat;
+    }
+
+    public Double getLng() {
+        return lng;
+    }
+
+    public void setLng(Double lng) {
+        this.lng = lng;
+    }
 }

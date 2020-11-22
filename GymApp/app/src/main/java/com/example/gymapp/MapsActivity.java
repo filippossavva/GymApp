@@ -2,6 +2,7 @@ package com.example.gymapp;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -15,6 +16,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
 
+    Double lat, lng;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        Intent in = getIntent();
+        Bundle coord = in.getExtras();
+        lat = coord.getDouble("lat");
+        lng = coord.getDouble("lng");
     }
 
     /**
@@ -38,11 +45,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+//        Double lat = 34.930301;
+//        Double lng = 33.599448;
 
         // Add a marker in Sydney and move the camera
-        LatLng cyprus = new LatLng(34.930301,33.599448);
+        LatLng cyprus = new LatLng(lat,lng);
         mMap.addMarker(new MarkerOptions().position(cyprus).title("Marker in Cyprus"));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(cyprus,18),10000,null);
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(cyprus,18),5000,null);
 //        mMap.setMapType(GoogleMap.MAP_TYPE_NONE);
     }
 }

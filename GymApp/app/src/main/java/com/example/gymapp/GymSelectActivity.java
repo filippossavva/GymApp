@@ -48,6 +48,7 @@ public class GymSelectActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseUser user;
     int yoga,tabata,boxing,classes,weights,personal,pilates,trx,zumba;
+    double lat,lng;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,7 +103,7 @@ public class GymSelectActivity extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull Gyms model) {
 
-                holder.setDetails(GymSelectActivity.this,model.getImage(),model.getTitle(),model.getUrlfb(),model.getBoxing(),model.getClasses(),model.getPersonal(),model.getPilates(),model.getTabata(),model.getTrx(),model.getWeights(),model.getYoga(),model.getZumba());
+                holder.setDetails(GymSelectActivity.this,model.getImage(),model.getTitle(),model.getUrlfb(),model.getBoxing(),model.getClasses(),model.getPersonal(),model.getPilates(),model.getTabata(),model.getTrx(),model.getWeights(),model.getYoga(),model.getZumba(),model.getLat(),model.getLng());
 
             }
 
@@ -193,12 +194,18 @@ public class GymSelectActivity extends AppCompatActivity {
         TextView tvyoga = findViewById(R.id.tvyoga);
         TextView tvzumba = findViewById(R.id.tvzumba);
         TextView tvGyms = findViewById(R.id.tvGyms);
+        TextView tvlat = findViewById(R.id.tvLat);
+        TextView tvlng = findViewById(R.id.tvLng);
 
         String name = tvGyms.getText().toString();
 
         TextView tvurl = findViewById(R.id.tvurl);
         String url = tvurl.getText().toString();
 
+        String latit = tvlat.getText().toString();
+        String longti = tvlng.getText().toString();
+        lat = Double.valueOf(latit);
+        lng = Double.valueOf(longti);
 
         String feeboxing = tvboxing.getText().toString();
         boxing = Integer.parseInt(feeboxing);
@@ -251,6 +258,8 @@ public class GymSelectActivity extends AppCompatActivity {
         fee.putInt("zumba",zumba);
         fee.putString("url",url);
         fee.putString("name",name);
+        fee.putDouble("lat",lat);
+        fee.putDouble("lng", lng);
         intent.putExtras(fee);
 
 //        fee.putString(BOX, feeboxing);
