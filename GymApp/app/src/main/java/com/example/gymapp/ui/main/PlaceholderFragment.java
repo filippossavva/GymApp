@@ -95,13 +95,6 @@ public class PlaceholderFragment extends Fragment {
         if(getArguments().getInt(ARG_SECTION_NUMBER) == 1)
         {
             tv.setText("Please select the type of gymnastic you would like:");
-            b2.setVisibility(View.INVISIBLE);
-            s1.setVisibility(View.INVISIBLE);
-            s2.setVisibility(View.INVISIBLE);
-            s3.setVisibility(View.INVISIBLE);
-            s4.setVisibility(View.INVISIBLE);
-            s5.setVisibility(View.INVISIBLE);
-            s6.setVisibility(View.INVISIBLE);
             carousel.setVisibility(View.INVISIBLE);
         }
         else if(getArguments().getInt(ARG_SECTION_NUMBER) == 2)
@@ -110,9 +103,16 @@ public class PlaceholderFragment extends Fragment {
             c1.setVisibility(View.INVISIBLE);
             c2.setVisibility(View.INVISIBLE);
             c3.setVisibility(View.INVISIBLE);
+            s1.setVisibility(View.INVISIBLE);
+            s2.setVisibility(View.INVISIBLE);
+            s3.setVisibility(View.INVISIBLE);
+            s4.setVisibility(View.INVISIBLE);
+            s5.setVisibility(View.INVISIBLE);
+            s6.setVisibility(View.INVISIBLE);
             buttonweights.setVisibility(View.INVISIBLE);
             buttonclasses.setVisibility(View.INVISIBLE);
             buttonpersonal.setVisibility(View.INVISIBLE);
+            b2.setVisibility(View.INVISIBLE);
 
             carousel.setPageCount(6);
             carousel.setImageListener(new ImageListener() {

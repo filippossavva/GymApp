@@ -218,44 +218,55 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
         Switch swPil = findViewById(R.id.swPilates);
         Switch swYo = findViewById(R.id.swYoga);
 
+
         if(cbClass.isChecked())
         {
             price += classes;
         }
+        System.out.println("1 \n");
         if(cbWeight.isChecked())
         {
             price += weights;
         }
+        System.out.println("2 \n");
         if(cbPers.isChecked())
         {
             price += personal;
         }
+        System.out.println("3 \n");
         if(swBox.isChecked())
         {
             price += boxing;
         }
+        System.out.println("4 \n");
         if(swPil.isChecked())
         {
             price += pilates;
         }
+        System.out.println("5 \n");
         if(swTab.isChecked())
         {
             price += tabata;
         }
+        System.out.println("6 \n");
         if(swT.isChecked())
         {
             price += trx;
         }
+        System.out.println("7 \n");
         if(swYo.isChecked())
         {
             price += yoga;
         }
+        System.out.println("8 \n");
         if(swZum.isChecked())
         {
             price += zumba;
         }
+        System.out.println("9 \n");
 
 
         Toast.makeText(this, "Total monthly price: " + price +" euro" + "\n" + weights + "\n" + personal + "\n" + classes + "\n" + trx + "\n" + zumba + "\n" + yoga + "\n" + boxing + "\n" + pilates + "\n" + tabata, Toast.LENGTH_LONG).show();
     }
+
 }

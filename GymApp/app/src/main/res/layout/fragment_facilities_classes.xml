@@ -13,18 +13,34 @@
         android:id="@+id/textView4"
         android:layout_width="411dp"
         android:layout_height="51dp"
-        android:layout_marginTop="10dp"
         android:fontFamily="@font/bungee"
         android:gravity="center"
         android:text="Please select the type of gymnastic you would like:"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        tools:layout_editor_absoluteY="5dp" />
+
+    <Switch
+        android:id="@+id/swZumba"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:text="Zumba"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="116dp"
+        tools:layout_editor_absoluteY="307dp" />
+
+    <Switch
+        android:id="@+id/swYoga"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:text="Yoga"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="11dp"
+        tools:layout_editor_absoluteY="368dp" />
 
     <CheckBox
         android:id="@+id/cbWeights"
@@ -34,27 +50,8 @@
         android:text="Weights"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/ibWeights"
-        app:layout_constraintHorizontal_bias="0.045"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.2" />
-
-    <CheckBox
-        android:id="@+id/cbClasses"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
-        android:text="Classes"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/ibClasses"
-        app:layout_constraintHorizontal_bias="0.044"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.45" />
+        tools:layout_editor_absoluteX="9dp"
+        tools:layout_editor_absoluteY="117dp" />
 
     <CheckBox
         android:id="@+id/cbPersonal"
@@ -64,139 +61,31 @@
         android:text="Personal"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/ibPersonal"
-        app:layout_constraintHorizontal_bias="0.052"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.771" />
+        tools:layout_editor_absoluteX="11dp"
+        tools:layout_editor_absoluteY="548dp" />
 
     <Button
         android:id="@+id/bCalcFee"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/button_login"
         android:onClick="calculatefee"
-        android:text="SUBMIT"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.468"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.95" />
-
-    <Switch
-        android:id="@+id/swTrx"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="200dp"
-        android:layout_marginRight="200dp"
-        android:fontFamily="sans-serif-black"
-        android:text="Trx"
-        android:textColor="#000000"
+        android:text="CALCULATE FEE"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.864"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.089" />
+        app:backgroundTint="@null"
+        tools:layout_editor_absoluteX="104dp"
+        tools:layout_editor_absoluteY="649dp" />
 
-    <Switch
-        android:id="@+id/swYoga"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="200dp"
-        android:layout_marginRight="200dp"
-        android:fontFamily="sans-serif-black"
-        android:text="Yoga"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.791"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.185" />
-
-    <Switch
-        android:id="@+id/swPilates"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="200dp"
-        android:layout_marginRight="200dp"
-        android:fontFamily="sans-serif-black"
-        android:text="Pilates"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.312" />
-
-    <Switch
-        android:id="@+id/swZumba"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="sans-serif-black"
-        android:text="Zumba"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.669"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.089" />
-
-    <Switch
-        android:id="@+id/swBoxing"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="sans-serif-black"
-        android:text="Boxing"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.669"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.185" />
-
-    <Switch
-        android:id="@+id/swTabata"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="sans-serif-black"
-        android:text="Tabata"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.669"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.312" />
+    <ImageButton
+        android:id="@+id/ibPersonal"
+        android:layout_width="178dp"
+        android:layout_height="134dp"
+        android:adjustViewBounds="true"
+        android:onClick="moveToPersonal"
+        android:scaleType="fitCenter"
+        android:src="@drawable/personal"
+        tools:layout_editor_absoluteX="218dp"
+        tools:layout_editor_absoluteY="501dp" />
 
     <ImageButton
         android:id="@+id/ibWeights"
@@ -206,55 +95,80 @@
         android:onClick="moveToWeights"
         android:scaleType="fitCenter"
         android:src="@drawable/weights"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.703"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.135" />
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="218dp"
+        tools:layout_editor_absoluteY="73dp" />
+
+    <CheckBox
+        android:id="@+id/cbClasses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:text="Classes"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="9dp"
+        tools:layout_editor_absoluteY="248dp" />
 
     <ImageButton
         android:id="@+id/ibClasses"
         android:layout_width="178dp"
         android:layout_height="134dp"
-        android:layout_marginTop="5dp"
         android:adjustViewBounds="true"
         android:onClick="moveToClasses"
         android:scaleType="fitCenter"
         android:src="@drawable/classesgym"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.703"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ibWeights"
-        app:layout_constraintVertical_bias="0.08" />
+        tools:layout_editor_absoluteX="219dp"
+        tools:layout_editor_absoluteY="314dp" />
 
-    <ImageButton
-        android:id="@+id/ibPersonal"
-        android:layout_width="178dp"
-        android:layout_height="134dp"
-        android:layout_marginTop="5dp"
-        android:adjustViewBounds="true"
-        android:onClick="moveToPersonal"
-        android:scaleType="fitCenter"
-        android:src="@drawable/personal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.69"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ibClasses"
-        app:layout_constraintVertical_bias="0.319" />
+    <Switch
+        android:id="@+id/swTrx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:text="Trx"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="11dp"
+        tools:layout_editor_absoluteY="307dp" />
+
+    <Switch
+        android:id="@+id/swBoxing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:text="Boxing"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="116dp"
+        tools:layout_editor_absoluteY="368dp" />
+
+    <Switch
+        android:id="@+id/swPilates"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:text="Pilates"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="116dp"
+        tools:layout_editor_absoluteY="429dp" />
+
+    <Switch
+        android:id="@+id/swTabata"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:text="Tabata"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="9dp"
+        tools:layout_editor_absoluteY="429dp" />
 
     <com.synnapps.carouselview.CarouselView
         android:id="@+id/carousel"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_marginTop="50dp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/swPilates"
-        app:layout_constraintVertical_bias="0.542"></com.synnapps.carouselview.CarouselView>
+        tools:layout_editor_absoluteY="56dp"></com.synnapps.carouselview.CarouselView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
