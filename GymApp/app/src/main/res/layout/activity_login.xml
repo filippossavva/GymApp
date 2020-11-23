@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
+    android:animateLayoutChanges="true"
     android:background="@drawable/gymback"
     android:orientation="vertical"
     tools:context=".ui.login.LoginActivity">
@@ -14,14 +15,15 @@
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_height="102dp"
+        android:layout_marginTop="150dp"
         android:background="@null"
         android:fontFamily="@font/bungee"
         android:gravity="center"
         android:text="LOG IN"
         android:textColor="#FFFFFF"
         android:textSize="50sp" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -113,5 +115,8 @@
         android:text="@string/forgot_pass"
         android:textColor="@color/design_default_color_primary_variant"
         android:textSize="18sp" />
+
+
+
 
 </LinearLayout>
