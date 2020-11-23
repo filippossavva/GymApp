@@ -52,6 +52,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng cyprus = new LatLng(lat,lng);
         mMap.addMarker(new MarkerOptions().position(cyprus).title("Marker in Cyprus"));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(cyprus,18),5000,null);
+
 //        mMap.setMapType(GoogleMap.MAP_TYPE_NONE);
     }
 }

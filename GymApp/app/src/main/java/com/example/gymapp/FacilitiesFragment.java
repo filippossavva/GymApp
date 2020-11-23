@@ -46,9 +46,12 @@ public class FacilitiesFragment extends Fragment {
                         NotificationCompat.Builder notification = new NotificationCompat.Builder(getActivity(), "4")
                                 .setContentTitle("Thanks for rating our facilities")
                                 .setContentText(body)
-                                .setStyle(new NotificationCompat.BigPictureStyle().bigPicture(bitmap))
                                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                                .setSmallIcon(android.R.drawable.btn_star_big_on);
+                                .setSmallIcon(android.R.drawable.btn_star_big_on)
+                                .setLargeIcon(bitmap)
+                                .setStyle(new NotificationCompat.BigPictureStyle()
+                                        .bigPicture(bitmap)
+                                        .bigLargeIcon(null));
 
                         NotificationManagerCompat notifyAdmin = NotificationManagerCompat.from(getActivity());
                         notifyAdmin.notify(1, notification.build());

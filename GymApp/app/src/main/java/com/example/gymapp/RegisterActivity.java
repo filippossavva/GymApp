@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -119,6 +121,8 @@ public class RegisterActivity extends AppCompatActivity {
                                                     "1",
                                                     "channel1",
                                                     NotificationManager.IMPORTANCE_DEFAULT);
+                                            Bitmap bitmap = BitmapFactory.decodeResource(getResources(),
+                                                    R.drawable.logo);
 
                                             //create the notification manager
                                             NotificationManager manager = getSystemService(NotificationManager.class);
@@ -129,12 +133,16 @@ public class RegisterActivity extends AppCompatActivity {
 
 
                                             NotificationCompat.Builder notification = new NotificationCompat.Builder(RegisterActivity.this, "1")
-                                                    .setSmallIcon(android.R.drawable.btn_star)
+                                                    .setSmallIcon(android.R.drawable.btn_star_big_on)
                                                     .setContentTitle("Congratulations " +name+ " "+surname+ "!" +"\n You are ready to log in")
                                                     .setContentText(body)
                                                     .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                                                     .setAutoCancel(true)
-                                                    .setContentIntent(resultPendingIntent);
+                                                    .setContentIntent(resultPendingIntent)
+                                                    .setLargeIcon(bitmap)
+                                                    .setStyle(new NotificationCompat.BigPictureStyle()
+                                                            .bigPicture(bitmap)
+                                                            .bigLargeIcon(null));
 
                                             NotificationManagerCompat notifyAdmin = NotificationManagerCompat.from(RegisterActivity.this);
                                             notifyAdmin.notify(1, notification.build());

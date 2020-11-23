@@ -46,11 +46,14 @@ public class ClassesFragment extends Fragment {
                             R.drawable.classnotifications);
                     //create the notification
                     NotificationCompat.Builder notification = new NotificationCompat.Builder(getActivity(), "2")
-                            .setSmallIcon(android.R.drawable.btn_star)
+                            .setSmallIcon(android.R.drawable.btn_star_big_on)
                             .setContentTitle( "Thanks for rating our classes")
                             .setContentText(body)
-                            .setStyle(new NotificationCompat.BigPictureStyle().bigPicture(bitmap))
-                            .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+                            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                            .setLargeIcon(bitmap)
+                            .setStyle(new NotificationCompat.BigPictureStyle()
+                                    .bigPicture(bitmap)
+                                    .bigLargeIcon(null));
 
                     NotificationManagerCompat notifyAdmin = NotificationManagerCompat.from(getActivity());
                     notifyAdmin.notify(1, notification.build());
