@@ -46,6 +46,7 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
         tabs.setupWithViewPager(viewPager);
         FloatingActionButton fab = findViewById(R.id.fab);
         FloatingActionButton map = findViewById(R.id.fabmap);
+        FloatingActionButton rate = findViewById(R.id.fabrate);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -127,6 +128,14 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
                 startActivity(in);
             }
         });
+
+        rate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(getApplicationContext(),RateActivity.class);
+                startActivity(in);
+            }
+        });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
@@ -170,11 +179,7 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
             userlogout();
             return true;
         }
-        else if (id == R.id.action_rate) {
-            Intent in = new Intent(this, RateActivity.class);
-            startActivity(in);
-            return super.onOptionsItemSelected(item);
-        }
+
         else
         {
             return super.onOptionsItemSelected(item);

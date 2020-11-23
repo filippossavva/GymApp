@@ -68,4 +68,16 @@
         app:layout_anchor="@id/dummy2"
         app:layout_anchorGravity="top|left|end"
         app:maxImageSize="150px" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabrate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|left"
+        android:layout_margin="16dp"
+        android:clickable="true"
+        app:backgroundTint="#CDDC39"
+        app:maxImageSize="150px"
+        app:srcCompat="@drawable/rate_star"
+        app:tint="@null" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
