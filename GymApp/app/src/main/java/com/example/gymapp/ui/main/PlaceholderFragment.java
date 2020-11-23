@@ -78,6 +78,37 @@ public class PlaceholderFragment extends Fragment {
         Switch s4 = root.findViewById(R.id.swTabata);
         Switch s5 = root.findViewById(R.id.swYoga);
         Switch s6 = root.findViewById(R.id.swZumba);
+
+        s1.setEnabled(false);
+        s2.setEnabled(false);
+        s3.setEnabled(false);
+        s4.setEnabled(false);
+        s5.setEnabled(false);
+        s6.setEnabled(false);
+
+
+        c2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (c2.isChecked())
+                    {
+                        s1.setEnabled(true);
+                        s2.setEnabled(true);
+                        s3.setEnabled(true);
+                        s4.setEnabled(true);
+                        s5.setEnabled(true);
+                        s6.setEnabled(true);
+                    }
+                else{
+                        s1.setEnabled(false);
+                        s2.setEnabled(false);
+                        s3.setEnabled(false);
+                        s4.setEnabled(false);
+                        s5.setEnabled(false);
+                        s6.setEnabled(false);
+                }
+            }
+        });
         ImageButton buttonweights = root.findViewById(R.id.ibWeights);
         ImageButton buttonclasses = root.findViewById(R.id.ibClasses);
         ImageButton buttonpersonal = root.findViewById(R.id.ibPersonal);
@@ -100,6 +131,7 @@ public class PlaceholderFragment extends Fragment {
             tvInfo.setVisibility(View.INVISIBLE);
             tvDetails.setVisibility(View.INVISIBLE);
             carousel.setVisibility(View.INVISIBLE);
+
         }
         else if(getArguments().getInt(ARG_SECTION_NUMBER) == 2)
         {

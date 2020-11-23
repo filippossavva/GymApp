@@ -50,6 +50,9 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+
+
         mAuth = FirebaseAuth.getInstance();
 
 
@@ -71,38 +74,6 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
         lng = fee.getDouble("lng");
 
         getSupportActionBar().setTitle(name);
-
-//             Intent in = getIntent();
-//        boxing = fee.getString(GymSelectActivity.BOX);
-//        classes = fee.getString(GymSelectActivity.CLASS);
-//        personal = fee.getString(GymSelectActivity.PERSONAL);
-//        pilates = fee.getString(GymSelectActivity.PILATES);
-//        tabata = fee.getString(GymSelectActivity.TABATA);
-//        trx = fee.getString(GymSelectActivity.TRX);
-//        weights = fee.getString(GymSelectActivity.WEIGHTS);
-//        yoga = fee.getString(GymSelectActivity.YOGA);
-//        zumba = fee.getString(GymSelectActivity.ZUMBA);
-//        url = fee.getString(GymSelectActivity.MESSAGE);
-
-//
-//             Intent inclass = getIntent();
-//             classes1 = inclass.getStringExtra(GymSelectActivity.CLASS);
-//             personal = in.getStringExtra(GymSelectActivity.PERSONAL);
-//             pilates= in.getStringExtra(GymSelectActivity.PILATES);
-//             boxing = in.getStringExtra(GymSelectActivity.TABATA);
-//             boxing = in.getStringExtra(GymSelectActivity.TRX);
-//             boxing = in.getStringExtra(GymSelectActivity.WEIGHTS);
-//             boxing = in.getStringExtra(GymSelectActivity.YOGA);
-//             boxing = in.getStringExtra(GymSelectActivity.ZUMBA);
-//             boxing = in.getStringExtra(GymSelectActivity.MESSAGE);
-
-
-
-//        Intent intent = getIntent();
-//        String url = intent.getStringExtra(GymSelectActivity.MESSAGE);
-
-
-
 
 
         fab.setOnClickListener(new View.OnClickListener() {
@@ -209,6 +180,8 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
     }
+
+
 
     public void calculatefee(View v)
     {
