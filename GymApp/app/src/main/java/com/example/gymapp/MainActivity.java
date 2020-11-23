@@ -3,6 +3,7 @@ package com.example.gymapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.animation.Animation;
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     //Constant
     public static int SPLASH_SCREEN =5000;
     //Variables
+    MediaPlayer song;
     Animation topAnim,bottomAnim;
     ImageView image;
     TextView logo,slogan;
@@ -33,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
         image = findViewById(R.id.image_logo);
         logo = findViewById(R.id.logo_name);
         slogan = findViewById(R.id.slogan);
-
+        song = MediaPlayer.create(this,R.raw.welcome);
+        song.start();
         image.setAnimation(topAnim);
         logo.setAnimation(bottomAnim);
         slogan.setAnimation(bottomAnim);
