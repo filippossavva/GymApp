@@ -17,6 +17,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
 
     Double lat, lng;
+    String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Bundle coord = in.getExtras();
         lat = coord.getDouble("lat");
         lng = coord.getDouble("lng");
+        name = coord.getString("name");
     }
 
     /**
@@ -45,12 +47,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-//        Double lat = 34.930301;
-//        Double lng = 33.599448;
 
-        // Add a marker in Sydney and move the camera
+        // Add a marker in our gyms and move the camera
         LatLng cyprus = new LatLng(lat,lng);
-        mMap.addMarker(new MarkerOptions().position(cyprus).title("Marker in Cyprus"));
+        mMap.addMarker(new MarkerOptions().position(cyprus).title(name));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(cyprus,18),5000,null);
 
 //        mMap.setMapType(GoogleMap.MAP_TYPE_NONE);

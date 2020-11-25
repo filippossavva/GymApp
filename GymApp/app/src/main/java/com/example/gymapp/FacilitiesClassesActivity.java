@@ -96,6 +96,7 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
                 Intent in = new Intent(getApplicationContext(),MapsActivity.class);
                 coord.putDouble("lat", lat);
                 coord.putDouble("lng", lng);
+                coord.putString("name",name);
                 in.putExtras(coord);
                 startActivity(in);
             }
