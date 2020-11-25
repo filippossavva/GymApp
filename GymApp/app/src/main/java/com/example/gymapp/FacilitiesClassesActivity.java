@@ -61,7 +61,7 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
         Intent in = getIntent();
         Bundle fee = in.getExtras();
         boxing = fee.getInt("boxing");
-        classes = fee.getInt("classes");
+        classes = fee.getInt("com.example.gymapp.classes");
         personal = fee.getInt("personal");
         pilates = fee.getInt("pilates");
         tabata = fee.getInt("tabata");

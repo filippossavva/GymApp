@@ -38,7 +38,7 @@ public class FacilitiesFragment extends Fragment {
         {
             fAuth = FirebaseAuth.getInstance();
             user = FirebaseAuth.getInstance().getCurrentUser();
-            databaseReference = FirebaseDatabase.getInstance().getReference("rate");
+            databaseReference = FirebaseDatabase.getInstance().getReference("facilities_rate");
             id = user.getUid();
             Button b1 = root.findViewById(R.id.submit_facilities);
             b1.setOnClickListener(new View.OnClickListener() {

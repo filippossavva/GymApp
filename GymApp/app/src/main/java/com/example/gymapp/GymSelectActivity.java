@@ -236,7 +236,7 @@ public class GymSelectActivity extends AppCompatActivity {
         zumba = Integer.parseInt(feezumba);
 
 //        System.out.println(boxing);
-//        System.out.println(classes);
+//        System.out.println(com.example.gymapp.classes);
 //        System.out.println(personal);
 //        System.out.println(pilates);
 //        System.out.println(tabata);
@@ -248,7 +248,7 @@ public class GymSelectActivity extends AppCompatActivity {
         Intent intent = new Intent(this, FacilitiesClassesActivity.class);
         Bundle fee = new Bundle();
         fee.putInt("boxing",boxing);
-        fee.putInt("classes",classes);
+        fee.putInt("com.example.gymapp.classes",classes);
         fee.putInt("personal",personal);
         fee.putInt("pilates",pilates);
         fee.putInt("tabata",tabata);
