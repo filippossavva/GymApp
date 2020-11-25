@@ -34,6 +34,7 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
     public int yoga,tabata,boxing,classes,weights,personal,pilates,trx,zumba,price;
     String url, name;
     double lat, lng;
+    public static final String NAME = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,6 +105,7 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent in = new Intent(getApplicationContext(),RateActivity.class);
+                in.putExtra(NAME, name);
                 startActivity(in);
             }
         });

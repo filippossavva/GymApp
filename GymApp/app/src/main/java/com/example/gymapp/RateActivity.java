@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gymapp.ui.login.LoginActivity;
@@ -25,6 +26,7 @@ import androidx.appcompat.widget.Toolbar;
 public class RateActivity extends AppCompatActivity {
     FirebaseAuth fAuth;
     FirebaseUser user;
+    String name;
     private AppBarConfiguration mAppBarConfiguration;
 
     @Override
@@ -34,6 +36,15 @@ public class RateActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         fAuth = FirebaseAuth.getInstance();
+
+        Intent in = getIntent();
+        name = in.getStringExtra(FacilitiesClassesActivity.NAME);
+
+//        TextView Name = findViewById(R.id.tvGymName);
+//        Name.setText(name);
+        System.out.println(name);
+        getSupportActionBar().setTitle(name);
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
