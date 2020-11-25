@@ -44,14 +44,7 @@ public class RateActivity extends AppCompatActivity {
 //        Name.setText(name);
         System.out.println(name);
         getSupportActionBar().setTitle(name);
-
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Please be gentle!", Toast.LENGTH_LONG).show();
-            }
-        });
+        
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
