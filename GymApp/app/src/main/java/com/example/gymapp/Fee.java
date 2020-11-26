@@ -34,7 +34,7 @@ public class Fee extends Service {
                     fca.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            Toast.makeText(getApplicationContext(), "If you are not sure what to chose, there are videos on the Facilities tab and explanation for the classes on the Classes tab", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "If you are not sure what to choose, there are videos on the Facilities tab and explanation for the classes on the Classes tab", Toast.LENGTH_LONG).show();
                         }
                     });
                 }
