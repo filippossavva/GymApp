@@ -32,16 +32,6 @@ import android.widget.Toast;
 public class GymSelectActivity extends AppCompatActivity {
     String city = "";
 
-//    public static final String BOX = "";
-//    public static final String CLASS = "";
-//    public static final String PERSONAL = "";
-//    public static final String PILATES = "";
-//    public static final String TABATA = "";
-//    public static final String TRX = "";
-//    public static final String WEIGHTS = "";
-//    public static final String YOGA = "";
-//    public static final String ZUMBA = "";
-//    public static final String MESSAGE ="";
 
     FirebaseDatabase fAuth;
     DatabaseReference databaseReference;
@@ -235,6 +225,7 @@ public class GymSelectActivity extends AppCompatActivity {
         String feezumba = tvzumba.getText().toString();
         zumba = Integer.parseInt(feezumba);
 
+<<<<<<< Updated upstream
 //        System.out.println(boxing);
 //        System.out.println(com.example.gymapp.classes);
 //        System.out.println(personal);
@@ -244,6 +235,9 @@ public class GymSelectActivity extends AppCompatActivity {
 //        System.out.println(weights);
 //        System.out.println(yoga);
 //        System.out.println(zumba);
+=======
+
+>>>>>>> Stashed changes
 
         Intent intent = new Intent(this, FacilitiesClassesActivity.class);
         Bundle fee = new Bundle();
@@ -261,19 +255,6 @@ public class GymSelectActivity extends AppCompatActivity {
         fee.putDouble("lat",lat);
         fee.putDouble("lng", lng);
         intent.putExtras(fee);
-
-//        fee.putString(BOX, feeboxing);
-//        fee.putString(CLASS, feeclasses);
-//        fee.putString(PERSONAL, feepersonal);
-//        fee.putString(PILATES, feepilates);
-//        fee.putString(TABATA, feetabata);
-//        fee.putString(TRX, feetrx);
-//        fee.putString(WEIGHTS, feeweights);
-//        fee.putString(YOGA, feeyoga);
-//        fee.putString(ZUMBA, feezumba);
-//        fee.putString(MESSAGE,url);
-//        intent.putExtras(fee);
-
         startActivity(intent);
 
 

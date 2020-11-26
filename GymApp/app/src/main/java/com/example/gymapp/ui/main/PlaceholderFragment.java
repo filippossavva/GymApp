@@ -113,13 +113,6 @@ public class PlaceholderFragment extends Fragment {
         ImageButton buttonclasses = root.findViewById(R.id.ibClasses);
         ImageButton buttonpersonal = root.findViewById(R.id.ibPersonal);
         CarouselView carousel = root.findViewById(R.id.carousel);
-//        VideoView videoRtx = root.findViewById(R.id.videoTrx);
-//        String videoPath = "android.resource://com.android.developer.arsl.videoplayer/"+R.raw.TRX;
-//        Uri uri = Uri.parse(videoPath);
-//        videoRtx.setVideoURI(uri);
-//        MediaController mediaController = new MediaController(this);
-//        videoRtx.setMediaController(mediaController);
-//        mediaController.setAnchorView(videoRtx);
 
 
 

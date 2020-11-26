@@ -24,7 +24,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FeeCalcActivity" />
         <activity
             android:name=".SelectGymCity"
             android:label="@string/title_activity_select_gym_city"
