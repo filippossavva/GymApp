@@ -63,10 +63,12 @@
             android:theme="@style/Theme.GymApp.NoActionBar" />
         <activity
             android:name=".RegisterActivity"
-            android:label="Register" />
+            android:label="Register"
+            android:theme="@style/Theme.GymApp.NoActionBar" />
         <activity
             android:name=".ui.login.LoginActivity"
-            android:label="Log In">
+            android:label="Log In"
+            android:theme="@style/Theme.GymApp.NoActionBar" >
         </activity>
 
         <meta-data

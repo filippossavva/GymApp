@@ -139,7 +139,7 @@ public class LoginActivity extends AppCompatActivity {
                 resetPasswordDialog.setView(resetemail);
 
                 fAuth = FirebaseAuth.getInstance();
-                resetPasswordDialog.setPositiveButton("Yeah", new DialogInterface.OnClickListener() {
+                resetPasswordDialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         String mail = resetemail.getText().toString();
@@ -157,7 +157,7 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
 
-                resetPasswordDialog.setNegativeButton("Nah", new DialogInterface.OnClickListener() {
+                resetPasswordDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
@@ -212,5 +212,6 @@ public class LoginActivity extends AppCompatActivity {
     {
         Intent in = new Intent(this, RegisterActivity.class);
         startActivity(in);
+        finish();
     }
 }
