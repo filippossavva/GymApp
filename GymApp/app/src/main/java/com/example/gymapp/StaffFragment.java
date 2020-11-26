@@ -17,15 +17,10 @@ import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
-
-<<<<<<< Updated upstream
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-=======
-import com.example.gymapp.R;
->>>>>>> Stashed changes
 
 public class StaffFragment extends Fragment {
     DatabaseReference databaseReference;
