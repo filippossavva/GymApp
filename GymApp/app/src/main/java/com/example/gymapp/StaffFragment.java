@@ -72,7 +72,7 @@ public class StaffFragment extends Fragment {
 
                     NotificationCompat.Builder notification = new NotificationCompat.Builder(getActivity(), "3")
                             .setSmallIcon(android.R.drawable.btn_star_big_on)
-                            .setContentTitle("Thanks for rating our staff")
+                            .setContentTitle("Thanks for rating our staff!")
                             .setContentText(body)
                             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                             .setLargeIcon(bitmap)

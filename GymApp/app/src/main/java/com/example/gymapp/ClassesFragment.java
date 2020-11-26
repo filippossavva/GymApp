@@ -77,7 +77,7 @@ public class ClassesFragment extends Fragment {
                     //create the notification
                     NotificationCompat.Builder notification = new NotificationCompat.Builder(getActivity(), "2")
                             .setSmallIcon(android.R.drawable.btn_star_big_on)
-                            .setContentTitle( "Thanks for rating our com.example.gymapp.classes")
+                            .setContentTitle( "Thanks for rating our classes!")
                             .setContentText(body)
                             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                             .setLargeIcon(bitmap)

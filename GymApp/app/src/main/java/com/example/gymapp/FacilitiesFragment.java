@@ -74,7 +74,7 @@ public class FacilitiesFragment extends Fragment {
                         //create the notification
 
                         NotificationCompat.Builder notification = new NotificationCompat.Builder(getActivity(), "4")
-                                .setContentTitle("Thanks for rating our facilities")
+                                .setContentTitle("Thanks for rating our facilities!")
                                 .setContentText(body)
                                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                                 .setSmallIcon(android.R.drawable.btn_star_big_on)
