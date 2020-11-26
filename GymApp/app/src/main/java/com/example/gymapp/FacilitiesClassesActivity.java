@@ -35,6 +35,7 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
     String url, name;
     double lat, lng;
     public static final String NAME = "";
+    boolean service = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +52,8 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-
+        Intent inS = new Intent(this, Fee.class);
+        startService(inS);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -248,6 +249,16 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
 
 
         Toast.makeText(this, "Total monthly price: " + price +" euros." , Toast.LENGTH_LONG).show();
+    }
+
+    public void serviceStop(View v)
+    {
+        if(service == false)
+        {
+            service = true;
+            Intent in = new Intent(this, Fee.class);
+            stopService(in);
+        }
     }
 
 }

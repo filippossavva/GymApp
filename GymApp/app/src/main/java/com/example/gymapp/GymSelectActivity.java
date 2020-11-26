@@ -225,6 +225,19 @@ public class GymSelectActivity extends AppCompatActivity {
         String feezumba = tvzumba.getText().toString();
         zumba = Integer.parseInt(feezumba);
 
+//        System.out.println(boxing);
+//        System.out.println(com.example.gymapp.classes);
+//        System.out.println(personal);
+//        System.out.println(pilates);
+//        System.out.println(tabata);
+//        System.out.println(trx);
+//        System.out.println(weights);
+//        System.out.println(yoga);
+//        System.out.println(zumba);
+
+//        Intent inS = new Intent(this, Fee.class);
+//        startService(inS);
+
         Intent intent = new Intent(this, FacilitiesClassesActivity.class);
         Bundle fee = new Bundle();
         fee.putInt("boxing",boxing);
