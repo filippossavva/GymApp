@@ -82,6 +82,8 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Bundle info = new Bundle();
+                Intent inS = new Intent(getApplicationContext(), Fee.class);
+                stopService(inS);
                 Intent in = new Intent(getApplicationContext(),SocialMediaActivity.class);
                 info.putString("url",url);
                 info.putString("name",name);
@@ -94,6 +96,8 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Bundle coord = new Bundle();
+                Intent inS = new Intent(getApplicationContext(), Fee.class);
+                stopService(inS);
                 Intent in = new Intent(getApplicationContext(),MapsActivity.class);
                 coord.putDouble("lat", lat);
                 coord.putDouble("lng", lng);
@@ -106,6 +110,8 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
         rate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent inS = new Intent(getApplicationContext(), Fee.class);
+                stopService(inS);
                 Intent in = new Intent(getApplicationContext(),RateActivity.class);
                 in.putExtra(NAME, name);
                 startActivity(in);
@@ -116,16 +122,22 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
     }
     public void moveToWeights(View v)
     {
+        Intent inS = new Intent(getApplicationContext(), Fee.class);
+        stopService(inS);
         Intent in = new Intent(this,WeightsActivity.class);
         startActivity(in);
     }
     public void moveToClasses(View v)
     {
+        Intent inS = new Intent(getApplicationContext(), Fee.class);
+        stopService(inS);
         Intent in = new Intent(this,ClassesActivity.class);
         startActivity(in);
     }
     public void moveToPersonal(View v)
     {
+        Intent inS = new Intent(getApplicationContext(), Fee.class);
+        stopService(inS);
         Intent in = new Intent(this,PersonalActivity.class);
         startActivity(in);
     }
@@ -164,6 +176,8 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
     //signOut.
     private void userlogout() {
         FirebaseAuth.getInstance().signOut();
+        Intent inS = new Intent(getApplicationContext(), Fee.class);
+        stopService(inS);
         Intent in = new Intent(this, LoginActivity.class);
         startActivity(in);
         finish();
