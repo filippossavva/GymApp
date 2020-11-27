@@ -130,7 +130,7 @@
         android:background="@drawable/hyperlink"
         android:fontFamily="sans-serif"
         android:gravity="center"
-        android:onClick="serviceStop"
+        android:onClick="createAccount"
         android:text="@string/create_account"
         android:textColor="@color/design_default_color_primary_variant"
         android:textSize="18sp" />
