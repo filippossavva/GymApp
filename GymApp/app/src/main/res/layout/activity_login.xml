@@ -74,6 +74,15 @@
             android:textColorHint="@color/white" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabHelp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|right"
+        android:clickable="true"
+        app:backgroundTint="@color/design_default_color_error"
+        app:srcCompat="@android:drawable/ic_dialog_info" />
+
     <ProgressBar
         android:id="@+id/pbLoading"
         android:layout_width="20dp"
@@ -86,7 +95,6 @@
         android:id="@+id/button_login"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="30dp"
         android:background="@drawable/button_login"
         android:enabled="false"
         android:text="@string/action_sign_in"
@@ -104,7 +112,7 @@
         android:isScrollContainer="false"
         android:text="Register"
         android:textColor="@android:color/holo_red_dark"
-        android:visibility="visible" />
+        android:visibility="invisible" />
 
     <ImageView
         android:id="@+id/ivHelpRegister"
@@ -112,7 +120,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:tint="@android:color/holo_red_dark"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:srcCompat="@android:drawable/arrow_down_float" />
 
     <TextView
@@ -145,7 +153,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:tint="@android:color/holo_red_dark"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:srcCompat="@android:drawable/arrow_up_float" />
 
     <TextView
@@ -156,7 +164,7 @@
         android:isScrollContainer="false"
         android:text="Reset password"
         android:textColor="@android:color/holo_red_dark"
-        android:visibility="visible" />
+        android:visibility="invisible" />
 
 
 </LinearLayout>

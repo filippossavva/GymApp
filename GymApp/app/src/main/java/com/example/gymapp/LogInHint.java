@@ -3,8 +3,11 @@ package com.example.gymapp;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -30,12 +33,12 @@ public class LogInHint extends Service {
             @Override
             public void run() {
                 count++;
-                if(count == 10)
+                if(count == 3)
                 {
                     fca.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            Toast.makeText(getApplicationContext(), "Don't have an account? Click on register\nForgot password? Click to reset", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Don't have an account? Click on register\nForgot you password? Click to reset", Toast.LENGTH_LONG).show();
                         }
                     });
                 }

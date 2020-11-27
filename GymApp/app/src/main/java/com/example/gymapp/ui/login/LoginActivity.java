@@ -34,6 +34,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -59,15 +60,20 @@ public class LoginActivity extends AppCompatActivity {
         TextView helpRegister = findViewById(R.id.tvHelpRegister);
         TextView helpForgot = findViewById(R.id.tvHelpForgot);
 
-        Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.log_in_hint);
-        ivForgot.startAnimation(anim);
-        ivRegister.startAnimation(anim);
-        helpForgot.startAnimation(anim);
-        helpRegister.startAnimation(anim);
+        FloatingActionButton fab = findViewById(R.id.fabHelp);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.log_in_hint);
+                ivForgot.startAnimation(anim);
+                ivRegister.startAnimation(anim);
+                helpForgot.startAnimation(anim);
+                helpRegister.startAnimation(anim);
 
-        Intent inS = new Intent(this, LogInHint.class);
-        startService(inS);
-
+                Intent inS = new Intent(getApplicationContext(), LogInHint.class);
+                startService(inS);
+            }
+        });
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
