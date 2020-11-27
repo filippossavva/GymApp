@@ -79,14 +79,7 @@ public class RateActivity extends AppCompatActivity {
                 userlogout();
                 return true;
             }
-            if (id == R.id.action_back_to_gym) {
-                Intent in = new Intent(this,FacilitiesClassesActivity.class);
-                startActivity(in);
-                super.onOptionsItemSelected(item);
-                return true;
-            }
-            
-        else {
+            else {
                 return super.onOptionsItemSelected(item);
             }
 

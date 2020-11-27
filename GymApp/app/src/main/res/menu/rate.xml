@@ -2,11 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_back_to_gym"
-        android:orderInCategory="1"
-        android:title="Back"
-        app:showAsAction="always" />
-    <item
         android:id="@+id/action_logout"
         android:orderInCategory="2"
         android:title="Logout"
