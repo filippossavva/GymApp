@@ -53,6 +53,7 @@ public class LoginActivity extends AppCompatActivity {
 
         Intent in = getIntent();
         Bundle info = new Bundle();
+        info = in.getExtras();
         service = info.getBoolean("service");
 
         final EditText usernameEditText = findViewById(R.id.etEmailAddress);
