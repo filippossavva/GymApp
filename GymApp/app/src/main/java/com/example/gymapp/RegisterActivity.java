@@ -136,7 +136,7 @@ public class RegisterActivity extends AppCompatActivity {
                 }
 
 
-                if(validateName() && validateSurname() && validateUsername() && validateEmail() && validatePassword() && validateConfPass() ){
+                if(validateName() && validateSurname() && validateEmail() && validateUsername() && validatePassword() && validateConfPass() ){
                     loading.setVisibility(View.VISIBLE);
                     fAuth.createUserWithEmailAndPassword(emailText,passwordText).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
@@ -239,7 +239,6 @@ public class RegisterActivity extends AppCompatActivity {
             nameText.setError("Name can not be empty");
             return false;
         } else {
-            nameText.setError(null);
             return true;
         }
     }
@@ -251,10 +250,24 @@ public class RegisterActivity extends AppCompatActivity {
             surnameText.setError("Surname can not be empty");
             return false;
         } else {
-            surnameText.setError(null);
             return true;
         }
     }
+
+    private boolean validateEmail() {
+        EditText emailText = findViewById(R.id.etEmail);
+        String val = emailText.getText().toString().trim();
+        if (val.isEmpty()) {
+            emailText.setError("Email can not be empty");
+            return false;
+        } else if (!val.contains("@")) {
+            emailText.setError("Email must contains @");
+            return false;
+        }else {
+            return true;
+        }
+    }
+
     public boolean validateUsername()
     {
         EditText usernameText = findViewById(R.id.etEmailAddress);
@@ -268,36 +281,25 @@ public class RegisterActivity extends AppCompatActivity {
                 count++;
             }
         }
-        if(count == 0)
+        if (val.isEmpty()) {
+            usernameText.setError("Username can not be empty");
+            return false;
+        }
+            else if (val.length() < 6) {
+                usernameText.setError("Username must contains up to 6 characters");
+                return false;
+            }
+        else if (val.length() > 20) {
+            usernameText.setError("Username is too large");
+            return false;
+        }
+        else if(count == 0)
         {
             usernameText.setError("Username must contains at least one number");
             return false;
         }
-        else if (val.isEmpty()) {
-            usernameText.setError("Username can not be empty");
-            return false;
-        } else if (val.length() > 20) {
-            usernameText.setError("Username is too large");
-            return false;
-        }else if (val.length() < 6) {
-            usernameText.setError("Username must contains up to 6 characters");
-            return false;
-        }else {
-            usernameText.setError(null);
-            return true;
-        }
-    }
-    private boolean validateEmail() {
-        EditText emailText = findViewById(R.id.etEmail);
-        String val = emailText.getText().toString().trim();
-        if (val.isEmpty()) {
-            emailText.setError("Email can not be empty");
-            return false;
-        } else if (!val.contains("@")) {
-            emailText.setError("Email must contains @");
-            return false;
-        }else {
-            emailText.setError(null);
+
+      else {
             return true;
         }
     }
@@ -308,16 +310,17 @@ public class RegisterActivity extends AppCompatActivity {
 
         String passType = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[.!@#$%^&+=])(?=\\S+$).{6,30}$";
 
-        if(!val.matches(passType))
-        {
-            password.setError("Password must contains more tha 6 characters,lower case,capital case,number and symbol");
-            return false;
-        }
-        else if(val.isEmpty())
+        if(val.isEmpty())
         {
             password.setError("Field can not be empty");
             return false;
         }
+        else if(!val.matches(passType))
+        {
+            password.setError("Password must contains more tha 6 characters,lower case,capital case,number and symbol");
+            return false;
+        }
+
         else
         {
             return true;
