@@ -128,7 +128,7 @@ public class PlaceholderFragment extends Fragment {
         }
         else if(getArguments().getInt(ARG_SECTION_NUMBER) == 2)
         {
-            tv.setText("Please select the class you want to join in:");
+            tv.setText("Do you want some help to choose the suitable classes for you?");
             c1.setVisibility(View.INVISIBLE);
             c2.setVisibility(View.INVISIBLE);
             c3.setVisibility(View.INVISIBLE);
