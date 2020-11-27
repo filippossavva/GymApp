@@ -36,7 +36,6 @@ public class GymSelectActivity extends AppCompatActivity {
     FirebaseDatabase fAuth;
     DatabaseReference databaseReference;
     FirebaseAuth mAuth;
-    FirebaseUser user;
     int yoga,tabata,boxing,classes,weights,personal,pilates,trx,zumba;
     double lat,lng;
 
@@ -51,14 +50,6 @@ public class GymSelectActivity extends AppCompatActivity {
         RecyclerView recycle = findViewById(R.id.recyclerview);
         recycle.setHasFixedSize(true);
         recycle.setLayoutManager(new LinearLayoutManager(this));
-
-//        ImageButton imageNext = findViewById(R.id.ibGyms);
-//        imageNext.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                goToFacilities();
-//            }
-//        });
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -111,11 +102,6 @@ public class GymSelectActivity extends AppCompatActivity {
         RecyclerView recycle = findViewById(R.id.recyclerview);
         recycle.setAdapter(firebaseRecyclerAdapter);
 
-        user = mAuth.getCurrentUser();
-        if (user == null)
-        {
-            userlogout();
-        }
 
     }
 
@@ -143,9 +129,13 @@ public class GymSelectActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_logout) {
-            super.onOptionsItemSelected(item);
-            userlogout();
-            return true;
+            FirebaseAuth.getInstance().signOut();
+            finishAffinity();
+            Intent in = new Intent(this, LoginActivity.class);
+            startActivity(in);
+            finish();
+            Toast.makeText(getApplicationContext(), "Sign Out Successful!", Toast.LENGTH_LONG).show();
+            return super.onOptionsItemSelected(item);
         }
 
         else if (id == R.id.action_location) {
@@ -159,17 +149,6 @@ public class GymSelectActivity extends AppCompatActivity {
         }
 
 
-    }
-    private void userlogout() {
-        FirebaseAuth.getInstance().signOut();
-        Intent in = new Intent(this, LoginActivity.class);
-        startActivity(in);
-        finish();
-        Toast.makeText(getApplicationContext(), "Sign Out Successful!", Toast.LENGTH_LONG).show();
-    }
-    @Override
-    protected void onStop() {
-        super.onStop();
     }
 
     public void goToFacilities(View v)
@@ -224,19 +203,6 @@ public class GymSelectActivity extends AppCompatActivity {
 
         String feezumba = tvzumba.getText().toString();
         zumba = Integer.parseInt(feezumba);
-
-//        System.out.println(boxing);
-//        System.out.println(com.example.gymapp.classes);
-//        System.out.println(personal);
-//        System.out.println(pilates);
-//        System.out.println(tabata);
-//        System.out.println(trx);
-//        System.out.println(weights);
-//        System.out.println(yoga);
-//        System.out.println(zumba);
-
-//        Intent inS = new Intent(this, LogInHint.class);
-//        startService(inS);
 
         Intent intent = new Intent(this, FacilitiesClassesActivity.class);
         Bundle fee = new Bundle();

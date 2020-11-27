@@ -25,7 +25,6 @@ import com.google.firebase.auth.FirebaseUser;
 public class FacilitiesClassesActivity extends AppCompatActivity {
     public static final String URL = "";
     FirebaseAuth mAuth;
-    FirebaseUser user;
     public int yoga,tabata,boxing,classes,weights,personal,pilates,trx,zumba,price;
     String url, name;
     double lat, lng;
@@ -141,9 +140,13 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_logout) {
-            super.onOptionsItemSelected(item);
-            userlogout();
-            return true;
+            FirebaseAuth.getInstance().signOut();
+            finishAffinity();
+            Intent in = new Intent(this, LoginActivity.class);
+            startActivity(in);
+            finish();
+            Toast.makeText(getApplicationContext(), "Sign Out Successful!", Toast.LENGTH_LONG).show();
+            return super.onOptionsItemSelected(item);
         }
 
         else
@@ -152,33 +155,6 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
         }
 
     }
-    //signOut.
-    private void userlogout() {
-        FirebaseAuth.getInstance().signOut();
-        Intent inS = new Intent(getApplicationContext(), LogInHint.class);
-        stopService(inS);
-        Intent in = new Intent(this, LoginActivity.class);
-        startActivity(in);
-        finish();
-        Toast.makeText(getApplicationContext(), "Sign Out Successful!", Toast.LENGTH_LONG).show();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        user = mAuth.getCurrentUser();
-        if (user == null)
-        {
-            userlogout();
-        }
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-    }
-
-
 
     public void calculatefee(View v)
     {

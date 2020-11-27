@@ -25,7 +25,6 @@ import androidx.appcompat.widget.Toolbar;
 
 public class RateActivity extends AppCompatActivity {
     FirebaseAuth fAuth;
-    FirebaseUser user;
     String name;
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -75,9 +74,13 @@ public class RateActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
             if (id == R.id.action_logout) {
-                super.onOptionsItemSelected(item);
-                userlogout();
-                return true;
+                FirebaseAuth.getInstance().signOut();
+                finishAffinity();
+                Intent in = new Intent(this, LoginActivity.class);
+                startActivity(in);
+                finish();
+                Toast.makeText(getApplicationContext(), "Sign Out Successful!", Toast.LENGTH_LONG).show();
+                return super.onOptionsItemSelected(item);
             }
             else {
                 return super.onOptionsItemSelected(item);
@@ -90,26 +93,6 @@ public class RateActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-    private void userlogout() {
-        FirebaseAuth.getInstance().signOut();
-        Intent in = new Intent(this, LoginActivity.class);
-        startActivity(in);
-        finish();
-        Toast.makeText(getApplicationContext(), "Sign Out Successful!", Toast.LENGTH_LONG).show();
-    }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        user = fAuth.getCurrentUser();
-        if (user == null)
-        {
-            userlogout();
-        }
-    }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-    }
 }
