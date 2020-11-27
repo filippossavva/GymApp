@@ -29,17 +29,19 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:textColorHint="@color/white">
-    <EditText
-        android:id="@+id/etEmailAddress"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="#202020"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:paddingLeft="5dp"
-        android:selectAllOnFocus="true"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
+
+        <EditText
+            android:id="@+id/etEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#202020"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:onClick="serviceStop"
+            android:paddingLeft="5dp"
+            android:selectAllOnFocus="true"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -65,6 +67,7 @@
             android:imeActionLabel="@string/action_sign_in_short"
             android:imeOptions="actionDone"
             android:inputType="textPassword"
+            android:onClick="serviceStop"
             android:paddingLeft="5dp"
             android:selectAllOnFocus="true"
             android:textColor="@color/white"
@@ -93,14 +96,33 @@
         app:backgroundTint="@null" />
 
     <TextView
+        android:id="@+id/tvHelpRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:isScrollContainer="false"
+        android:text="Register"
+        android:textColor="@android:color/holo_red_dark"
+        android:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/ivHelpRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:tint="@android:color/holo_red_dark"
+        android:visibility="visible"
+        app:srcCompat="@android:drawable/arrow_down_float" />
+
+    <TextView
         android:id="@+id/tvRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:background="@drawable/hyperlink"
         android:fontFamily="sans-serif"
         android:gravity="center"
-        android:onClick="createAccount"
+        android:onClick="serviceStop"
         android:text="@string/create_account"
         android:textColor="@color/design_default_color_primary_variant"
         android:textSize="18sp" />
@@ -112,11 +134,29 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/hyperlink"
         android:gravity="center"
+        android:onClick="serviceStop"
         android:text="@string/forgot_pass"
         android:textColor="@color/design_default_color_primary_variant"
         android:textSize="18sp" />
 
+    <ImageView
+        android:id="@+id/ivHelpForgot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:tint="@android:color/holo_red_dark"
+        android:visibility="visible"
+        app:srcCompat="@android:drawable/arrow_up_float" />
 
+    <TextView
+        android:id="@+id/tvHelpForgot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:isScrollContainer="false"
+        android:text="Reset password"
+        android:textColor="@android:color/holo_red_dark"
+        android:visibility="visible" />
 
 
 </LinearLayout>

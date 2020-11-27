@@ -235,7 +235,7 @@ public class GymSelectActivity extends AppCompatActivity {
 //        System.out.println(yoga);
 //        System.out.println(zumba);
 
-//        Intent inS = new Intent(this, Fee.class);
+//        Intent inS = new Intent(this, LogInHint.class);
 //        startService(inS);
 
         Intent intent = new Intent(this, FacilitiesClassesActivity.class);

@@ -9,9 +9,12 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +26,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.gymapp.LogInHint;
 import com.example.gymapp.R;
 import com.example.gymapp.RegisterActivity;
 import com.example.gymapp.SelectGymCity;
@@ -35,6 +39,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
     FirebaseAuth fAuth;
+    boolean service = false;
 
     private LoginViewModel loginViewModel;
     @Override
@@ -49,7 +54,19 @@ public class LoginActivity extends AppCompatActivity {
         final Button loginButton = findViewById(R.id.button_login);
         final ProgressBar loadingProgressBar = findViewById(R.id.pbLoading);
 
+        ImageView ivForgot = findViewById(R.id.ivHelpForgot);
+        ImageView ivRegister = findViewById(R.id.ivHelpRegister);
+        TextView helpRegister = findViewById(R.id.tvHelpRegister);
+        TextView helpForgot = findViewById(R.id.tvHelpForgot);
 
+        Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.log_in_hint);
+        ivForgot.startAnimation(anim);
+        ivRegister.startAnimation(anim);
+        helpForgot.startAnimation(anim);
+        helpRegister.startAnimation(anim);
+
+        Intent inS = new Intent(this, LogInHint.class);
+        startService(inS);
 
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
@@ -214,4 +231,15 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(in);
         finish();
     }
+
+    public void serviceStop(View v)
+    {
+        if(service == false)
+        {
+            service = true;
+            Intent in = new Intent(this, LogInHint.class);
+            stopService(in);
+        }
+    }
+
 }

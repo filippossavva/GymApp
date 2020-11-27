@@ -3,17 +3,18 @@ package com.example.gymapp;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Fee extends Service {
+public class LogInHint extends Service {
     private Timer timer = new Timer();
     private int count;
     FacilitiesClassesActivity fca = new FacilitiesClassesActivity();
 
-    public Fee() {
+    public LogInHint() {
     }
 
     @Override
@@ -34,7 +35,7 @@ public class Fee extends Service {
                     fca.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            Toast.makeText(getApplicationContext(), "If you are not sure what to choose, there are videos on the Facilities tab and explanation for the classes on the Classes tab", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Don't have an account? Click on register\nForgot password? Click to reset", Toast.LENGTH_LONG).show();
                         }
                     });
                 }

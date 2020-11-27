@@ -1,12 +1,10 @@
 package com.example.gymapp;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
 import com.example.gymapp.ui.login.LoginActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.appcompat.widget.Toolbar;
@@ -17,11 +15,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
-import android.widget.ImageButton;
-import android.widget.MediaController;
 import android.widget.Switch;
 import android.widget.Toast;
-import android.widget.VideoView;
 
 import com.example.gymapp.ui.main.SectionsPagerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
@@ -35,7 +30,6 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
     String url, name;
     double lat, lng;
     public static final String NAME = "";
-    boolean service = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,9 +45,6 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
         FloatingActionButton rate = findViewById(R.id.fabrate);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        Intent inS = new Intent(this, Fee.class);
-        startService(inS);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -82,8 +73,6 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Bundle info = new Bundle();
-                Intent inS = new Intent(getApplicationContext(), Fee.class);
-                stopService(inS);
                 Intent in = new Intent(getApplicationContext(),SocialMediaActivity.class);
                 info.putString("url",url);
                 info.putString("name",name);
@@ -96,8 +85,6 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Bundle coord = new Bundle();
-                Intent inS = new Intent(getApplicationContext(), Fee.class);
-                stopService(inS);
                 Intent in = new Intent(getApplicationContext(),MapsActivity.class);
                 coord.putDouble("lat", lat);
                 coord.putDouble("lng", lng);
@@ -110,8 +97,6 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
         rate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent inS = new Intent(getApplicationContext(), Fee.class);
-                stopService(inS);
                 Intent in = new Intent(getApplicationContext(),RateActivity.class);
                 in.putExtra(NAME, name);
                 startActivity(in);
@@ -122,22 +107,16 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
     }
     public void moveToWeights(View v)
     {
-        Intent inS = new Intent(getApplicationContext(), Fee.class);
-        stopService(inS);
         Intent in = new Intent(this,WeightsActivity.class);
         startActivity(in);
     }
     public void moveToClasses(View v)
     {
-        Intent inS = new Intent(getApplicationContext(), Fee.class);
-        stopService(inS);
         Intent in = new Intent(this,ClassesActivity.class);
         startActivity(in);
     }
     public void moveToPersonal(View v)
     {
-        Intent inS = new Intent(getApplicationContext(), Fee.class);
-        stopService(inS);
         Intent in = new Intent(this,PersonalActivity.class);
         startActivity(in);
     }
@@ -176,7 +155,7 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
     //signOut.
     private void userlogout() {
         FirebaseAuth.getInstance().signOut();
-        Intent inS = new Intent(getApplicationContext(), Fee.class);
+        Intent inS = new Intent(getApplicationContext(), LogInHint.class);
         stopService(inS);
         Intent in = new Intent(this, LoginActivity.class);
         startActivity(in);
@@ -263,16 +242,6 @@ public class FacilitiesClassesActivity extends AppCompatActivity {
 
 
         Toast.makeText(this, "Total monthly price: " + price +" euros." , Toast.LENGTH_LONG).show();
-    }
-
-    public void serviceStop(View v)
-    {
-        if(service == false)
-        {
-            service = true;
-            Intent in = new Intent(this, Fee.class);
-            stopService(in);
-        }
     }
 
 }
