@@ -27,6 +27,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.gymapp.LogInHint;
+import com.example.gymapp.MainActivity;
 import com.example.gymapp.R;
 import com.example.gymapp.RegisterActivity;
 import com.example.gymapp.SelectGymCity;
@@ -40,7 +41,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
     FirebaseAuth fAuth;
-    boolean service = false;
+    boolean service;
 
     private LoginViewModel loginViewModel;
     @Override
@@ -49,6 +50,8 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
+        Intent in = getIntent();
+        String ser = in.getStringExtra(MainActivity.SERVICE);
 
         final EditText usernameEditText = findViewById(R.id.etEmailAddress);
         final EditText passwordEditText = findViewById(R.id.etPassword);
@@ -59,11 +62,22 @@ public class LoginActivity extends AppCompatActivity {
         ImageView ivRegister = findViewById(R.id.ivHelpRegister);
         TextView helpRegister = findViewById(R.id.tvHelpRegister);
         TextView helpForgot = findViewById(R.id.tvHelpForgot);
+        if(ser.equals("1"))
+        {
+            service = false;
+            service = false;
+            Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.log_in_hint);
+            ivForgot.startAnimation(anim);
+            ivRegister.startAnimation(anim);
+            helpForgot.startAnimation(anim);
+            helpRegister.startAnimation(anim);
+        }
 
         FloatingActionButton fab = findViewById(R.id.fabHelp);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                service = false;
                 Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.log_in_hint);
                 ivForgot.startAnimation(anim);
                 ivRegister.startAnimation(anim);

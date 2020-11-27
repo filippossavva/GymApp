@@ -33,7 +33,7 @@ public class LogInHint extends Service {
             @Override
             public void run() {
                 count++;
-                if(count == 3)
+                if(count == 5)
                 {
                     fca.runOnUiThread(new Runnable() {
                         @Override
