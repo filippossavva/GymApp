@@ -175,6 +175,13 @@ public class LoginActivity extends AppCompatActivity {
                 resetPasswordDialog.setMessage("Please enter your email to receive a reset link");
                 resetPasswordDialog.setView(resetemail);
 
+                if(service == false)
+                {
+                    service = true;
+                    Intent in = new Intent(getApplicationContext(), LogInHint.class);
+                    stopService(in);
+                }
+
                 fAuth = FirebaseAuth.getInstance();
                 resetPasswordDialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     @Override
@@ -247,6 +254,12 @@ public class LoginActivity extends AppCompatActivity {
 
     public void createAccount(View v)
     {
+        if(service == false)
+        {
+            service = true;
+            Intent in = new Intent(this, LogInHint.class);
+            stopService(in);
+        }
         Intent in = new Intent(this, RegisterActivity.class);
         startActivity(in);
         finish();
