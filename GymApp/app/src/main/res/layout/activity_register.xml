@@ -29,101 +29,106 @@
                 android:text="REGISTER"
                 android:textColor="#FFFFFF"
                 android:textSize="50sp" />
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="92dp"
-                tools:layout_editor_absoluteY="248dp"
-                android:textColorHint="@color/white">
-            <EditText
-                android:id="@+id/etName"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="10dp"
-                android:background="#202020"
-                android:ems="10"
-                android:gravity="center|left"
-                android:hint="Name"
-                android:inputType="textPersonName"
-                android:paddingLeft="5dp"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white" />
-            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="92dp"
-                tools:layout_editor_absoluteY="248dp"
-                android:textColorHint="@color/white">
-            <EditText
-                android:id="@+id/etSurname"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="10dp"
-                android:background="#202020"
-                android:ems="10"
-                android:gravity="center|left"
-                android:hint="Surname"
-                android:inputType="textPersonName"
-                android:paddingLeft="5dp"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="92dp"
-                tools:layout_editor_absoluteY="248dp"
-                android:textColorHint="@color/white">
-            <EditText
-                android:id="@+id/etEmail"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="10dp"
-                android:background="#202020"
-                android:ems="10"
-                android:gravity="center|left"
-                android:hint="Email"
-                android:inputType="textEmailAddress"
-                android:paddingLeft="5dp"
-                android:textColor="@color/white"
                 android:textColorHint="@color/white"
-                android:textSize="18sp" />
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="92dp"
+                tools:layout_editor_absoluteY="248dp">
+
+                <EditText
+                    android:id="@+id/etName"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#202020"
+                    android:ems="10"
+                    android:gravity="center|left"
+                    android:hint="Name"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="5dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColorHint="@color/white"
                 tools:ignore="MissingConstraints"
                 tools:layout_editor_absoluteX="92dp"
-                tools:layout_editor_absoluteY="248dp"
-                android:textColorHint="@color/white">
-            <EditText
-                android:id="@+id/etEmailAddress"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="10dp"
-                android:background="#202020"
-                android:hint="@string/prompt_email"
-                android:inputType="textEmailAddress"
-                android:paddingLeft="5dp"
-                android:selectAllOnFocus="true"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white" />
+                tools:layout_editor_absoluteY="248dp">
+
+                <EditText
+                    android:id="@+id/etSurname"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#202020"
+                    android:ems="10"
+                    android:gravity="center|left"
+                    android:hint="Surname"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="5dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white" />
             </com.google.android.material.textfield.TextInputLayout>
-            
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColorHint="@color/white"
                 tools:ignore="MissingConstraints"
                 tools:layout_editor_absoluteX="92dp"
-                tools:layout_editor_absoluteY="248dp"
-                android:textColorHint="@color/white">
+                tools:layout_editor_absoluteY="248dp">
+
+                <EditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#202020"
+                    android:ems="10"
+                    android:gravity="center|left"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"
+                    android:paddingLeft="5dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="18sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/white"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="92dp"
+                tools:layout_editor_absoluteY="248dp">
+
+                <EditText
+                    android:id="@+id/etEmailAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#202020"
+                    android:hint="@string/prompt_email"
+                    android:inputType="textEmailAddress"
+                    android:paddingLeft="5dp"
+                    android:selectAllOnFocus="true"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/white"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="92dp"
+                tools:layout_editor_absoluteY="248dp">
 
                 <EditText
                     android:id="@+id/etPassword"
@@ -143,21 +148,22 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColorHint="@color/white"
                 tools:ignore="MissingConstraints"
                 tools:layout_editor_absoluteX="92dp"
-                tools:layout_editor_absoluteY="248dp"
-                android:textColorHint="@color/white">
-            <EditText
-                android:id="@+id/etConfirmPass"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="10dp"
-                android:background="#202020"
-                android:ems="10"
-                android:gravity="center|left"
-                android:hint="Confirm Password"
-                android:inputType="textPassword"
-                android:paddingLeft="5dp" />
+                tools:layout_editor_absoluteY="248dp">
+
+                <EditText
+                    android:id="@+id/etConfirmPass"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="10dp"
+                    android:background="#202020"
+                    android:ems="10"
+                    android:gravity="center|left"
+                    android:hint="Confirm Password"
+                    android:inputType="textPassword"
+                    android:paddingLeft="5dp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <RadioGroup
