@@ -74,9 +74,13 @@ public class RateActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
             if (id == R.id.action_logout) {
+                boolean service = false;
                 FirebaseAuth.getInstance().signOut();
                 finishAffinity();
                 Intent in = new Intent(this, LoginActivity.class);
+                Bundle info = new Bundle();
+                info.putBoolean("service",service);
+                in.putExtras(info);
                 startActivity(in);
                 finish();
                 Toast.makeText(getApplicationContext(), "Sign Out Successful!", Toast.LENGTH_LONG).show();

@@ -50,8 +50,10 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
+
         Intent in = getIntent();
-        String ser = in.getStringExtra(MainActivity.SERVICE);
+        Bundle info = new Bundle();
+        service = info.getBoolean("service");
 
         final EditText usernameEditText = findViewById(R.id.etEmailAddress);
         final EditText passwordEditText = findViewById(R.id.etPassword);
@@ -62,10 +64,8 @@ public class LoginActivity extends AppCompatActivity {
         ImageView ivRegister = findViewById(R.id.ivHelpRegister);
         TextView helpRegister = findViewById(R.id.tvHelpRegister);
         TextView helpForgot = findViewById(R.id.tvHelpForgot);
-        if(ser.equals("1"))
+        if(service == false)
         {
-            service = false;
-            service = false;
             Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.log_in_hint);
             ivForgot.startAnimation(anim);
             ivRegister.startAnimation(anim);

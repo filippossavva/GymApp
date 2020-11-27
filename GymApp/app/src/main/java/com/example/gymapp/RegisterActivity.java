@@ -52,7 +52,6 @@ public class RegisterActivity extends AppCompatActivity {
     private String file = "gym2lift.txt";
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -167,8 +166,12 @@ public class RegisterActivity extends AppCompatActivity {
                                         .setValue(information).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
+                                        boolean service = false;
                                         Toast.makeText(RegisterActivity.this, "Register Successful", Toast.LENGTH_LONG).show();
                                         Intent in = new Intent(getApplicationContext(), RegisterActivity.class);
+                                        Bundle info = new Bundle();
+                                        info.putBoolean("service",service);
+                                        in.putExtras(info);
                                         startActivity(in);
                                         EditText e1 = findViewById(R.id.etName);
                                         EditText e2 = findViewById(R.id.etSurname);

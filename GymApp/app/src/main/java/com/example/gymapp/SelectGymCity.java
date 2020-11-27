@@ -109,8 +109,12 @@ public class SelectGymCity extends AppCompatActivity {
     }
 
     private void userlogout() {
+        boolean service = false;
         FirebaseAuth.getInstance().signOut();
         Intent in = new Intent(this, LoginActivity.class);
+        Bundle info = new Bundle();
+        info.putBoolean("service",service);
+        in.putExtras(info);
         startActivity(in);
         finish();
         Toast.makeText(getApplicationContext(), "Sign Out Successful!", Toast.LENGTH_LONG).show();

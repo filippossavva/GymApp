@@ -16,7 +16,6 @@ import com.example.gymapp.ui.login.LoginActivity;
 public class MainActivity extends AppCompatActivity {
     //Constant
     public static int SPLASH_SCREEN =5000;
-    public static String SERVICE = "0";
     //Variables
     MediaPlayer song;
     Animation topAnim,bottomAnim;
@@ -45,10 +44,14 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                boolean service = false;
+
                 Intent inS = new Intent(getApplicationContext(), LogInHint.class);
                 startService(inS);
                 Intent in = new Intent(MainActivity.this, LoginActivity.class);
-                in.putExtra(SERVICE, "1");
+                Bundle info = new Bundle();
+                info.putBoolean("service",service);
+                in.putExtras(info);
                 startActivity(in);
                 finish();
             }
