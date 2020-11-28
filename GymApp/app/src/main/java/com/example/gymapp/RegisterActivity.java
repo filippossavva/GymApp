@@ -320,7 +320,7 @@ public class RegisterActivity extends AppCompatActivity {
         }
         else if(!val.matches(passType))
         {
-            password.setError("Password must contains more tha 6 characters,lower case,capital case,number and symbol");
+            password.setError("Password must contains more than 6 characters and less than 30 characters,lower case,capital case,number and symbol");
             return false;
         }
 
